@@ -7,8 +7,8 @@
     <title>Bookshelf</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -21,23 +21,23 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <load src="partials/header.html" />
     </header>
     <main>
-      <div class="main-container">
+      <div class="main-container container">
         <div class="main-sidebar">
           <load src="partials/categories.html" />
           <load src="partials/support.html" />
         </div>
         <div class="main-content">
           <load src="partials/bestsellers.html" />
-          <load src="partials/modal-window.html" />
         </div>
       </div>
     </main>
-    <load src="partials/modal-authorization.html" />|
-
+    <load src="partials/scroll-up.html" />
+    <load src="partials/modal-window.html" />
+    <load src="partials/modal-authorization.html" />
     <script type="module" src="./main.js"></script>
   </body>
 </html>
