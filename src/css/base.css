@@ -2,7 +2,7 @@ body{
   font-family: "DM Sans", sans-serif;
   font-size: 14px;
   color: var(--main-text-color);
-  background-color: var(--dark-text-color);
+  background-color: var(--background-color);
 }
 
 .container {
