@@ -1,0 +1,10 @@
+import './js/refs';
+import './js/books-api';
+import './js/header';
+import './js/categories';
+import './js/support';
+import './js/bestsellers';
+import './js/scroll-up';
+import './js/loader';
+import './js/modal-window';
+import './js/modal-authorization';
