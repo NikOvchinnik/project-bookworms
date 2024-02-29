@@ -1,8 +1,14 @@
 :root {
+  --background-color: #b4afaf;
   --main-text-color: #111111;
-  --secondary-color: #4f2ee8;
-  --dark-text-color: #b4afaf;
-  --dark-background-color: #202024;
-  --white-color: #ffffff;
+  --secondary-text-color: #b4afaf;
+  --action-color: #4f2ee8;
   --nav-color: #eac645;
+  --white-color: #ffffff;
 }
+
+/* Dark theme 
+:root {
+  --background-color: #202024;
+  --main-text-color: #ffffff;
+} */
