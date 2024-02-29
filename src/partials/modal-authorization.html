@@ -1,4 +1,4 @@
-<div class="auth-backdrop nis-hidden">
+<div class="auth-backdrop">
   <div class="auth-modal">
     <button class="auth-close-btn" type="button">
       <svg class="auth-close-icon" width="14" height="14">
@@ -7,23 +7,36 @@
     </button>
 
     <form class="auth-form">
-      <input type="text" name="name" id="name" placeholder="name" />
+      <input
+        class="auth-form-input"
+        type="text"
+        name="name"
+        id="name"
+        placeholder="name"
+      />
 
       <div class="auth-email-wrapper">
-        <input type="email" name="email" id="email" placeholder="eMAIL" />
-        <svg class="auth-icon" width="28" height="28">
+        <input
+          class="auth-form-input"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="eMAIL"
+        />
+        <svg class="auth-input-icon" width="28" height="28">
           <use href="../img/icons.svg#icon-mail"></use>
         </svg>
       </div>
 
       <div class="auth-password-wrapper">
         <input
+          class="auth-form-input"
           type="password"
           name="password"
           id="password"
           placeholder="pASSWORD"
         />
-        <svg class="auth-icon" width="28" height="28">
+        <svg class="auth-input-icon" width="28" height="28">
           <use href="../img/icons.svg#icon-lock"></use>
         </svg>
       </div>
@@ -32,8 +45,8 @@
     </form>
 
     <ul class="auth-sign-list">
-      <li class="auth-sign-item"></li>
-      <li class="auth-sign-item"></li>
+      <li class="auth-sign-item">sign up</li>
+      <li class="auth-sign-item">sIGN In</li>
     </ul>
   </div>
 </div>
