@@ -7,7 +7,7 @@ export function addToLS(key, value) {
   }
 }
 
-export function removeFromLocalStorage(key) {
+export function removeFromLS(key) {
   try {
     if (localStorage.getItem(key)) {
       localStorage.removeItem(key);
