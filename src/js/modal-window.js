@@ -21,9 +21,10 @@ testBtn.addEventListener('click', async e => {
   test.insertAdjacentHTML('beforeend', markup);
 });
 
-test.addEventListener('click', onBookClick);
+test.addEventListener('click', bookOnClick);
 
-async function onBookClick(e) {
+async function bookOnClick(e) {
+  // Getting all using data
   const bookId = e.target.dataset.bookId;
   if (!bookId) return;
   const bookData = await getData(bookId);
@@ -74,24 +75,25 @@ async function onBookClick(e) {
       press the button “Remove from the shopping list”.
     </p>
   </div>`;
+
+  // Modal Window
   const instance = basicLightbox.create(bookMarkup, {
     onShow: instance => {
       instance.element().querySelector('.modal-window-close-btn').onclick =
         instance.close;
       window.addEventListener('keydown', handleKeyDown);
-      // Запрещаем прокрутку страницы при открытии модального окна
       document.body.style.overflow = 'hidden';
     },
     onClose: () => {
-      // Удаляем обработчик события keydown после закрытия модального окна
       window.removeEventListener('keydown', handleKeyDown);
-      // Удаляем
       document.body.style.overflow = '';
+      const { shopListBtn } = refs;
+      shopListBtn.removeEventListener('click', shopListBtnOnClick);
     },
   });
 
   instance.show();
-  onInstanceShow();
+  shopListLogic();
   function handleKeyDown(e) {
     if (e.key === 'Escape') {
       instance.close();
@@ -99,21 +101,24 @@ async function onBookClick(e) {
   }
 }
 
-function onInstanceShow() {
-  const shopListBtn = document.querySelector(
+function shopListLogic() {
+  refs.shopListBtn = document.querySelector(
     '.modal-window-book-shopping-list-button'
   );
-  const congratulationsText = document.querySelector(
+  refs.congratulationsText = document.querySelector(
     '.modal-window-congratulations'
   );
 
-  shopListBtn.addEventListener('click', onButtonClick);
+  const { shopListBtn, congratulationsText } = refs;
 
-  async function onButtonClick() {
-    congratulationsText.classList.toggle('visually-hidden');
+  shopListBtn.addEventListener('click', shopListBtnOnClick);
+}
 
-    shopListBtn.textContent.toLowerCase().trim() === 'add to shopping list'
-      ? (shopListBtn.textContent = 'remove from the shopping list')
-      : (shopListBtn.textContent = 'add to shopping list');
-  }
+function shopListBtnOnClick() {
+  const { congratulationsText, shopListBtn } = refs;
+  congratulationsText.classList.toggle('visually-hidden');
+
+  shopListBtn.textContent.toLowerCase().trim() === 'add to shopping list'
+    ? (shopListBtn.textContent = 'remove from the shopping list')
+    : (shopListBtn.textContent = 'add to shopping list');
 }
