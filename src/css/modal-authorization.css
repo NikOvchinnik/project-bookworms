@@ -23,8 +23,8 @@
 }
 .auth-close-btn {
   position: absolute;
-  top: 19px;
-  right: 19px;
+  top: 14px;
+  right: 14px;
   border: none;
   background-color: transparent;
 }
@@ -123,8 +123,8 @@
   }
 
   .auth-close-icon {
-    width: 14px;
-    height: 14px;
+    width: 24px;
+    height: 24px;
   }
 
   .auth-form {
