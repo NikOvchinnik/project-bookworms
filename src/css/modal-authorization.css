@@ -26,7 +26,7 @@
   top: 31px;
   right: 31px;
   border: none;
-  background-color: black;
+  background-color: transparent;
 }
 .auth-close-icon {
   fill: var(--main-text-color);
