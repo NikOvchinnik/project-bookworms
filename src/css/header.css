@@ -1,3 +1,16 @@
+<<<<<<< Updated upstream
+=======
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+}
+
+>>>>>>> Stashed changes
 .header {
     background-color: #fff;
     border: 1.50px solid #111;
@@ -27,7 +40,11 @@
 }
 
 .icon-burger {
+<<<<<<< Updated upstream
     fill: #111;
+=======
+    stroke: black;
+>>>>>>> Stashed changes
 }
 
 .logo-name-header {
@@ -42,7 +59,11 @@
 .toggle-slider {
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     gap: 24px;
+=======
+    gap: 14px;
+>>>>>>> Stashed changes
 }
 
 .label-header {
@@ -66,13 +87,18 @@
     left: 1px;
     width: 18px;
     height: 18px;
+<<<<<<< Updated upstream
     background: #fff;
     /* белый цвет бегунка */
+=======
+    background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
+>>>>>>> Stashed changes
     border-radius: 50%;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
+<<<<<<< Updated upstream
 .switch-slider::before {
     content: "";
     display: block;
@@ -99,6 +125,8 @@
     transform: translate(-50%, -50%);
 }
 
+=======
+>>>>>>> Stashed changes
 .switch-slider.active {
     transform: translateX(20px);
 
@@ -114,6 +142,14 @@
 }
 
 
+<<<<<<< Updated upstream
+=======
+.icon-burger {
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+>>>>>>> Stashed changes
 
 .btn-header:hover .icon-burger {
     fill: #4f2ee8;
@@ -162,7 +198,15 @@ button {
         display: none;
     }
 
+<<<<<<< Updated upstream
 
+=======
+.icon-arrow-right-tablet{
+        fill: #eac645;
+        vertical-align: middle;
+        margin-left: 90px;
+}
+>>>>>>> Stashed changes
 
 }
 
@@ -183,6 +227,10 @@ button {
         background: #4f2ee8;
         display: flex;
         align-items: center;
+<<<<<<< Updated upstream
+=======
+        margin-left: 24px;
+>>>>>>> Stashed changes
         margin-right: 24px;
         color: #fff;
     }
@@ -198,10 +246,18 @@ button {
         line-height: 48px;
     }
 
+<<<<<<< Updated upstream
     .icon-arrow-right {
         margin-left: 90px;
         vertical-align: middle;
         fill: #eac645;
+=======
+    .icon-arrow-narrow-right {
+        stroke-width: 2px;
+        stroke: #eac645;
+        margin-left: 90px;
+        vertical-align: middle;
+>>>>>>> Stashed changes
     }
 
 
@@ -292,6 +348,7 @@ button {
 
 .icon-user {
     fill: #fff;
+<<<<<<< Updated upstream
     transform: translate(1px, 10px);
 }
 
@@ -299,4 +356,190 @@ button {
     stroke: #fff;
     fill: #fff;
     transform: translate(1px, 10px);
+=======
+}
+
+.icon-scroll-down {
+    fill: #fff;
+    stroke: #fff;
+    width: 40;
+    stroke-width: 2;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+/* Modal */
+
+.container-header {
+    position: relative;
+    z-index: 1000;
+}
+
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal {
+    background: url('../img/books.png') center/cover, radial-gradient(189.32% 190.93% at 59.76% -23.42%, rgb(79, 46, 232) 18.02733987569809%, rgb(255, 255, 255) 100%);
+    padding: 20px;
+    position: fixed;
+    top: 6%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20px);
+    background-position: 100% 100%, 50%;
+    background-repeat: no-repeat;
+    background-size: 100%, cover;
+    box-shadow: 0 10px 10px #f5f5f71a;
+    border-radius: 4px;
+}
+
+
+.button-close {
+    display: none;
+}
+
+.button-close.is-open {
+    display: block;
+}
+
+.btn-sign {
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    width: 184px;
+    height: 48px;
+    background: #4f2ee8;
+    display: flex;
+}
+
+.icon-arrow-narrow-right {
+    stroke-width: 2px;
+    stroke: #eac645;
+    margin-left: 90px;
+    vertical-align: middle;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+.btn-register {
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    color: #fff;
+    padding-left: 14px;
+    line-height: 48px;
+}
+
+.icon-arrow-right{
+    fill: #eac645;
+    vertical-align: middle;
+}
+
+.btn-sign button {
+    display: flex;
+    align-items: center;
+}
+
+.btn-sign .icon-arrow-right {
+    margin-left: 90px;
+}
+
+/* Модалка для залогінених */
+
+.btn-register-logi-in {
+    margin-right: 24px;
+    border: none;
+    width: 184px;
+    height: 48px;
+    display: flex;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: #fff;
+    padding: 12px;
+    vertical-align:top;
+
+}
+
+.icon-user{
+    vertical-align: bottom;
+    border-radius: 100%;
+        fill: #f6f6f6;
+}
+
+.nav-list-login{
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+.list-menu-login{
+    list-style: none;
+}
+
+.menu-home-login{
+
+}
+
+.shop-list-login{
+    margin-top: 16px;
+}
+
+.link-shoplist-login{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+
+.icon-shop-login{
+    stroke: #fff;
+    vertical-align: middle;
+}
+
+.btn-sign-logout {
+    position: fixed;
+    bottom: 74px;
+    left: 20px;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    width: 118px;
+    height: 48px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-register-logout {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.04em;
+    color: #111;
+>>>>>>> Stashed changes
 }
