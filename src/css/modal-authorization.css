@@ -95,6 +95,7 @@
   text-transform: uppercase;
   text-decoration: underline;
   color: rgba(17, 17, 17, 0.5);
+  border: none;
 }
 
 .current-sign {
