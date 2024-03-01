@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { getData } from './books-api';
 const refs = {
   shopListBtn: document.querySelector(
     '.modal-window-book-shopping-list-button'
@@ -9,7 +11,7 @@ const { shopListBtn, congratulationsText } = refs;
 
 refs.shopListBtn.addEventListener('click', onButtonClick);
 
-function onButtonClick() {
+async function onButtonClick() {
   refs.gratzText.classList.toggle('visually-hidden');
 
   shopListBtn.textContent.toLowerCase().trim() === 'add to shopping list'

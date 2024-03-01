@@ -31,8 +31,6 @@
 }
 
 .modal-window-close-btn {
-  width: 24px;
-  height: 24px;
   background-color: transparent;
   border: none;
   display: flex;
