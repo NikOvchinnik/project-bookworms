@@ -1,7 +1,7 @@
 .support-container {
   width: 335px;
   height: 460px;
-  padding: 24 40 20;
+  padding: 24px 40px;
 
   border-radius: 16px;
   box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
@@ -18,7 +18,7 @@
 .support-title {
   display: flex;
   gap: 12px;
-  margin-bottom: 40;
+  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -33,7 +33,7 @@
 }
 
 .support-swiper {
-  margin-bottom: 16;
+  margin-bottom: 16px;
 }
 .support-item {
   display: flex;
@@ -65,18 +65,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32;
-  min-height: 32;
+  width: 32px;
+  min-height: 32px;
   border: none;
-  border-radius: 50;
+  border-radius: 50px;
   background-color: #ffffff;
   transform: rotateX(0);
   transition: transform 0.5s ease-in-out;
 }
 
 .support-btn-icon {
-  width: 22;
-  height: 22;
+  width: 22px;
+  height: 22px;
 }
 
 @media screen and (min-width: 768px) {
@@ -86,12 +86,12 @@
   }
 
   .support-swiper {
-    margin-bottom: 32;
+    margin-bottom: 32px;
   }
 
   .support-btn {
-    width: 38;
-    min-height: 38;
+    width: 38px;
+    min-height: 38px;
   }
 }
 
@@ -103,11 +103,11 @@
   }
 
   .support-swiper {
-    margin-bottom: 40;
+    margin-bottom: 40px;
   }
 
   .support-btn {
-    width: 38;
-    min-height: 38;
+    width: 38px;
+    min-height: 38px;
   }
 }
