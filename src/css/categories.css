@@ -1,85 +1,29 @@
-::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    border-radius: 12px;
-  }
-  
-  .categories {
-    height: 228px;
-    padding-right: 20px;
-    overflow: scroll;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-  }
+.categories-link{
+    font-weight: 400;
+font-size: 18px;
+line-height: 133%;
+letter-spacing: -0.02em;
+color: rgba(17, 17, 17, 0.6);
+}
 
-  @media screen and (min-width: 768px) {
-    .categories{
-        height: 472px;
-    }
-    }
+.categories-link:hover,
+.categories-link:focus {
+    color: #4F2EE8;
+    font-weight: 700;
+font-size: 18px;
+line-height: 133%;
+letter-spacing: -0.02em;
+}
 
-  .categories_list {
+.categories-link:active {
+    text-transform: uppercase; 
+}
+
+.categories-list{
     display: flex;
+    height: 472px;
+    width: 356px;
     flex-direction: column;
-    gap: 24px;
-    padding: 0;
-}
-
-@media screen and (min-width: 768px) {
-    .categories_list{
     gap: 32px;
+    overflow: scroll;
     }
-  }
-  
-  .category-btn {
-    background-color: inherit;
-    border: none;
-    text-align: left;
-    line-height: 1.12;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-    border: none;
-    padding: 0;
-    background: transparent;
-    color: rgba(17, 17, 17, 0.6);
-    transform: scale(1);
-    transition: color 200ms, font-weight 200ms, transform 400ms;
-  /* color: var(--category-color); */
-    /* &:hover,
-    &:focus {
-      color: var(--active-category-color);
-      transform: scale(1.03);
-      transform-origin: center left;
-    } */
-  }
-
-  .category-btn:hover{
-    color: blueviolet;
-    transform: scale(1.03);
-}
-
-.category-btn:focus{
-    color: blueviolet;
-    transform: scale(1.03);
-}
-
-  @media screen and (min-width: 768px) {
-    .category-btn{
-        font-size: 18px;
-        line-height: 1.33;
-    }
-  }
-  
-  .active-category {
-    text-transform: uppercase;
-    /* color: var(--active-category-color); */
-    font-weight: 700;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
