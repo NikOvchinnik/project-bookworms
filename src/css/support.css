@@ -1,6 +1,6 @@
-.support {
+.support-container {
   width: 335px;
-  max-height: 460px;
+  height: 460px;
   padding: 24 40 20;
 
   border-radius: 16px;
@@ -32,17 +32,82 @@
   color: #ffffff;
 }
 
+.support-swiper {
+  margin-bottom: 16;
+}
+.support-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.support-number {
+  display: inline-block;
+
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+
+  margin-right: 16px;
+}
+
+.support-img {
+  filter: brightness(0) invert(1);
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+}
+
+.support-btn {
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32;
+  min-height: 32;
+  border: none;
+  border-radius: 50;
+  background-color: #ffffff;
+  transform: rotateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.support-btn-icon {
+  width: 22;
+  height: 22;
+}
+
 @media screen and (min-width: 768px) {
-  .support {
+  .support-container {
     max-height: 472px;
     padding-bottom: 14px;
+  }
+
+  .support-swiper {
+    margin-bottom: 32;
+  }
+
+  .support-btn {
+    width: 38;
+    min-height: 38;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .support {
+  .support-container {
     width: 356px;
     max-height: 490px;
     padding-bottom: 24px;
+  }
+
+  .support-swiper {
+    margin-bottom: 40;
+  }
+
+  .support-btn {
+    width: 38;
+    min-height: 38;
   }
 }
