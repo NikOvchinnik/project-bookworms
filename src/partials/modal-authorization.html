@@ -7,46 +7,53 @@
     </button>
 
     <form class="auth-form">
-      <input
-        class="auth-form-input"
-        type="text"
-        name="name"
-        id="name"
-        placeholder="name"
-      />
-
-      <div class="auth-email-wrapper">
+      <div class="auth-inputs-wrapper">
         <input
           class="auth-form-input"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="eMAIL"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="name"
         />
-        <svg class="auth-input-icon" width="28" height="28">
-          <use href="../img/icons.svg#icon-mail"></use>
-        </svg>
-      </div>
 
-      <div class="auth-password-wrapper">
-        <input
-          class="auth-form-input"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="pASSWORD"
-        />
-        <svg class="auth-input-icon" width="28" height="28">
-          <use href="../img/icons.svg#icon-lock"></use>
-        </svg>
+        <div class="auth-email-wrapper">
+          <input
+            class="auth-form-input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="eMAIL"
+          />
+          <svg class="auth-input-icon" width="28" height="28">
+            <use href="../img/icons.svg#icon-mail"></use>
+          </svg>
+        </div>
+
+        <div class="auth-password-wrapper">
+          <input
+            class="auth-form-input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="pASSWORD"
+          />
+          <svg class="auth-input-icon" width="28" height="28">
+            <use href="../img/icons.svg#icon-lock"></use>
+          </svg>
+        </div>
       </div>
 
       <button class="auth-submit-btn" type="submit">Sign up</button>
     </form>
 
     <ul class="auth-sign-list">
-      <li class="auth-sign-item">sign up</li>
-      <li class="auth-sign-item">sIGN In</li>
+      <li class="auth-sign-item">
+        <button class="sign-up-btn current-sign">sign up</button>
+      </li>
+
+      <li class="auth-sign-item">
+        <button class="sign-up-btn">sIGN In</button>
+      </li>
     </ul>
   </div>
 </div>
