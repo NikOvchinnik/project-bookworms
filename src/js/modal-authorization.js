@@ -1,3 +1,4 @@
+import * as basicLightbox from 'basiclightbox';
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -83,6 +84,95 @@ const authModal = document.querySelector('.auth-backdrop');
 authCloseBtn.addEventListener('click', toggleAuthModal);
 
 //open/close authoriztion modal
-function toggleAuthModal() {
+export function toggleAuthModal() {
   authModal.classList.toggle('is-hidden');
 }
+
+//open authoriztion modal
+export function openAuthModal() {
+  // authModal.classList.remove('is-hidden');
+
+  //creating basiclightbox
+  const authInstance = basicLightbox.create(
+    `
+  <div class="auth-modal">
+    <button class="auth-close-btn" type="button">
+      <svg class="auth-close-icon" width="20" height="20">
+        <use href="../img/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <form class="auth-form">
+      <div class="auth-inputs-wrapper">
+        <input
+          class="auth-form-input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="name"
+          required
+        />
+
+        <div class="auth-email-wrapper">
+          <input
+            class="auth-form-input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="eMAIL"
+            required
+          />
+          <svg class="auth-input-icon" width="18" height="18">
+            <use href="../img/icons.svg#icon-mail"></use>
+          </svg>
+        </div>
+
+        <div class="auth-password-wrapper">
+          <input
+            class="auth-form-input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="pASSWORD"
+            required
+          />
+          <svg class="auth-input-icon" width="18" height="18">
+            <use href="../img/icons.svg#icon-lock"></use>
+          </svg>
+        </div>
+      </div>
+
+      <button class="auth-submit-btn" type="submit">Sign up</button>
+    </form>
+
+    <ul class="auth-sign-list">
+      <li class="auth-sign-item">
+        <button class="sign-up-btn current-sign">sign up</button>
+      </li>
+
+      <li class="auth-sign-item">
+        <button class="sign-in-btn">sIGN In</button>
+      </li>
+    </ul>
+  </div>
+  `,
+    {
+      onShow: instance => {
+        instance.element().querySelector('.auth-close-btn').onclick =
+          instance.close;
+      },
+    }
+  );
+
+  //basiclightbox instance show
+  authInstance.show();
+}
+
+// for header.js
+// import { toggleAuthModal } from './modal-authorization';
+//open the authoriztion modal, if button Sign up pressed
+const authOpenModalBtn = document.querySelector(
+  'button[data-action="registration"]'
+);
+
+authOpenModalBtn.addEventListener('click', openAuthModal);
