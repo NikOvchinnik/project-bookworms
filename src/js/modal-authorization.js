@@ -76,13 +76,6 @@ const handleSignIn = async () => {
 
 //! ///////////////////////////
 
-//refs
-const authCloseBtn = document.querySelector('.auth-close-btn');
-const authModal = document.querySelector('.auth-backdrop');
-
-//close the authoriztion modal, if X pressed
-authCloseBtn.addEventListener('click', toggleAuthModal);
-
 //open/close authoriztion modal
 export function toggleAuthModal() {
   authModal.classList.toggle('is-hidden');
@@ -108,7 +101,7 @@ export function openAuthModal() {
           class="auth-form-input"
           type="text"
           name="name"
-          id="name"
+          id="auth-name"
           placeholder="name"
           required
         />
@@ -118,7 +111,7 @@ export function openAuthModal() {
             class="auth-form-input"
             type="email"
             name="email"
-            id="email"
+            id="auth-email"
             placeholder="eMAIL"
             required
           />
@@ -132,7 +125,7 @@ export function openAuthModal() {
             class="auth-form-input"
             type="password"
             name="password"
-            id="password"
+            id="auth-password"
             placeholder="pASSWORD"
             required
           />
@@ -166,6 +159,42 @@ export function openAuthModal() {
 
   //basiclightbox instance show
   authInstance.show();
+
+  //слухачі подій натискання на кнопки sign up / sign in
+  //refs
+  const authCloseBtn = document.querySelector('.auth-close-btn');
+  const authModal = document.querySelector('.auth-modal');
+  const authNameInput = document.querySelector('#auth-name');
+  const authSubmitBtn = document.querySelector('.auth-submit-btn');
+  const authSignInBtn = document.querySelector('.sign-in-btn');
+  const authSignUpBtn = document.querySelector('.sign-up-btn');
+
+  //close the authoriztion modal, if X pressed
+  // authCloseBtn.addEventListener('click', toggleAuthModal);  //no need in this func
+
+  // sign in pressed
+  console.log(authSignInBtn);
+  authSignInBtn.addEventListener('click', e => {
+    //hide name input
+    authNameInput.classList.add('auth-name-hidden');
+    //highlight the current selection
+    authSignInBtn.classList.toggle('current-sign');
+    //remove highlight of the previous selection
+    authSignUpBtn.classList.toggle('current-sign');
+    //change height of modal without name input
+    authModal.classList.add('auth-modal-sign-in');
+  });
+
+  authSignUpBtn.addEventListener('click', e => {
+    //hide name input
+    authNameInput.classList.remove('auth-name-hidden');
+    //highlight the current selection
+    authSignInBtn.classList.toggle('current-sign');
+    //remove highlight of the previous selection
+    authSignUpBtn.classList.toggle('current-sign');
+    //change height of modal without name input
+    authModal.classList.remove('auth-modal-sign-in');
+  });
 }
 
 // for header.js
