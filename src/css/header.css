@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 * {
     box-sizing: border-box;
 }
@@ -10,7 +9,6 @@ body {
     font-family: "DM Sans", sans-serif;
 }
 
->>>>>>> Stashed changes
 .header {
     background-color: #fff;
     border: 1.50px solid #111;
@@ -40,11 +38,7 @@ body {
 }
 
 .icon-burger {
-<<<<<<< Updated upstream
-    fill: #111;
-=======
     stroke: black;
->>>>>>> Stashed changes
 }
 
 .logo-name-header {
@@ -59,11 +53,7 @@ body {
 .toggle-slider {
     display: flex;
     align-items: center;
-<<<<<<< Updated upstream
-    gap: 24px;
-=======
     gap: 14px;
->>>>>>> Stashed changes
 }
 
 .label-header {
@@ -87,46 +77,12 @@ body {
     left: 1px;
     width: 18px;
     height: 18px;
-<<<<<<< Updated upstream
-    background: #fff;
-    /* белый цвет бегунка */
-=======
     background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
->>>>>>> Stashed changes
     border-radius: 50%;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
-<<<<<<< Updated upstream
-.switch-slider::before {
-    content: "";
-    display: block;
-    width: 15px;
-    height: 15px;
-    background: linear-gradient(180deg, #dadada 0%, #f0efef 62.92%, #fff 100%);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.switch-slider::after {
-    content: "";
-    display: block;
-    width: 13px;
-    height: 13px;
-    background: linear-gradient(180deg, #fff 0%,#f7f7f7 100%);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-=======
->>>>>>> Stashed changes
 .switch-slider.active {
     transform: translateX(20px);
 
@@ -142,14 +98,11 @@ body {
 }
 
 
-<<<<<<< Updated upstream
-=======
 .icon-burger {
     stroke: black;
     stroke-width: 2px;
     fill: none;
 }
->>>>>>> Stashed changes
 
 .btn-header:hover .icon-burger {
     fill: #4f2ee8;
@@ -198,15 +151,11 @@ button {
         display: none;
     }
 
-<<<<<<< Updated upstream
-
-=======
-.icon-arrow-right-tablet{
+    .icon-arrow-right-tablet {
         fill: #eac645;
         vertical-align: middle;
         margin-left: 90px;
-}
->>>>>>> Stashed changes
+    }
 
 }
 
@@ -227,10 +176,7 @@ button {
         background: #4f2ee8;
         display: flex;
         align-items: center;
-<<<<<<< Updated upstream
-=======
         margin-left: 24px;
->>>>>>> Stashed changes
         margin-right: 24px;
         color: #fff;
     }
@@ -246,18 +192,11 @@ button {
         line-height: 48px;
     }
 
-<<<<<<< Updated upstream
-    .icon-arrow-right {
-        margin-left: 90px;
-        vertical-align: middle;
-        fill: #eac645;
-=======
     .icon-arrow-narrow-right {
         stroke-width: 2px;
         stroke: #eac645;
         margin-left: 90px;
         vertical-align: middle;
->>>>>>> Stashed changes
     }
 
 
@@ -348,15 +287,6 @@ button {
 
 .icon-user {
     fill: #fff;
-<<<<<<< Updated upstream
-    transform: translate(1px, 10px);
-}
-
-.icon-scroll-down {
-    stroke: #fff;
-    fill: #fff;
-    transform: translate(1px, 10px);
-=======
 }
 
 .icon-scroll-down {
@@ -447,7 +377,7 @@ button {
     line-height: 48px;
 }
 
-.icon-arrow-right{
+.icon-arrow-right {
     fill: #eac645;
     vertical-align: middle;
 }
@@ -476,35 +406,33 @@ button {
     letter-spacing: -0.02em;
     color: #fff;
     padding: 12px;
-    vertical-align:top;
+    vertical-align: top;
 
 }
 
-.icon-user{
+.icon-user {
     vertical-align: bottom;
     border-radius: 100%;
-        fill: #f6f6f6;
+    fill: #f6f6f6;
 }
 
-.nav-list-login{
+.nav-list-login {
     justify-content: center;
     align-items: center;
     height: 30vh;
 }
 
-.list-menu-login{
+.list-menu-login {
     list-style: none;
 }
 
-.menu-home-login{
+.menu-home-login {}
 
-}
-
-.shop-list-login{
+.shop-list-login {
     margin-top: 16px;
 }
 
-.link-shoplist-login{
+.link-shoplist-login {
     font-family: "DM Sans", sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -515,7 +443,7 @@ button {
     text-decoration: none;
 }
 
-.icon-shop-login{
+.icon-shop-login {
     stroke: #fff;
     vertical-align: middle;
 }
@@ -541,5 +469,4 @@ button {
     line-height: 129%;
     letter-spacing: -0.04em;
     color: #111;
->>>>>>> Stashed changes
 }
