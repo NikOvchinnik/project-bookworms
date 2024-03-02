@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
-const AUTH_KEY_LS = 'auth-info';
+const AUTH_KEY_LS = 'user-data';
 
 //open authoriztion modal
 export function openAuthModal() {
@@ -139,9 +139,9 @@ export function openAuthModal() {
       const userEmail = e.target.elements.email.value.trim();
       const userPassword = e.target.elements.password.value.trim();
       const userInfo = {
-        userName,
-        userEmail,
-        userPassword,
+        id: '',
+        name: userName,
+        mail: userEmail,
       };
       console.log(userInfo);
       addToLS(AUTH_KEY_LS, userInfo);
