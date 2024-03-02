@@ -24,8 +24,7 @@
 }
 
 .support-heading {
-  font-weight: 700;
-  font-size: 28px;
+  font-size: 22px;
   line-height: 32px;
   letter-spacing: -0.04em;
 
@@ -35,9 +34,13 @@
 .support-swiper {
   margin-bottom: 16px;
 }
+.swiper-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
 .support-item {
   display: flex;
-  gap: 16px;
   align-items: center;
 }
 .support-number {
@@ -84,7 +87,10 @@
     max-height: 472px;
     padding-bottom: 14px;
   }
-
+  .support-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
   .support-swiper {
     margin-bottom: 32px;
   }
