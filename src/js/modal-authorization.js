@@ -76,11 +76,6 @@ const handleSignIn = async () => {
 
 //! ///////////////////////////
 
-//open/close authoriztion modal
-export function toggleAuthModal() {
-  authModal.classList.toggle('is-hidden');
-}
-
 //open authoriztion modal
 export function openAuthModal() {
   // authModal.classList.remove('is-hidden');
@@ -160,7 +155,6 @@ export function openAuthModal() {
   //basiclightbox instance show
   authInstance.show();
 
-  //слухачі подій натискання на кнопки sign up / sign in
   //refs
   const authCloseBtn = document.querySelector('.auth-close-btn');
   const authModal = document.querySelector('.auth-modal');
@@ -169,11 +163,7 @@ export function openAuthModal() {
   const authSignInBtn = document.querySelector('.sign-in-btn');
   const authSignUpBtn = document.querySelector('.sign-up-btn');
 
-  //close the authoriztion modal, if X pressed
-  // authCloseBtn.addEventListener('click', toggleAuthModal);  //no need in this func
-
-  // sign in pressed
-  console.log(authSignInBtn);
+  //sign in pressed
   authSignInBtn.addEventListener('click', e => {
     //hide name input
     authNameInput.classList.add('auth-name-hidden');
@@ -183,8 +173,11 @@ export function openAuthModal() {
     authSignUpBtn.classList.toggle('current-sign');
     //change height of modal without name input
     authModal.classList.add('auth-modal-sign-in');
+    //renaming button
+    authSubmitBtn.textContent = 'Sign in';
   });
 
+  //sign up pressed
   authSignUpBtn.addEventListener('click', e => {
     //hide name input
     authNameInput.classList.remove('auth-name-hidden');
@@ -194,11 +187,13 @@ export function openAuthModal() {
     authSignUpBtn.classList.toggle('current-sign');
     //change height of modal without name input
     authModal.classList.remove('auth-modal-sign-in');
+    //renaming button
+    authSubmitBtn.textContent = 'Sign up';
   });
 }
 
 // for header.js
-// import { toggleAuthModal } from './modal-authorization';
+// import { openAuthModal } from './modal-authorization';
 //open the authoriztion modal, if button Sign up pressed
 const authOpenModalBtn = document.querySelector(
   'button[data-action="registration"]'
