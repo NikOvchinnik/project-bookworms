@@ -37,21 +37,21 @@ const registerWithEmailAndPassword = async (email, password) => {
 };
 
 // sign in of existing user
-const signInWithEmailAndPassword = async (email, password) => {
-  try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    const user = userCredential.user;
-    console.log('Signed in user:', user);
-    return user;
-  } catch (error) {
-    console.error('Sign-in error:', error.message);
-    throw error;
-  }
-};
+// const signInWithEmailAndPassword = async (email, password) => {
+//   try {
+//     const userCredential = await signInWithEmailAndPassword(
+//       auth,
+//       email,
+//       password
+//     );
+//     const user = userCredential.user;
+//     console.log('Signed in user:', user);
+//     return user;
+//   } catch (error) {
+//     console.error('Sign-in error:', error.message);
+//     throw error;
+//   }
+// };
 
 // sign up
 const handleRegistration = async () => {
