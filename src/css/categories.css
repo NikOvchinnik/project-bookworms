@@ -1,0 +1,28 @@
+.categories-link{
+    font-weight: 400;
+font-size: 18px;
+line-height: 133%;
+letter-spacing: -0.02em;
+color: rgba(17, 17, 17, 0.6);
+}
+
+.categories-link:hover,
+.categories-link:focus {
+    color: #4F2EE8;
+    font-weight: 700;
+font-size: 18px;
+line-height: 133%;
+letter-spacing: -0.02em;
+}
+
+.categories-link:active {
+    text-transform: uppercase; 
+}
+
+.categories-list{
+    display: flex;
+    height: 472px;
+    flex-direction: column;
+    gap: 32px;
+    overflow: scroll;
+    }
