@@ -1,0 +1,102 @@
+.category-card {
+    position: relative;
+    /* display: flex;
+    flex-wrap: wrap; */
+    gap: 23px;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+/* .category-card__container {
+    padding: 40px 20px 0px 20px;
+} */
+
+.category-card__title {
+font-size: 48px;
+font-weight: 700;
+line-height: 52px;
+text-align: left;
+ padding-bottom: 40px;
+}
+.blue-books{
+    color:#4F2EE8;
+}
+.category-first,
+.category-second{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.first-category,
+.second-category{
+   
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    
+}
+.category-first__item,
+.category-second__item{
+    padding-top: 40px;
+  }
+  .card-book-image {
+    border-radius: 8px;
+    width: 180px;
+    height: 256px;
+  }
+  .category-first-name,
+  .category-second-name  {
+    width: 180px;
+    padding-top: 14px;
+    font-size: 16px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  
+  }
+  .card-book-author {
+    width: 180px;
+    padding-top: 4px;
+    font-size: 12px;
+    line-height: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .btn{
+    margin-top: 32px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    /* float: right; */
+padding: 14px 28px;
+border-radius: 40px;
+border: 2px solid #4F2EE8;
+gap: 10px;
+
+    
+  }
+    .sellers-delete .sellers-item {
+      display: block;
+    }
+    @media screen and (min-width: 768px) {
+        .sellers-delete {
+          display: block;
+          display: flex;
+          gap: 40px 25px;
+          padding-bottom: 100px;
+        }
+        .sellers-item {
+          display: block;
+        }
+      }
+      
+      @media screen and (min-width: 1440px) {
+        .sellers-delete .sellers-item {
+          display: block;
+        }
+      }
