@@ -29,7 +29,7 @@
   color: #ffffff;
 }
 
-.support-swiper {
+.swiper {
   margin-bottom: 16px;
 }
 .swiper-wrapper {
@@ -37,7 +37,7 @@
   gap: 20px;
   flex-direction: column;
 }
-.support-item {
+.swipper-slide {
   display: flex;
   align-items: center;
 }
@@ -73,9 +73,11 @@
   background-color: #ffffff;
   transform: rotateX(0);
   transition: transform 0.5s ease-in-out;
+
+  display: none;
 }
 
-.support-btn-icon {
+.swipper-button-icon {
   width: 22px;
   height: 22px;
 }
@@ -89,13 +91,8 @@
     font-size: 24px;
     line-height: 32px;
   }
-  .support-swiper {
+  .swiper {
     margin-bottom: 32px;
-  }
-
-  .support-btn {
-    width: 38px;
-    min-height: 38px;
   }
 }
 
@@ -106,12 +103,7 @@
     padding-bottom: 24px;
   }
 
-  .support-swiper {
+  .swiper {
     margin-bottom: 40px;
-  }
-
-  .support-btn {
-    width: 38px;
-    min-height: 38px;
   }
 }
