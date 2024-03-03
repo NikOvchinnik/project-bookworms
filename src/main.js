@@ -9,3 +9,4 @@ import './js/scroll-up';
 import './js/header-modal';
 import './js/modal-window';
 import './js/modal-authorization';
+import './js/footer';

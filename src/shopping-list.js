@@ -5,3 +5,6 @@ import './js/support';
 import './js/loader';
 import './js/shop-list';
 import './js/pagination';
+import './js/scroll-up';
+import './js/header-modal';
+import './js/modal-authorization';
