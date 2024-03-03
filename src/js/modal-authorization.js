@@ -74,24 +74,25 @@ async function saveBooksToFB(shopList) {
 //!build version end
 
 //copy name from firebase database to localstorage
-function getNameFromFBToLS(uid = authId) {
+function getNameFromFB(uid = authId) {
   //link for user in database by uid
   const userRef = ref(database, `users/${uid}`);
 
   //read user data from database
   onValue(userRef, snapshot => {
     const userData = snapshot.val(); // user data
-    console.log(userData);
+    // console.log(userData);
     if (userData) {
-      //треба додати по хитрому!
-      console.log(userData.shopList);
+      // console.log(userData.name);
+      return userData.name;
       // addToLS('user-data', userData.name);
     } else {
-      return [];
+      return '';
     }
   });
+  console.log('getNAme: ');
 }
-// getNameFromFBToLS();
+getNameFromFB();
 //!build version start
 //copy shoplist from Firebase account to Localstorage for user id = uid
 function updShoplistFromFBToLS(uid = authId) {
@@ -267,8 +268,7 @@ export function openAuthModal() {
     if (authBtnValue === 'sign in') {
       //try to sign in
       const resp = await handleSignIn(userEmail, userPassword);
-      // console.log(resp);
-      console.log();
+
       //if true => save mail and uid to LS
       if (isSignedIn == true) {
         const userInfo = {
@@ -278,6 +278,8 @@ export function openAuthModal() {
         };
         //save mail and uid to LS
         addToLS(AUTH_KEY_LS, userInfo);
+        //get shoppingList from firebase account
+        updShoplistFromFBToLS();
         //form reset
         authForm.reset();
         //close modal
