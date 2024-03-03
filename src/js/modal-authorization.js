@@ -10,6 +10,7 @@ import {
 
 const AUTH_KEY_LS = 'user-data';
 let isSignedIn = false;
+let authUser = '';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -47,7 +48,7 @@ export function openAuthModal() {
           name="name"
           id="auth-name"
           placeholder="name"
-          required
+          
         />
 
         <div class="auth-email-wrapper">
@@ -148,34 +149,49 @@ export function openAuthModal() {
 
     //value of button ==> sign in or sign up check
     const authBtnValue = e.target.elements[3].textContent.toLowerCase();
+    const userName = e.target.elements.name.value.trim();
+    const userEmail = e.target.elements.email.value.trim();
+    const userPassword = e.target.elements.password.value.trim();
 
     //sign in or sign up check
     if (authBtnValue === 'sign up') {
-      const userName = e.target.elements.name.value.trim();
-      const userEmail = e.target.elements.email.value.trim();
-      const userPassword = e.target.elements.password.value.trim();
-      let id;
-
+      //try to sign up
       const resp = await handleRegistration(userEmail, userPassword);
 
-      console.log(isSignedIn);
-
+      //if sign up success
       if (isSignedIn == true) {
         const userInfo = {
-          id: resp.uid,
+          uid: resp.uid,
           name: userName,
           mail: userEmail,
         };
-        console.log(userInfo);
+        //save mail and uid to LS
         addToLS(AUTH_KEY_LS, userInfo);
+        //form reset
+        authForm.reset();
+        authInstance.close();
       }
     }
 
     if (authBtnValue === 'sign in') {
-      //has to be check if user/pass is correct
-      //and change state of vars
-      //global let isSignedIn = true;
-      //global let authUser = userName
+      //try to sign in
+      const resp = await handleSignIn(userEmail, userPassword);
+      // console.log(resp);
+
+      //if true => save mail and uid to LS
+      if (isSignedIn == true) {
+        const userInfo = {
+          uid: resp.uid,
+          name: '',
+          mail: userEmail,
+        };
+        //save mail and uid to LS
+        addToLS(AUTH_KEY_LS, userInfo);
+        //form reset
+        authForm.reset();
+        authInstance.close();
+      }
+
       //and close modal
       //authInstance.close();
       //header button shows authUser value
@@ -236,10 +252,12 @@ async function handleRegistration(email, password) {
   try {
     const response = await registerWithEmailAndPassword(email, password);
     isSignedIn = true;
+    authUser = response.email;
     return await response;
     //  additional actions after successfull sign up
   } catch (error) {
     isSignedIn = false;
+    authUser = '';
     console.log('registration error');
     // handle errors
   }
@@ -250,10 +268,12 @@ async function handleSignIn(email, password) {
   try {
     const response = await loginWithEmailAndPassword(email, password);
     isSignedIn = true;
+    authUser = response.email;
     return response;
   } catch (error) {
     // handle errors
     isSignedIn = false;
+    authUser = '';
     console.log('login error');
   }
 }
