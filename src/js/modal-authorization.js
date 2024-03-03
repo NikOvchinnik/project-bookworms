@@ -1,4 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { addToLS } from './local-storage-functions';
 import { initializeApp } from 'firebase/app';
 import {
