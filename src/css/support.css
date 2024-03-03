@@ -1,8 +1,5 @@
 .support-container {
-  width: 335px;
-  height: 460px;
-  padding: 24px 40px;
-
+  padding: 24px 24px 24px 40px;
   border-radius: 16px;
   box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
   background: radial-gradient(
@@ -10,108 +7,79 @@
     rgb(79, 46, 232) 18.02733987569809%,
     rgb(255, 255, 255) 100%
   );
-
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-.support-title {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 40px;
 }
 
 .support-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 22px;
-  line-height: 32px;
+  line-height: 1.09091;
   letter-spacing: -0.04em;
-
-  color: #ffffff;
+  color: var(--white-color);
+  margin-bottom: 40px;
 }
 
-.support-swiper {
-  margin-bottom: 16px;
+.support-heading-svg {
+  fill: var(--white-color);
 }
-.swiper-wrapper {
+
+.swiper-list {
   display: flex;
   gap: 20px;
   flex-direction: column;
+  height: 292px;
+  overflow-y: auto;
 }
+
 .support-item {
   display: flex;
   align-items: center;
 }
+
 .support-number {
-  display: inline-block;
-
-  font-size: 14px;
-  line-height: 18px;
+  line-height: 1.28571;
   letter-spacing: -0.04em;
-  color: #ffffff;
-
+  color: var(--white-color);
   margin-right: 16px;
 }
 
 .support-img {
-  filter: brightness(0) invert(1);
-  display: inline-block;
-  vertical-align: middle;
-  height: 32px;
+  filter: brightness(0) invert();
 }
 
 .support-btn {
-  cursor: pointer;
-  margin: 0 auto;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
   width: 32px;
-  min-height: 32px;
+  height: 32px;
   border: none;
   border-radius: 50px;
-  background-color: #ffffff;
-  transform: rotateX(0);
-  transition: transform 0.5s ease-in-out;
-}
-
-.support-btn-icon {
-  width: 22px;
-  height: 22px;
+  background-color: var(--white-color);
 }
 
 @media screen and (min-width: 768px) {
   .support-container {
-    max-height: 472px;
-    padding-bottom: 14px;
+    width: 335px;
   }
+
   .support-heading {
     font-size: 24px;
-    line-height: 32px;
-  }
-  .support-swiper {
-    margin-bottom: 32px;
+    line-height: 1.16667;
   }
 
   .support-btn {
+    margin-top: 24px;
     width: 38px;
-    min-height: 38px;
+    height: 38px;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .support-container {
     width: 356px;
-    max-height: 490px;
-    padding-bottom: 24px;
-  }
-
-  .support-swiper {
-    margin-bottom: 40px;
-  }
-
-  .support-btn {
-    width: 38px;
-    min-height: 38px;
   }
 }
