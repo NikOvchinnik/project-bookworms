@@ -8,6 +8,21 @@ import {
 } from 'firebase/auth';
 
 const AUTH_KEY_LS = 'user-data';
+let isSignedIn = false;
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyAU9vmqTZLyoAQQ-FXLYuEWvBcdBAw2N_s',
+  authDomain: 'bookworms-de9f1.firebaseapp.com',
+  projectId: 'bookworms-de9f1',
+  storageBucket: 'bookworms-de9f1.appspot.com',
+  messagingSenderId: '67746495730',
+  appId: '1:67746495730:web:2051c7fd00eaf14945646b',
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 
 //open authoriztion modal
 export function openAuthModal() {
@@ -68,11 +83,11 @@ export function openAuthModal() {
 
     <ul class="auth-sign-list">
       <li class="auth-sign-item">
-        <button class="sign-up-btn current-sign">sign up</button>
+        <button class="sign-up-btn current-sign" type="button">sign up</button>
       </li>
 
       <li class="auth-sign-item">
-        <button class="sign-in-btn">sIGN In</button>
+        <button class="sign-in-btn" type="button">sIGN In</button>
       </li>
     </ul>
   </div>
@@ -127,7 +142,7 @@ export function openAuthModal() {
 
   authForm.addEventListener('submit', onAuthFormSubmit);
 
-  function onAuthFormSubmit(e) {
+  async function onAuthFormSubmit(e) {
     e.preventDefault();
 
     //value of button ==> sign in or sign up check
@@ -138,13 +153,21 @@ export function openAuthModal() {
       const userName = e.target.elements.name.value.trim();
       const userEmail = e.target.elements.email.value.trim();
       const userPassword = e.target.elements.password.value.trim();
-      const userInfo = {
-        id: '',
-        name: userName,
-        mail: userEmail,
-      };
-      console.log(userInfo);
-      addToLS(AUTH_KEY_LS, userInfo);
+      let id;
+
+      const resp = await handleRegistration(userEmail, userPassword);
+
+      console.log(isSignedIn);
+
+      if (isSignedIn == true) {
+        const userInfo = {
+          id: resp.uid,
+          name: userName,
+          mail: userEmail,
+        };
+        console.log(userInfo);
+        addToLS(AUTH_KEY_LS, userInfo);
+      }
     }
 
     if (authBtnValue === 'sign in') {
@@ -173,22 +196,8 @@ authOpenModalBtn.addEventListener('click', openAuthModal);
 //! //////////////////////////////////////////////////////////
 //! firebase
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: 'AIzaSyAU9vmqTZLyoAQQ-FXLYuEWvBcdBAw2N_s',
-  authDomain: 'bookworms-de9f1.firebaseapp.com',
-  projectId: 'bookworms-de9f1',
-  storageBucket: 'bookworms-de9f1.appspot.com',
-  messagingSenderId: '67746495730',
-  appId: '1:67746495730:web:2051c7fd00eaf14945646b',
-};
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth();
-
 // sign up of new user
-const registerWithEmailAndPassword = async (email, password) => {
+async function registerWithEmailAndPassword(email, password) {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -202,43 +211,56 @@ const registerWithEmailAndPassword = async (email, password) => {
     console.error('Registration error:', error.message);
     throw error;
   }
-};
+}
 
 // sign in of existing user
-// const signInWithEmailAndPassword = async (email, password) => {
-//   try {
-//     const userCredential = await signInWithEmailAndPassword(
-//       auth,
-//       email,
-//       password
-//     );
-//     const user = userCredential.user;
-//     console.log('Signed in user:', user);
-//     return user;
-//   } catch (error) {
-//     console.error('Sign-in error:', error.message);
-//     throw error;
-//   }
-// };
+async function loginWithEmailAndPassword(email, password) {
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    console.log('Signed in user:', user);
+    return await user;
+  } catch (error) {
+    console.error('Sign-in error:', error.message);
+    throw error;
+  }
+}
 
 // sign up
-const handleRegistration = async () => {
+async function handleRegistration(email, password) {
   try {
-    await registerWithEmailAndPassword(email, password);
+    const response = await registerWithEmailAndPassword(email, password);
+    isSignedIn = true;
+    return await response;
     //  additional actions after successfull sign up
   } catch (error) {
+    isSignedIn = false;
+    console.log('registration error');
     // handle errors
   }
-};
+}
 
 // sign in
-const handleSignIn = async () => {
+async function handleSignIn(email, password) {
   try {
-    await signInWithEmailAndPassword(email, password);
-    //  additional actions after successfull sign in
+    const response = await loginWithEmailAndPassword(email, password);
+    isSignedIn = true;
+    return response;
   } catch (error) {
     // handle errors
+    isSignedIn = false;
+    console.log('login error');
   }
-};
+}
+
+// const user = await handleSignIn('alisa@ukr.net', '12345678');
+// console.log(user.email); //email
+// console.log(user.uid); //uid
+// console.log(user.auth.config.authDomain); //authDomain хз нащо
+// await handleRegistration('vosha2@vo.sha', '12345678');
 
 //! ///////////////////////////
