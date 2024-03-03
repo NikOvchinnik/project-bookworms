@@ -1,38 +1,121 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import { addToLS } from './local-storage-functions';
+import { addToLS, getFromLS } from './local-storage-functions';
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
 
 //name of key for localstorage, contains uid, name, mail,
 const AUTH_KEY_LS = 'user-data';
-//user is signed in if true
-let isSignedIn = false;
+
 //name of signed in user
-export let authUser = '';
+export let authUser = getFromLS('user-data').name || '';
+//uid of signed user
+export let authId = getFromLS('user-data').uid || '';
+//user is signed in if true
+export let isSignedIn = authUser ? true : false;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyAU9vmqTZLyoAQQ-FXLYuEWvBcdBAw2N_s',
   authDomain: 'bookworms-de9f1.firebaseapp.com',
+  databaseURL:
+    'https://bookworms-de9f1-default-rtdb.europe-west1.firebasedatabase.app',
   projectId: 'bookworms-de9f1',
   storageBucket: 'bookworms-de9f1.appspot.com',
   messagingSenderId: '67746495730',
   appId: '1:67746495730:web:2051c7fd00eaf14945646b',
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+//Initialize Authorization
 const auth = getAuth(app);
+//Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+// console.log(database);
+
+//!
+const userInfo = {
+  name: 'User',
+  uid: '6GbKY5ZV5oTvYETDKM63VnmJThR2',
+  shopList: ['643282b1e85766588626a0ce'],
+};
+
+//!firebase functions start
+
+//!build version start
+// save name and shoplist by uid from input shopList-parameter to FB
+async function saveBooksToFB(shopList) {
+  const userInfo = {
+    name: authUser,
+    uid: authId,
+    shopList,
+  };
+  try {
+    console.log(userInfo);
+    const userRef = ref(database, `users/${userInfo.uid}`);
+    const setResponse = await set(userRef, userInfo);
+    console.log('Інформація про користувача успішно збережена.');
+  } catch (error) {
+    console.error('Помилка збереження інформації про користувача:', error);
+  }
+}
+// saveBooksToFB([
+//   '643282b1e85766588626a0ce',
+//   '643282b1e85766588626a0ve',
+//   '643282b1e85766588626a0v1',
+// ]);
+//!build version end
+
+//copy name from firebase database to localstorage
+function getNameFromFBToLS(uid = authId) {
+  //link for user in database by uid
+  const userRef = ref(database, `users/${uid}`);
+
+  //read user data from database
+  onValue(userRef, snapshot => {
+    const userData = snapshot.val(); // user data
+    console.log(userData);
+    if (userData) {
+      //треба додати по хитрому!
+      console.log(userData.shopList);
+      // addToLS('user-data', userData.name);
+    } else {
+      return [];
+    }
+  });
+}
+// getNameFromFBToLS();
+//!build version start
+//copy shoplist from Firebase account to Localstorage for user id = uid
+function updShoplistFromFBToLS(uid = authId) {
+  //link for user in database by uid
+  const userRef = ref(database, `users/${uid}`);
+
+  //read user data from database
+  onValue(userRef, snapshot => {
+    const userData = snapshot.val(); // user data
+    console.log(userData);
+    if (userData) {
+      addToLS('idBooks', userData.shopList);
+    } else {
+      return [];
+    }
+  });
+}
+// updShoplistFromFBToLS();
+
+// updShoplistFromFBToLSCurrent(); //!delete test
+//!build version end
 
 //open authoriztion modal
 export function openAuthModal() {
-  // authModal.classList.remove('is-hidden');
-
   //creating basiclightbox
   const authInstance = basicLightbox.create(
     `
@@ -185,12 +268,12 @@ export function openAuthModal() {
       //try to sign in
       const resp = await handleSignIn(userEmail, userPassword);
       // console.log(resp);
-
+      console.log();
       //if true => save mail and uid to LS
       if (isSignedIn == true) {
         const userInfo = {
           uid: resp.uid,
-          name: '',
+          name: authUser,
           mail: userEmail,
         };
         //save mail and uid to LS
@@ -257,11 +340,13 @@ async function handleRegistration(email, password) {
     const response = await registerWithEmailAndPassword(email, password);
     isSignedIn = true;
     authUser = response.email;
+    authId = response.uid;
     return await response;
     //  additional actions after successfull sign up
   } catch (error) {
     isSignedIn = false;
     authUser = '';
+    authId = '';
     console.log('registration error');
     // handle errors
   }
@@ -272,12 +357,97 @@ async function handleSignIn(email, password) {
   try {
     const response = await loginWithEmailAndPassword(email, password);
     isSignedIn = true;
-    authUser = response.email;
+    authUser = await response.email;
+    authId = await response.uid;
+    console.log('authId in handle: ', authId);
+    console.log('response.uid in handle', response.uid);
     return response;
   } catch (error) {
     // handle errors
     isSignedIn = false;
     authUser = '';
+    authId = '';
     console.log('login error');
   }
 }
+
+// read name by uid
+// function getUserNameById(uid) {
+//   // Створіть посилання на користувача у базі даних за його uid
+//   const userRef = ref(database, `users/${uid}`);
+//   // Зчитайте дані користувача з бази даних
+
+//   onValue(userRef, async snapshot => {
+//     const userData = snapshot.val(); // Дані користувача
+//     if (userData) {
+//       // const userName = userData.name; // Ім'я користувача
+//       // console.log(userData.name);
+//       authUser = await userData.name;
+//       // name = userData.name;
+//       // return userData.name;
+//     } else {
+//       console.log('User does not exists!');
+//       // return '';
+//     }
+//     // return user;
+//   });
+//   return name;
+// }
+// async function getUserNameById(uid) {
+//   const userRef = ref(database, `users/${uid}`);
+
+//   try {
+//     const snapshot = await onValue(userRef);
+//     const userData = snapshot.val();
+
+//     if (userData) {
+//       const userName = userData.name;
+//       console.log(userName);
+//       return userName;
+//     } else {
+//       console.log('User does not exist!');
+//       throw new Error('User does not exist!');
+//     }
+//   } catch (error) {
+//     console.error('Error getting user data:', error);
+//     throw error;
+//   }
+// }
+
+// function getUserNameById() {
+//   const db = getDatabase(app);
+//   const auth = getAuth(app);
+//   const userId = auth.currentUser;
+//   console.log(auth);
+//   // console.log(auth.currentUser);
+
+//   return onValue(
+//     ref(db, '/users/' + userId),
+//     snapshot => {
+//       const username =
+//         (snapshot.val() && snapshot.val().username) || 'Anonymous';
+//       // ...
+//     },
+//     {
+//       onlyOnce: true,
+//     }
+//   );
+// }
+
+// // Використання функції
+// try {
+//   const userName = await getUserNameById(userInfo.uid);
+//   console.log('User name:', userName);
+// } catch (error) {
+//   console.error('Error:', error);
+// }
+
+// setUserInfoToFB(userInfo);
+// getUserNameFromFB(userInfo.uid);
+
+// const uid = userInfo.uid;
+// console.log(getUserNameById());
+// console.log(getShoplistById(uid));
+// setShoplistToLsFromFB(uid);
+// console.log('authUser: ', authUser);
+//!
