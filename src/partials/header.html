@@ -1,137 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container-header container">
+  <a href="../index.html" class="logo-header">
+    <svg class="icon-logo-header" width="24" height="24">
+      <use href="../img/icons.svg#icon-logo"></use>
+    </svg>
+    <span class="logo-name-header">Bookshelf</span>
+  </a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
-    <link rel="stylesheet" href="../css/header.css" />
-</head>
+  <nav class="nav-list-header" id="userNav">
+    <ul class="list-menu-header">
+      <li class="item-menu-header active">
+        <a href="../index.html" class="link-home">Home</a>
+      </li>
+      <li class="item-menu-header">
+        <a href="../shopping-list.html" class="link-shoplist"
+          >Shopping List
+          <svg class="icon-shop" width="20" height="20">
+            <use href="../img/icons.svg#icon-shop"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-<body>
-    <header class="header">
-        <div class="container-header">
-            <a href="../index.html" class="logo">
-                <svg class="icon-logo-header" width="24" height="24">
-                    <use href="../img/icons.svg#icon-logo"></use>
-                </svg>
-                <span class="logo-name-header">Bookshelf</span>
-            </a>
+  <div class="right-menu-header">
+    <form>
+      <label class="label-header">
+        <input
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          class="toggle-header"
+        />
+        <span class="switch-slider"></span>
+      </label>
+    </form>
 
-            <!-- Видимість тільки для залогінених користувачів -->
-            <nav class="nav-list-header" id="userNav" style="display:none;">
-                <ul class="list-menu-header">
-                    <li class="menu-home-header"><a href="./index.html" class="link-home">Home</a></li>
-                    <li class="shop-list-header"><a href="../shopping-list.html" class="link-shoplist">Shopping List
-                            <svg class="icon-shop" width="14" height="18">
-                                <use href="../img/icons.svg#icon-shop"></use>
-                            </svg>
-                        </a></li>
-                </ul>
-            </nav>
+    <button
+      type="button"
+      class="btn-header"
+      id="menuBtn"
+      data-action="toggle-menu"
+    >
+      <svg class="icon-burger" width="28" height="28">
+        <use href="../img/icons.svg#icon-burger"></use>
+      </svg>
+    </button>
 
+    <button type="button" class="btn-register" data-action="registration" >
+      Sign up
+      <svg class="icon-arrow-right" width="20" height="20">
+        <use href="../img/icons.svg#icon-arrow-right"></use>
+      </svg>
+    </button>
 
-            <div class="toggle-slider">
-                <label for="toggle" class="label-header">
-                    <input type="checkbox" id="toggle" class="checkbox-header">
-                    <span class="switch-slider"></span>
-                </label>
-                <div class="buttons-container">
-                    <button type="button" class="btn-header" id="menuBtn" data-action="toggle-menu">
-                        <svg class="icon-burger" width="28" height="28">
-                            <use href="../img/icons.svg#icon-burger"></use>
-                        </svg>
-                    </button>
-                    <button class="button-close" type="button" id="closeBtn">
-                        <svg class="button-close-icon" width="28" height="28">
-                            <use href="../img/icons.svg#icon-x-close"></use>
-                        </svg>
-                    </button>
-                </div>
-                <div class="btn-sign-tablet">
-                    <button type="button" class="btn-register" data-action="registration">Sign up
-                        <span>
-                            <svg class="icon-arrow-right-tablet" width="20" height="20">
-                                <use href="../img/icons.svg#icon-arrow-right"></use>
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-
-                <!-- Modal -->
-                <div class="backdrop" id="modalBackdrop">
-                    <div class="modal" id="modalContent">
-                        <div class="btn-sign">
-                            <button type="button" class="btn-register" data-action="registration">Sign up
-                                <span>
-                                    <svg class="icon-arrow-right" width="20" height="20">
-                                        <use href="../img/icons.svg#icon-arrow-right"></use>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal для залогінених користувачів -->
-                <div class="backdrop" id="modalBackdrop">
-                    <div class="modal" id="modalContent">
-                        <div class="btn-sign-in">
-                            <button type="button" class="btn-register-logi-in" data-action="registration"
-                                style="display: flex;">
-                                <svg class="icon-user" width="37" height="37">
-                                    <use href="../img/icons.svg#icon-user"></use>
-                                </svg>
-                                <span>User</span>
-                            </button>
-                        </div>
-                        <nav class="nav-list-login" id="userNav" style="display: flex;">
-                            <ul class="list-menu-login">
-                                <li class="menu-home-login"><a href="./index.html" class="link-home">Home</a></li>
-                                <li class="shop-list-login"><a href="../shopping-list.html"
-                                        class="link-shoplist-login">Shopping List
-                                        <svg class="icon-shop-login" width="20" height="20">
-                                            <use href="../img/icons.svg#icon-shop"></use>
-                                        </svg>
-                                    </a></li>
-                            </ul>
-                        </nav>
-                        <div class="btn-sign-logout">
-                            <button type="button" class="btn-register-logout" data-action="registration">Log out
-                                <span>
-                                    <svg class="icon-arrow-right" width="20" height="20">
-                                        <use href="../img/icons.svg#icon-arrow-right"></use>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Видимість тільки для залогінених користувачів -->
-
-                <button type="button" class="btn-register-login" data-action="registration" style="display: none;">
-                    <svg class="icon-user" width="37" height="37">
-                        <use href="../img/icons.svg#icon-user"></use>
-                    </svg>
-                    <span>User</span>
-                    <span>
-                        <svg class="icon-scroll-down" width="40" height="40">
-                            <use href="../img/icons.svg#icon-scroll-down"></use>
-                        </svg>
-                    </span>
-                </button>
-
-            </div>
-        </div>
-    </header>
-
-    <script type="module" src="../js/header.js"></script>
-    <script type="module" src="../js/modal-window.js"></script>
-
-
-</body>
-
-</html>
+    <button type="button" class="btn-register-login" data-action="registration" style="display: none;" >
+      <span class="span-icon-user">
+        <svg class="icon-user" width="19" height="19">
+          <use href="../img/icons.svg#icon-user"></use>
+        </svg>
+      </span>
+      <span class="name-user-login">User</span>
+        <svg class="icon-scroll-down" width="15" height="8">
+          <use href="../img/icons.svg#icon-down-menu"></use>
+        </svg>
+    </button>
+  </div>
+</div>
