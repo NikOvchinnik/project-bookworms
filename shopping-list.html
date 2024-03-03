@@ -19,24 +19,569 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/project-bookworms/assets/styles-96f1631e.js"></script>
-    <link rel="stylesheet" href="/project-bookworms/assets/styles-099bb688.css">
+    <script type="module" crossorigin src="/project-bookworms/assets/styles-03fd7cd2.js"></script>
+    <link rel="stylesheet" href="/project-bookworms/assets/styles-74f653d5.css">
   </head>
   <body>
     <header class="header">
-      
+      <div class="container-header container">
+  <a href="../index.html" class="logo-header">
+    <svg class="icon-logo-header" width="24" height="24">
+      <use href="../img/icons.svg#icon-logo"></use>
+    </svg>
+    <span class="logo-name-header">Bookshelf</span>
+  </a>
+
+  <nav class="nav-list-header" id="userNav">
+    <ul class="list-menu-header">
+      <li class="item-menu-header active">
+        <a href="../index.html" class="link-home">Home</a>
+      </li>
+      <li class="item-menu-header">
+        <a href="../shopping-list.html" class="link-shoplist"
+          >Shopping List
+          <svg class="icon-shop" width="20" height="20">
+            <use href="../img/icons.svg#icon-shop"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="right-menu-header">
+    <form>
+      <label class="label-header">
+        <input
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          class="toggle-header"
+        />
+        <span class="switch-slider"></span>
+      </label>
+    </form>
+
+    <button
+      type="button"
+      class="btn-header"
+      id="menuBtn"
+      data-action="toggle-menu"
+    >
+      <svg class="icon-burger" width="28" height="28">
+        <use href="../img/icons.svg#icon-burger"></use>
+      </svg>
+    </button>
+
+    <button type="button" class="btn-register" data-action="registration" >
+      Sign up
+      <svg class="icon-arrow-right" width="20" height="20">
+        <use href="../img/icons.svg#icon-arrow-right"></use>
+      </svg>
+    </button>
+
+    <button type="button" class="btn-register-login" data-action="registration" style="display: none;" >
+      <span class="span-icon-user">
+        <svg class="icon-user" width="19" height="19">
+          <use href="../img/icons.svg#icon-user"></use>
+        </svg>
+      </span>
+      <span class="name-user-login">User</span>
+        <svg class="icon-scroll-down" width="15" height="8">
+          <use href="../img/icons.svg#icon-down-menu"></use>
+        </svg>
+    </button>
+  </div>
+</div>
+
     </header>
     <main>
-      <div class="main-container container">
-        <div class="main-sidebar">
-          
+      <div class="shop-list-container container">
+        <div class="shop-list-sidebar">
+          <section class="support-container">
+  <h2 class="support-heading">
+    Support Ukraine<span>
+      <svg class="support-heading-svg" width="20" height="32">
+        <use href="/project-bookworms/assets/icons-384324b2.svg#icon-ukraine"></use>
+      </svg>
+    </span>
+  </h2>
+
+  <ul class="swiper-list">
+    <li class="support-item">
+      <span class="support-number">01</span>
+      <a
+        href="https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-children.png"
+          alt="Save the Children logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">02</span>
+      <a
+        href="https://www.projecthope.org/country/ukraine/"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-hope.png"
+          alt="Project HOP logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">03</span>
+      <a
+        href="https://u24.gov.ua/uk"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-united24.png"
+          alt="UNITED24 logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">04</span>
+      <a
+        href="https://internationalmedicalcorps.org/country/ukraine/"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-medical.png"
+          alt="International Medical Corps logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">05</span>
+      <a
+        href="https://www.msf.org/ukraine"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-medecins.png"
+          alt="Medicins Sans Frontieres logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">06</span>
+      <a
+        href="https://www.razomforukraine.org/"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-razom.png"
+          alt="RAZOM logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">07</span>
+      <a
+        href="https://www.actionagainsthunger.org/location/europe/ukraine/"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-hunger.png"
+          alt="Action against hunger logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">08</span>
+      <a
+        href="https://www.wvi.org/emergencies/ukraine"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-vision.png"
+          alt="World vision logo"
+          height="32"
+      /></a>
+    </li>
+    <li class="support-item">
+      <span class="support-number">09</span>
+      <a
+        href="https://prytulafoundation.org/en"
+        target="_blank"
+        ><img
+          class="support-img"
+          src="../img/support-prytula.png"
+          alt="Serhiy Prytula Charity Foundation logo"
+          height="32"
+      /></a>
+    </li>
+  </ul>
+  <button class="support-btn ">
+    <svg class="support-btn-icon" width="20" height="20">
+      <use href="../img/icons.svg#icon-scroll-down"></use>
+    </svg>
+  </button>
+</section>
+
         </div>
-        <div class="main-content">
-          
+        <div class="shop-list-content">
+          <section class="shopping-list-section">
+  <h1 class="shopping-list-title">
+    Shopping
+    <span class="shopping-list-title-color"> List </span>
+  </h1>
+  <span class="loader visually-hidden"></span>
+  <div class="shopping-list-empty-state">
+    <p class="shopping-list-empty-text">
+      This page is empty, add some books and proceed to order.
+    </p>
+
+    <picture>
+      <source
+        srcset="../img/shop-list.png 1x, ../img/shop-list-2x.png 2x"
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="../img/shop-list-mob.png 1x, ../img/shop-list-mob-2x.png 2x"
+        media="(max-width: 767px)"
+      />
+      <img
+        class="shopping-list-empty-img"
+        src="../img/shop-list.png"
+        alt="banking-app"
+      />
+    </picture>
+  </div>
+
+  <ul class="shopping-list-gallery-books">
+    <li class="shopping-list-books-items">
+      <div class="shopping-list-books-information">
+        <div class="shopping-list-basket-img">
+          <img
+            id="643282b2e85766588626a0f2"
+            class="shopping-list-img"
+            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
+            alt="book-cover"
+          />
+        </div>
+        <div>
+          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
+          <button type="button" class="shopping-list-button">
+            <svg class="shopping-list-delete" width="16" height="16">
+              <use href="../img/icons.svg#icon-trash"></use>
+            </svg>
+          </button>
+          <h3 class="shopping-list-books-category">Audio Fiction</h3>
+          <p class="shopping-list-books-desc">
+            A battered wife raised in a violent home attempts to halt the cycle
+            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
+          </p>
+          <p class="shopping-list-author">Collen Hover</p>
+
+          <ul class="shopping-list-shop-list">
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
+              >
+                <img
+                  class="shopping-list-link-amazon"
+                  src="../img/amazon.png"
+                  alt="logo-amazon"
+                />
+              </a>
+            </li>
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
+              >
+                <img
+                  class="shopping-list-link-apple"
+                  src="../img/applebooks.png"
+                  alt="apple-books"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li class="shopping-list-books-items">
+      <div class="shopping-list-books-information">
+        <div class="shopping-list-basket-img">
+          <img
+            id="643282b2e85766588626a0f2"
+            class="shopping-list-img"
+            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
+            alt="book-cover"
+          />
+        </div>
+        <div>
+          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
+          <button type="button" class="shopping-list-button">
+            <svg class="shopping-list-delete" width="16" height="16">
+              <use href="../img/icons.svg#icon-trash"></use>
+            </svg>
+          </button>
+          <h3 class="shopping-list-books-category">Audio Fiction</h3>
+          <p class="shopping-list-books-desc">
+            A battered wife raised in a violent home attempts to halt the cycle
+            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
+          </p>
+          <p class="shopping-list-author">Collen Hover</p>
+
+          <ul class="shopping-list-shop-list">
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
+              >
+                <img
+                  class="shopping-list-link-amazon"
+                  src="../img/amazon.png"
+                  alt="logo-amazon"
+                />
+              </a>
+            </li>
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
+              >
+                <img
+                  class="shopping-list-link-apple"
+                  src="../img/applebooks.png"
+                  alt="apple-books"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li class="shopping-list-books-items">
+      <div class="shopping-list-books-information">
+        <div class="shopping-list-basket-img">
+          <img
+            id="643282b2e85766588626a0f2"
+            class="shopping-list-img"
+            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
+            alt="book-cover"
+          />
+        </div>
+        <div>
+          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
+          <button type="button" class="shopping-list-button">
+            <svg class="shopping-list-delete" width="16" height="16">
+              <use href="../img/icons.svg#icon-trash"></use>
+            </svg>
+          </button>
+          <h3 class="shopping-list-books-category">Audio Fiction</h3>
+          <p class="shopping-list-books-desc">
+            A battered wife raised in a violent home attempts to halt the cycle
+            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
+          </p>
+          <p class="shopping-list-author">Collen Hover</p>
+
+          <ul class="shopping-list-shop-list">
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
+              >
+                <img
+                  class="shopping-list-link-amazon"
+                  src="../img/amazon.png"
+                  alt="logo-amazon"
+                />
+              </a>
+            </li>
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
+              >
+                <img
+                  class="shopping-list-link-apple"
+                  src="../img/applebooks.png"
+                  alt="apple-books"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li class="shopping-list-books-items">
+      <div class="shopping-list-books-information">
+        <div class="shopping-list-basket-img">
+          <img
+            id="643282b2e85766588626a0f2"
+            class="shopping-list-img"
+            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
+            alt="book-cover"
+          />
+        </div>
+        <div>
+          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
+          <button type="button" class="shopping-list-button">
+            <svg class="shopping-list-delete" width="16" height="16">
+              <use href="../img/icons.svg#icon-trash"></use>
+            </svg>
+          </button>
+          <h3 class="shopping-list-books-category">Audio Fiction</h3>
+          <p class="shopping-list-books-desc">
+            A battered wife raised in a violent home attempts to halt the cycle
+            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
+          </p>
+          <p class="shopping-list-author">Collen Hover</p>
+
+          <ul class="shopping-list-shop-list">
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
+              >
+                <img
+                  class="shopping-list-link-amazon"
+                  src="../img/amazon.png"
+                  alt="logo-amazon"
+                />
+              </a>
+            </li>
+            <li class="shopping-list-shop-list-items">
+              <a
+                class="shopping-list-shop-list-link"
+                target="_blank"
+                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
+              >
+                <img
+                  class="shopping-list-link-apple"
+                  src="../img/applebooks.png"
+                  alt="apple-books"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
         </div>
       </div>
     </main>
-    
+    <div class="scroll-container">
+  <button class="scroll-btn">
+    <svg class="scroll-to-top" width="24" height="24">
+      <use href="/project-bookworms/assets/icons-384324b2.svg#icon-scroll-up"></use>
+    </svg>
+  </button>
+</div>
+
+    <!-- <div class="backdrop" id="modalBackdrop">
+    <div class="modal" id="modalContent">
+        <div class="btn-sign-in">
+            <button type="button" class="btn-register-logi-in" data-action="registration" style="display: flex;">
+                <svg class="icon-user" width="37" height="37">
+                    <use href="../img/icons.svg#icon-user"></use>
+                </svg>
+                <span>User</span>
+            </button>
+        </div>
+        <nav class="nav-list-login" id="userNav" style="display: flex;">
+            <ul class="list-menu-login">
+                <li class="menu-home-login"><a href="./index.html" class="link-home">Home</a></li>
+                <li class="shop-list-login"><a href="../shopping-list.html" class="link-shoplist-login">Shopping List
+                        <svg class="icon-shop-login" width="20" height="20">
+                            <use href="../img/icons.svg#icon-shop"></use>
+                        </svg>
+                    </a></li>
+            </ul>
+        </nav>
+        <div class="btn-sign-logout">
+            <button type="button" class="btn-register-logout" data-action="registration">Log out
+                <span>
+                    <svg class="icon-arrow-right" width="20" height="20">
+                        <use href="../img/icons.svg#icon-arrow-right"></use>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</div> -->
+    <div class="auth-backdrop">
+  <div class="auth-modal">
+    <button class="auth-close-btn" type="button">
+      <svg class="auth-close-icon" width="20" height="20">
+        <use href="../img/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <form class="auth-form">
+      <div class="auth-inputs-wrapper">
+        <input
+          class="auth-form-input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="name"
+          required
+        />
+
+        <div class="auth-email-wrapper">
+          <input
+            class="auth-form-input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="eMAIL"
+            required
+          />
+          <svg class="auth-input-icon" width="18" height="18">
+            <use href="../img/icons.svg#icon-mail"></use>
+          </svg>
+        </div>
+
+        <div class="auth-password-wrapper">
+          <input
+            class="auth-form-input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="pASSWORD"
+            required
+          />
+          <svg class="auth-input-icon" width="18" height="18">
+            <use href="../img/icons.svg#icon-lock"></use>
+          </svg>
+        </div>
+      </div>
+
+      <button class="auth-submit-btn" type="submit">Sign up</button>
+    </form>
+
+    <ul class="auth-sign-list">
+      <li class="auth-sign-item">
+        <button class="sign-up-btn current-sign">sign up</button>
+      </li>
+
+      <li class="auth-sign-item">
+        <button class="sign-up-btn">sIGN In</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
     
   </body>
 </html>
