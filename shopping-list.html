@@ -18,7 +18,6 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="dist/basicLightbox.min.css">
     
     <script type="module" crossorigin src="/project-bookworms/assets/styles-d6302b54.js"></script>
     <link rel="stylesheet" href="/project-bookworms/assets/styles-64a6b751.css">
@@ -255,7 +254,7 @@
   </div>
 
   <ul class="shopping-list-gallery-books">
-    <li class="shopping-list-books-items">
+    <!-- <li class="shopping-list-books-items">
       <div class="shopping-list-books-information">
         <div class="shopping-list-basket-img">
           <img
@@ -269,7 +268,7 @@
           <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
           <button type="button" class="shopping-list-button">
             <svg class="shopping-list-delete" width="16" height="16">
-              <use href="/project-bookworms/assets/icons-384324b2.svg#icon-trash"></use>
+              <use href="./img/icons.svg#icon-trash"></use>
             </svg>
           </button>
           <h3 class="shopping-list-books-category">Audio Fiction</h3>
@@ -288,7 +287,7 @@
               >
                 <img
                   class="shopping-list-link-amazon"
-                  src="data:image/png;base64,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"
+                  src="./img/amazon.png"
                   alt="logo-amazon"
                 />
               </a>
@@ -301,7 +300,7 @@
               >
                 <img
                   class="shopping-list-link-apple"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAN4SURBVHgB7VdLaBRBEH3Vk91VokYFv/EQA0bjwQ8i8RAEiRc/KCp4EsWLN8GDiF48BmL8YC4aUERv6inghxwSEUQCQTQBMRdjkHzRIEmUmM1ulzUzSXZ6ZnZ2jOstBc1sd7+uel1d1V0LLIgrFDXJD1NVWZ2pJdAqBSTB0XifZtYa0wwetBJWJ51Of8oPDTN+H5sZicfyczv+VWwL7PzqJTVdR2fRFwYxCTQnt7DFHTJVhmILI0NJ7KIz6W7vcEkAR3gJrYpPYNZemp8wo5poxj8iyovI3E0eFxYVzrQ09n2L0bSmzdnm1AGTmUeIaR+zeULs+xZDJNAPyedFOAlNlWEJQCVLgcrDQKJU2GSBsT5wf5tMKBNXvhdYWglYSWByGBjpBP8aCuojrPf2zZhgShmxKudAuy+DdlwAUstMRSPvwK2nwBNfQaXlwP57oA17TWtTY0BnA7irCYYvNZZ4YcZWdFYpAWC2UcVRUM3VAAFH1uwSww8EJ0SPtAQJ2JIqA9XWgypPwKtXNqciPOF4I9cv3YAoofV7wMuqgZXVkTgsWiPGvR42j9wkoX3xwDEuyBXbCmNsPV7dPrUBEt4soDgpQYnCGDvNPST8W/OR8EF0DE/EIco+Xb7d+WJC/f2FMB8SiIqJLJwkNhbHMRAHY8RXlCdstga28HFwnOB1AtPTpwhP2MFDzstiM7ULAhQuIDQKikNUq7xLAjHB7BJw+zF2GTN42WOZaJ4xwb/lCv7e6/Cj8p3hmOw0MCqYScGurgItXp4jGvuesHfOvh0MdEE/vyJF2ntRlHEHFy2HqjkHVXdpDq/bb4I77oAnf8xtxCarjjWFZEcUCS2+oFw9xh9boDsfyfg0cuzI2al+1Sgvj+UQ16310G9uuRCaCUI7tvo/IHu7VjxSZnqMI0hIPTHhRrvLmsdHc4ZDQlS3XQcqauWVfOoSmvGe8YUl3vkJ463UPJWXhFQ9Q/mc5glX7wrg82uZs6QWibvGHqcv3r7xpCpWz+w0DbSZB8j+BueVOxfSEKKH3fep3WuXfMwpfXFtjxxnFf6f9CUbhzcinyfs3CDLOilezsylVTFbFuMJooN+Vso/kGwY6EoksEnc0lusCttNUe5mUjV0bSjwTyzyups6v3YrlVi75RTXiY8S8R6KWc1S97FKy4pvbOFt6sZgDxakgPwBnSGqSUuOBR0AAAAASUVORK5CYII="
+                  src="./img/applebooks.png"
                   alt="apple-books"
                 />
               </a>
@@ -309,172 +308,7 @@
           </ul>
         </div>
       </div>
-    </li>
-    <li class="shopping-list-books-items">
-      <div class="shopping-list-books-information">
-        <div class="shopping-list-basket-img">
-          <img
-            id="643282b2e85766588626a0f2"
-            class="shopping-list-img"
-            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
-            alt="book-cover"
-          />
-        </div>
-        <div>
-          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
-          <button type="button" class="shopping-list-button">
-            <svg class="shopping-list-delete" width="16" height="16">
-              <use href="/project-bookworms/assets/icons-384324b2.svg#icon-trash"></use>
-            </svg>
-          </button>
-          <h3 class="shopping-list-books-category">Audio Fiction</h3>
-          <p class="shopping-list-books-desc">
-            A battered wife raised in a violent home attempts to halt the cycle
-            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
-          </p>
-          <p class="shopping-list-author">Collen Hover</p>
-
-          <ul class="shopping-list-shop-list">
-            <li class="shopping-list-shop-list-items">
-              <a
-                class="shopping-list-shop-list-link"
-                target="_blank"
-                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
-              >
-                <img
-                  class="shopping-list-link-amazon"
-                  src="data:image/png;base64,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"
-                  alt="logo-amazon"
-                />
-              </a>
-            </li>
-            <li class="shopping-list-shop-list-items">
-              <a
-                class="shopping-list-shop-list-link"
-                target="_blank"
-                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
-              >
-                <img
-                  class="shopping-list-link-apple"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAN4SURBVHgB7VdLaBRBEH3Vk91VokYFv/EQA0bjwQ8i8RAEiRc/KCp4EsWLN8GDiF48BmL8YC4aUERv6inghxwSEUQCQTQBMRdjkHzRIEmUmM1ulzUzSXZ6ZnZ2jOstBc1sd7+uel1d1V0LLIgrFDXJD1NVWZ2pJdAqBSTB0XifZtYa0wwetBJWJ51Of8oPDTN+H5sZicfyczv+VWwL7PzqJTVdR2fRFwYxCTQnt7DFHTJVhmILI0NJ7KIz6W7vcEkAR3gJrYpPYNZemp8wo5poxj8iyovI3E0eFxYVzrQ09n2L0bSmzdnm1AGTmUeIaR+zeULs+xZDJNAPyedFOAlNlWEJQCVLgcrDQKJU2GSBsT5wf5tMKBNXvhdYWglYSWByGBjpBP8aCuojrPf2zZhgShmxKudAuy+DdlwAUstMRSPvwK2nwBNfQaXlwP57oA17TWtTY0BnA7irCYYvNZZ4YcZWdFYpAWC2UcVRUM3VAAFH1uwSww8EJ0SPtAQJ2JIqA9XWgypPwKtXNqciPOF4I9cv3YAoofV7wMuqgZXVkTgsWiPGvR42j9wkoX3xwDEuyBXbCmNsPV7dPrUBEt4soDgpQYnCGDvNPST8W/OR8EF0DE/EIco+Xb7d+WJC/f2FMB8SiIqJLJwkNhbHMRAHY8RXlCdstga28HFwnOB1AtPTpwhP2MFDzstiM7ULAhQuIDQKikNUq7xLAjHB7BJw+zF2GTN42WOZaJ4xwb/lCv7e6/Cj8p3hmOw0MCqYScGurgItXp4jGvuesHfOvh0MdEE/vyJF2ntRlHEHFy2HqjkHVXdpDq/bb4I77oAnf8xtxCarjjWFZEcUCS2+oFw9xh9boDsfyfg0cuzI2al+1Sgvj+UQ16310G9uuRCaCUI7tvo/IHu7VjxSZnqMI0hIPTHhRrvLmsdHc4ZDQlS3XQcqauWVfOoSmvGe8YUl3vkJ463UPJWXhFQ9Q/mc5glX7wrg82uZs6QWibvGHqcv3r7xpCpWz+w0DbSZB8j+BueVOxfSEKKH3fep3WuXfMwpfXFtjxxnFf6f9CUbhzcinyfs3CDLOilezsylVTFbFuMJooN+Vso/kGwY6EoksEnc0lusCttNUe5mUjV0bSjwTyzyups6v3YrlVi75RTXiY8S8R6KWc1S97FKy4pvbOFt6sZgDxakgPwBnSGqSUuOBR0AAAAASUVORK5CYII="
-                  alt="apple-books"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li class="shopping-list-books-items">
-      <div class="shopping-list-books-information">
-        <div class="shopping-list-basket-img">
-          <img
-            id="643282b2e85766588626a0f2"
-            class="shopping-list-img"
-            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
-            alt="book-cover"
-          />
-        </div>
-        <div>
-          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
-          <button type="button" class="shopping-list-button">
-            <svg class="shopping-list-delete" width="16" height="16">
-              <use href="/project-bookworms/assets/icons-384324b2.svg#icon-trash"></use>
-            </svg>
-          </button>
-          <h3 class="shopping-list-books-category">Audio Fiction</h3>
-          <p class="shopping-list-books-desc">
-            A battered wife raised in a violent home attempts to halt the cycle
-            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
-          </p>
-          <p class="shopping-list-author">Collen Hover</p>
-
-          <ul class="shopping-list-shop-list">
-            <li class="shopping-list-shop-list-items">
-              <a
-                class="shopping-list-shop-list-link"
-                target="_blank"
-                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
-              >
-                <img
-                  class="shopping-list-link-amazon"
-                  src="data:image/png;base64,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"
-                  alt="logo-amazon"
-                />
-              </a>
-            </li>
-            <li class="shopping-list-shop-list-items">
-              <a
-                class="shopping-list-shop-list-link"
-                target="_blank"
-                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
-              >
-                <img
-                  class="shopping-list-link-apple"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAN4SURBVHgB7VdLaBRBEH3Vk91VokYFv/EQA0bjwQ8i8RAEiRc/KCp4EsWLN8GDiF48BmL8YC4aUERv6inghxwSEUQCQTQBMRdjkHzRIEmUmM1ulzUzSXZ6ZnZ2jOstBc1sd7+uel1d1V0LLIgrFDXJD1NVWZ2pJdAqBSTB0XifZtYa0wwetBJWJ51Of8oPDTN+H5sZicfyczv+VWwL7PzqJTVdR2fRFwYxCTQnt7DFHTJVhmILI0NJ7KIz6W7vcEkAR3gJrYpPYNZemp8wo5poxj8iyovI3E0eFxYVzrQ09n2L0bSmzdnm1AGTmUeIaR+zeULs+xZDJNAPyedFOAlNlWEJQCVLgcrDQKJU2GSBsT5wf5tMKBNXvhdYWglYSWByGBjpBP8aCuojrPf2zZhgShmxKudAuy+DdlwAUstMRSPvwK2nwBNfQaXlwP57oA17TWtTY0BnA7irCYYvNZZ4YcZWdFYpAWC2UcVRUM3VAAFH1uwSww8EJ0SPtAQJ2JIqA9XWgypPwKtXNqciPOF4I9cv3YAoofV7wMuqgZXVkTgsWiPGvR42j9wkoX3xwDEuyBXbCmNsPV7dPrUBEt4soDgpQYnCGDvNPST8W/OR8EF0DE/EIco+Xb7d+WJC/f2FMB8SiIqJLJwkNhbHMRAHY8RXlCdstga28HFwnOB1AtPTpwhP2MFDzstiM7ULAhQuIDQKikNUq7xLAjHB7BJw+zF2GTN42WOZaJ4xwb/lCv7e6/Cj8p3hmOw0MCqYScGurgItXp4jGvuesHfOvh0MdEE/vyJF2ntRlHEHFy2HqjkHVXdpDq/bb4I77oAnf8xtxCarjjWFZEcUCS2+oFw9xh9boDsfyfg0cuzI2al+1Sgvj+UQ16310G9uuRCaCUI7tvo/IHu7VjxSZnqMI0hIPTHhRrvLmsdHc4ZDQlS3XQcqauWVfOoSmvGe8YUl3vkJ463UPJWXhFQ9Q/mc5glX7wrg82uZs6QWibvGHqcv3r7xpCpWz+w0DbSZB8j+BueVOxfSEKKH3fep3WuXfMwpfXFtjxxnFf6f9CUbhzcinyfs3CDLOilezsylVTFbFuMJooN+Vso/kGwY6EoksEnc0lusCttNUe5mUjV0bSjwTyzyups6v3YrlVi75RTXiY8S8R6KWc1S97FKy4pvbOFt6sZgDxakgPwBnSGqSUuOBR0AAAAASUVORK5CYII="
-                  alt="apple-books"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li class="shopping-list-books-items">
-      <div class="shopping-list-books-information">
-        <div class="shopping-list-basket-img">
-          <img
-            id="643282b2e85766588626a0f2"
-            class="shopping-list-img"
-            src="https://storage.googleapis.com/du-prd/books/images/9781501110375.jpg"
-            alt="book-cover"
-          />
-        </div>
-        <div>
-          <h2 class="shopping-list-books-title">IT ENDS WITH US</h2>
-          <button type="button" class="shopping-list-button">
-            <svg class="shopping-list-delete" width="16" height="16">
-              <use href="/project-bookworms/assets/icons-384324b2.svg#icon-trash"></use>
-            </svg>
-          </button>
-          <h3 class="shopping-list-books-category">Audio Fiction</h3>
-          <p class="shopping-list-books-desc">
-            A battered wife raised in a violent home attempts to halt the cycle
-            of abuse. Read by Olivia Song. 11 hours, 11 minutes unabridged.
-          </p>
-          <p class="shopping-list-author">Collen Hover</p>
-
-          <ul class="shopping-list-shop-list">
-            <li class="shopping-list-shop-list-items">
-              <a
-                class="shopping-list-shop-list-link"
-                target="_blank"
-                href="https://www.amazon.com/Ends-Us-Novel-Colleen-Hoover-ebook/dp/B0176M3U10?tag=NYTBSREV-20"
-              >
-                <img
-                  class="shopping-list-link-amazon"
-                  src="data:image/png;base64,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"
-                  alt="logo-amazon"
-                />
-              </a>
-            </li>
-            <li class="shopping-list-shop-list-items">
-              <a
-                class="shopping-list-shop-list-link"
-                target="_blank"
-                href="https://books.apple.com/us/audiobook/it-ends-with-us-unabridged/id1439482144"
-              >
-                <img
-                  class="shopping-list-link-apple"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAN4SURBVHgB7VdLaBRBEH3Vk91VokYFv/EQA0bjwQ8i8RAEiRc/KCp4EsWLN8GDiF48BmL8YC4aUERv6inghxwSEUQCQTQBMRdjkHzRIEmUmM1ulzUzSXZ6ZnZ2jOstBc1sd7+uel1d1V0LLIgrFDXJD1NVWZ2pJdAqBSTB0XifZtYa0wwetBJWJ51Of8oPDTN+H5sZicfyczv+VWwL7PzqJTVdR2fRFwYxCTQnt7DFHTJVhmILI0NJ7KIz6W7vcEkAR3gJrYpPYNZemp8wo5poxj8iyovI3E0eFxYVzrQ09n2L0bSmzdnm1AGTmUeIaR+zeULs+xZDJNAPyedFOAlNlWEJQCVLgcrDQKJU2GSBsT5wf5tMKBNXvhdYWglYSWByGBjpBP8aCuojrPf2zZhgShmxKudAuy+DdlwAUstMRSPvwK2nwBNfQaXlwP57oA17TWtTY0BnA7irCYYvNZZ4YcZWdFYpAWC2UcVRUM3VAAFH1uwSww8EJ0SPtAQJ2JIqA9XWgypPwKtXNqciPOF4I9cv3YAoofV7wMuqgZXVkTgsWiPGvR42j9wkoX3xwDEuyBXbCmNsPV7dPrUBEt4soDgpQYnCGDvNPST8W/OR8EF0DE/EIco+Xb7d+WJC/f2FMB8SiIqJLJwkNhbHMRAHY8RXlCdstga28HFwnOB1AtPTpwhP2MFDzstiM7ULAhQuIDQKikNUq7xLAjHB7BJw+zF2GTN42WOZaJ4xwb/lCv7e6/Cj8p3hmOw0MCqYScGurgItXp4jGvuesHfOvh0MdEE/vyJF2ntRlHEHFy2HqjkHVXdpDq/bb4I77oAnf8xtxCarjjWFZEcUCS2+oFw9xh9boDsfyfg0cuzI2al+1Sgvj+UQ16310G9uuRCaCUI7tvo/IHu7VjxSZnqMI0hIPTHhRrvLmsdHc4ZDQlS3XQcqauWVfOoSmvGe8YUl3vkJ463UPJWXhFQ9Q/mc5glX7wrg82uZs6QWibvGHqcv3r7xpCpWz+w0DbSZB8j+BueVOxfSEKKH3fep3WuXfMwpfXFtjxxnFf6f9CUbhzcinyfs3CDLOilezsylVTFbFuMJooN+Vso/kGwY6EoksEnc0lusCttNUe5mUjV0bSjwTyzyups6v3YrlVi75RTXiY8S8R6KWc1S97FKy4pvbOFt6sZgDxakgPwBnSGqSUuOBR0AAAAASUVORK5CYII="
-                  alt="apple-books"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
+    </li> -->
   </ul>
 </section>
 
@@ -509,7 +343,7 @@
   </button>
 </div>
 
-    <div class="backdrop" id="modalBackdrop">
+    <!-- <div class="backdrop" id="modalBackdrop">
     <div class="modal" id="modalContent">
         <div class="btn-sign-in">
             <button type="button" class="btn-register-logi-in" data-action="registration" style="display: flex;">
@@ -539,7 +373,7 @@
             </button>
         </div>
     </div>
-</div>
+</div> -->
     
   </body>
 </html>
