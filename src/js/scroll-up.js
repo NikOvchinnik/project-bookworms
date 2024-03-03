@@ -1,6 +1,6 @@
 let calcScrollValue = () => {
-    let scrollProgress = document.querySelector(".progress");
-    let progressValue = document.querySelector(".progress-value");
+    let scrollProgress = document.querySelector('.scroll-container');
+    let progressValue = document.querySelector('.scroll-btn');
     let pos = document.documentElement.scrollTop
     let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     if (pos > 100) {

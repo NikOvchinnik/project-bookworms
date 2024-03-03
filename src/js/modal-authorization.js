@@ -34,7 +34,7 @@ export function openAuthModal() {
   <div class="auth-modal">
     <button class="auth-close-btn" type="button">
       <svg class="auth-close-icon" width="20" height="20">
-        <use href="../img/icons.svg#icon-x-close"></use>
+        <use href="./img/icons.svg#icon-x-close"></use>
       </svg>
     </button>
 
@@ -55,11 +55,11 @@ export function openAuthModal() {
             type="email"
             name="email"
             id="auth-email"
-            placeholder="eMAIL"
+            placeholder="email"
             required
           />
           <svg class="auth-input-icon" width="18" height="18">
-            <use href="../img/icons.svg#icon-mail"></use>
+            <use href="./img/icons.svg#icon-mail"></use>
           </svg>
         </div>
 
@@ -69,11 +69,11 @@ export function openAuthModal() {
             type="password"
             name="password"
             id="auth-password"
-            placeholder="pASSWORD"
+            placeholder="password"
             required
           />
           <svg class="auth-input-icon" width="18" height="18">
-            <use href="../img/icons.svg#icon-lock"></use>
+            <use href="./img/icons.svg#icon-lock"></use>
           </svg>
         </div>
       </div>

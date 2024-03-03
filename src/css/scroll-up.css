@@ -1,36 +1,29 @@
-.progress {
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    width: 64px;
-    height: 64px;
-    display: none;
-    place-items: center;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-
+.scroll-container {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 .scroll-to-top {
-    fill: #fff;
-    width: 40px;
-    height: 40px;
+  fill: var(--white-color);
 }
 
-.progress-value {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #4F2EE8;
-    border: none;
-    padding: 23px 0px 11px 25px;
+.scroll-btn {
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--action-color);
+  border: none;
 }
 
-.progress-value:hover {
-    border: 10px solid rgba(98, 66, 241, 0.7);
-    padding: 13px 0px 1px 15px;
+.scroll-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
