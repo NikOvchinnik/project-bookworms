@@ -8,9 +8,12 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
+//name of key for localstorage, contains uid, name, mail,
 const AUTH_KEY_LS = 'user-data';
+//user is signed in if true
 let isSignedIn = false;
-let authUser = '';
+//name of signed in user
+export let authUser = '';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -48,7 +51,7 @@ export function openAuthModal() {
           name="name"
           id="auth-name"
           placeholder="name"
-          
+          required
         />
 
         <div class="auth-email-wrapper">
@@ -126,6 +129,8 @@ export function openAuthModal() {
     authModal.classList.add('auth-modal-sign-in');
     //renaming button
     authSubmitBtn.textContent = 'Sign in';
+    //required for name input delete
+    authNameInput.removeAttribute('required');
   });
 
   //sign up pressed
@@ -140,6 +145,8 @@ export function openAuthModal() {
     authModal.classList.remove('auth-modal-sign-in');
     //renaming button
     authSubmitBtn.textContent = 'Sign up';
+    //required for name input delete
+    authNameInput.setAttribute('required', 'true');
   });
 
   authForm.addEventListener('submit', onAuthFormSubmit);
@@ -169,6 +176,7 @@ export function openAuthModal() {
         addToLS(AUTH_KEY_LS, userInfo);
         //form reset
         authForm.reset();
+        //close modal
         authInstance.close();
       }
     }
@@ -189,18 +197,15 @@ export function openAuthModal() {
         addToLS(AUTH_KEY_LS, userInfo);
         //form reset
         authForm.reset();
+        //close modal
         authInstance.close();
       }
-
-      //and close modal
-      //authInstance.close();
-      //header button shows authUser value
       console.log('log in success');
     }
   }
 }
 
-// for header.js
+//! for header.js
 // import { openAuthModal } from './modal-authorization';
 //open the authoriztion modal, if button Sign up pressed
 const authOpenModalBtn = document.querySelector(
@@ -210,8 +215,7 @@ const authOpenModalBtn = document.querySelector(
 //check if button 'sign up' in header is pressed
 authOpenModalBtn.addEventListener('click', openAuthModal);
 
-//! //////////////////////////////////////////////////////////
-//! firebase
+//! firebase functions
 
 // sign up of new user
 async function registerWithEmailAndPassword(email, password) {
@@ -247,7 +251,7 @@ async function loginWithEmailAndPassword(email, password) {
   }
 }
 
-// sign up
+// sign up handle
 async function handleRegistration(email, password) {
   try {
     const response = await registerWithEmailAndPassword(email, password);
@@ -263,7 +267,7 @@ async function handleRegistration(email, password) {
   }
 }
 
-// sign in
+// sign in handle
 async function handleSignIn(email, password) {
   try {
     const response = await loginWithEmailAndPassword(email, password);
@@ -277,11 +281,3 @@ async function handleSignIn(email, password) {
     console.log('login error');
   }
 }
-
-// const user = await handleSignIn('alisa@ukr.net', '12345678');
-// console.log(user.email); //email
-// console.log(user.uid); //uid
-// console.log(user.auth.config.authDomain); //authDomain хз нащо
-// await handleRegistration('vosha2@vo.sha', '12345678');
-
-//! ///////////////////////////
