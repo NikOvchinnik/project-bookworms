@@ -5,9 +5,11 @@
   background-color: var(--action-color);
   top: 0;
   left: 0;
+  z-index: 2;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .auth-modal {
   width: 335px;
   height: 384px;
@@ -21,6 +23,7 @@
   padding: 40px 20px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .auth-close-btn {
   position: absolute;
   top: 14px;
@@ -28,21 +31,25 @@
   border: none;
   background-color: transparent;
 }
+
 .auth-close-icon {
   fill: var(--main-text-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .auth-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
 }
+
 .auth-inputs-wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 .auth-form-input {
   width: 295px;
   height: 50px;
@@ -56,20 +63,25 @@
   text-transform: uppercase;
   color: var(--main-text-color);
 }
+
 .auth-form-input::placeholder {
   color: var(--main-text-color);
 }
+
 .auth-email-wrapper {
   position: relative;
 }
+
 .auth-input-icon {
   position: absolute;
   right: 24px;
   top: 16px;
 }
+
 .auth-password-wrapper {
   position: relative;
 }
+
 .auth-submit-btn {
   border-radius: 40px;
   padding: 16px 116x;
@@ -83,14 +95,17 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
+
 .auth-sign-list {
   margin-top: 14px;
   display: flex;
   gap: 20px;
   justify-content: center;
 }
+
 .auth-sign-item {
 }
+
 .sign-up-btn {
   padding: 0;
   font-weight: 700;
