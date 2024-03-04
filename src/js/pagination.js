@@ -1,10 +1,11 @@
 import tuiPagination from 'tui-pagination';
-import { keyToLS } from './refs.js'
+import { getFromLS } from './local-storage-functions';
+
 const paginationElement = document.getElementById('pagination');
 const itemsPerPage = 3;
 
 const getTotalBooks = () => {
-    const myArray = getFromLS(keyToLS) || [];
+    const myArray = getFromLS("idBooks") || [];
     return myArray.length;
 };
 
@@ -27,7 +28,7 @@ const updatePagination = (totalBooks, currentPage) => {
     if (totalBooks <= 3) {
         paginationContainer.style.display = 'none';
     } else {
-        paginationContainer.style.display = 'block';
+        paginationContainer.style.display = 'flex';
     }
 };
 

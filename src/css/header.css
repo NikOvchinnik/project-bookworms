@@ -30,7 +30,17 @@
   display: none;
 }
 
+.is-active {
+    border-radius: 36px;
+    background-color: var(--nav-color);
+    font-weight: 700;
+  }
+
 .btn-register {
+  display: none;
+}
+
+.btn-register-login {
   display: none;
 }
 
@@ -73,11 +83,17 @@
   transform: translateX(20px);
 }
 
+.btn-close {
+  display: none;
+}
+
 .btn-header {
   background-color: inherit;
   border: none;
   padding: 18px 0;
 }
+
+
 
 .btn-header:hover .icon-burger,
 .btn-header:focus .icon-burger {

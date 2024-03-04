@@ -1,7 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { iziToastMessage } from './izi-toast';
-import { addToLS, getFromLS } from './local-storage-functions';
+import { addToLS, getFromLS, removeFromLS } from './local-storage-functions';
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { onBugerMenuClick } from './header-modal';
 
 //name of key for localstorage, contains uid, name, mail,
 const AUTH_KEY_LS = 'user-data';
@@ -22,6 +23,34 @@ export let authId = userData && userData.uid ? userData.uid : '';
 
 //user is signed in if true
 export let isSignedIn = authUser ? true : false;
+
+const btnLogin = document.querySelector('.btn-register-login');
+const btnRegister = document.querySelector('.btn-register');
+const userNameSpan = document.querySelector('.name-user-login');
+const userNameModal = document.querySelector('.user-name-modal');
+
+function btnHeader() {
+  if (isSignedIn) {
+    btnLogin.classList.add('is-open-register');
+    btnLogin.classList.remove('is-closed-register');
+    btnRegister.classList.add('is-closed-register');
+    btnRegister.classList.remove('is-open-register');
+
+    // btnLogin.style.display = 'flex';
+    // btnRegister.style.display = 'none';
+    userNameSpan.textContent = authUser;
+    userNameModal.textContent = authUser;
+  } else {
+    btnLogin.classList.add('is-closed-register');
+    btnLogin.classList.remove('is-open-register');
+    btnRegister.classList.add('is-open-register');
+    btnRegister.classList.remove('is-closed-register');
+    // btnLogin.style.display = 'none';
+    // btnRegister.style.display = 'flex';
+  }
+}
+
+btnHeader();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -125,6 +154,7 @@ export function openAuthModal() {
           name="name"
           id="auth-name"
           placeholder="name"
+          maxlength="20"
           required
         />
 
@@ -149,6 +179,7 @@ export function openAuthModal() {
             name="password"
             id="auth-password"
             placeholder="password"
+            maxlength="20"
             required
           />
           <svg class="auth-input-icon" width="18" height="18">
@@ -179,6 +210,8 @@ export function openAuthModal() {
         document.addEventListener('keydown', onEscKeyPress);
       },
       onClose: instance => {
+        btnHeader();
+        onBugerMenuClick();
         //removing EventListener if lightbox is being closed
         document.removeEventListener('keydown', onEscKeyPress);
       },
@@ -196,7 +229,6 @@ export function openAuthModal() {
   }
 
   //refs
-  const authCloseBtn = document.querySelector('.auth-close-btn');
   const authModal = document.querySelector('.auth-modal');
   const authNameInput = document.querySelector('#auth-name');
   const authForm = document.querySelector('.auth-form');
