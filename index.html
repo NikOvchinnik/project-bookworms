@@ -18,20 +18,16 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
       rel="stylesheet"
     />
-     <link
-      rel="stylesheet"
-      href="https://uicdn.toast.com/tui.grid/latest/tui-grid.css"
-    />
     <link
       rel="stylesheet"
-      href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
     
-    <script type="module" crossorigin src="/project-bookworms/assets/vendor-a7101657.js"></script>
-    <script type="module" crossorigin src="/project-bookworms/assets/scroll-up-51fab632.js"></script>
+    <script type="module" crossorigin src="/project-bookworms/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/vendor-a7101657.js">
+    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/scroll-up-a5bbb05a.js">
     <link rel="stylesheet" href="/project-bookworms/assets/vendor-864241e7.css">
-    <link rel="stylesheet" href="/project-bookworms/assets/scroll-up-701cc567.css">
+    <link rel="stylesheet" href="/project-bookworms/assets/scroll-up-2d9a4b38.css">
   </head>
   <body>
     <header class="header">
@@ -43,7 +39,7 @@
     <span class="logo-name-header">Bookshelf</span>
   </a>
 
-  <nav class="nav-list-header" id="userNav">
+  <nav class="nav-list-header " id="userNav">
     <ul class="list-menu-header">
       <li class="item-menu-header">
         <a href="./index.html" class="link-home">Home</a>
@@ -126,12 +122,21 @@
       <div class="main-container container">
         <div class="main-sidebar">
           <section class="categories">
-  <h2 class="visually-hidden">Categories</h2>
-  <ul class="categories-list">
-    <!-- <li class="categories-item">
-      <a href="" class="categories-link">All categories</a>
-    </li> -->
-  </ul>
+    
+    <h2 class="visually-hidden">categories</h2>
+    
+   
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <ul class="categories-list swiper-slide">
+        
+          </ul>
+          </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+
 </section>
 
           <section class="support-container">
@@ -262,76 +267,10 @@
 
         </div>
         <div class="main-content">
+        
           <section class="bestsellers">
   <span class="loader visually-hidden"></span>
-  <!-- <h1 class="bestsellers-title">
-    Best Sellers <span class="last-world-title">Books</span>
-  </h1>
-  <ul class="category-list-bestsellers">
-    <li class="category-item-bestsellers">
-      <h2 class="category-title-bestsellers">
-        Combined Print and E-Book Fiction
-      </h2>
-      <ul class="books-list">
-        <li class="book-item">
-          <a href="" class="book-link">
-            <img
-              class="book-image"
-              src="https://storage.googleapis.com/du-prd/books/images/9780735211292.jpg"
-              alt="book"
-            />
-          </a>
-          <h3 class="book-title">I will find you</h3>
-          <p class="book-author">Harlan Coben</p>
-        </li>
-        <li class="book-item">
-          <a href="" class="book-link">
-            <img
-              class="book-image"
-              src="https://storage.googleapis.com/du-prd/books/images/9780735211292.jpg"
-              alt="book"
-            />
-          </a>
-          <h3 class="book-title">I will find you</h3>
-          <p class="book-author">Harlan Coben</p>
-        </li>
-        <li class="book-item">
-          <a href="" class="book-link">
-            <img
-              class="book-image"
-              src="https://storage.googleapis.com/du-prd/books/images/9780735211292.jpg"
-              alt="book"
-            />
-          </a>
-          <h3 class="book-title">I will find you</h3>
-          <p class="book-author">Harlan Coben</p>
-        </li>
-        <li class="book-item">
-          <a href="" class="book-link">
-            <img
-              class="book-image"
-              src="https://storage.googleapis.com/du-prd/books/images/9780735211292.jpg"
-              alt="book"
-            />
-          </a>
-          <h3 class="book-title">I will find you</h3>
-          <p class="book-author">Harlan Coben</p>
-        </li>
-        <li class="book-item">
-          <a href="" class="book-link">
-            <img
-              class="book-image"
-              src="https://storage.googleapis.com/du-prd/books/images/9780735211292.jpg"
-              alt="book"
-            />
-          </a>
-          <h3 class="book-title">I will find you</h3>
-          <p class="book-author">Harlan Coben</p>
-        </li>
-      </ul>
-      <button type="submit" class="books-list-btn">see more</button>
-    </li>
-  </ul> -->
+  <div class="books-container"></div>
 </section>
 
         </div>
@@ -357,14 +296,6 @@
     </div>
 </div>
     </footer>
-    <div class="scroll-container">
-  <button class="scroll-btn">
-    <svg class="scroll-to-top" width="24" height="24">
-      <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-scroll-up"></use>
-    </svg>
-  </button>
-</div>
-
     <div class="backdrop" id="modalBackdrop">
   <div class="modal" id="modalContent">
     <button type="button" class="btn-register btn-register-modal">
@@ -411,7 +342,16 @@
   </div>
 </div>
 
+    <div class="scroll-container">
+  <button class="scroll-btn">
+    <svg class="scroll-to-top" width="24" height="24">
+      <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-scroll-up"></use>
+    </svg>
+  </button>
+</div>
+
     
     
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
