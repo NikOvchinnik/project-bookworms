@@ -8,3 +8,5 @@ import './js/pagination';
 import './js/scroll-up';
 import './js/header-modal';
 import './js/modal-authorization';
+import './js/izi-toast';
+import './js/dark-theme';
