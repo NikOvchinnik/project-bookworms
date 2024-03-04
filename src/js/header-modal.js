@@ -1,3 +1,5 @@
+//Відкривання модального вікна у моб версії та зміна бургеру на хрестик
+
 document.addEventListener('DOMContentLoaded', function () {
   const menuBtn = document.getElementById('menuBtn');
   const closeBtn = document.getElementById('closeBtn');
@@ -43,3 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+//refs
+
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalContent = document.getElementById('modalContent');
+const registerLoginBtn = document.querySelector('.register-logi-in');
+const userNav = document.getElementById('userNav');
+const menuHome = document.querySelector('.menu-home-login');
+const shopList = document.querySelector('.shop-list-login');
+const btnRegisterLogout = document.querySelector('.btn-register-logout');
