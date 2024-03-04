@@ -1,5 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { initializeApp } from 'firebase/app';
 import {
@@ -38,7 +40,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 //Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-// console.log(database);
 
 // save name and shoplist by uid from input shopList-parameter to FB
 async function saveBooksToFB(shopList = []) {
@@ -47,13 +48,12 @@ async function saveBooksToFB(shopList = []) {
     uid: authId,
     shopList,
   };
+
   try {
-    console.log(userInfo);
     const userRef = ref(database, `users/${userInfo.uid}`);
     const setResponse = await set(userRef, userInfo);
-    console.log('Інформація про користувача успішно збережена.');
   } catch (error) {
-    console.error('Помилка збереження інформації про користувача:', error);
+    console.error('Error while saving shoplist to Realtime Database:', error);
   }
 }
 
@@ -90,7 +90,6 @@ function updShoplistFromFBToLS(uid = authId) {
   //read user data from database
   onValue(userRef, snapshot => {
     const userData = snapshot.val(); // user data
-    console.log('116 userdata = ', userData);
     if (userData) {
       if (userData.shopList) {
         addToLS('idBooks', userData.shopList);
@@ -98,7 +97,7 @@ function updShoplistFromFBToLS(uid = authId) {
         addToLS('idBooks', []);
       }
     } else {
-      console.log('error');
+      console.log('error while copying from Realtime Database to localstorage');
     }
   });
 }
@@ -236,49 +235,58 @@ export function openAuthModal() {
     //sign in or sign up check
     if (authBtnValue === 'sign up') {
       //try to sign up
-      const resp = await handleRegistration(userEmail, userPassword);
+      try {
+        const resp = await handleRegistration(userEmail, userPassword);
 
-      //if sign up success
-      if (isSignedIn == true) {
-        const userInfo = {
-          uid: resp.uid,
-          name: userName,
-          mail: userEmail,
-        };
-        //save to global
-        authUser = userName;
-        //save mail and uid to LS
-        addToLS(AUTH_KEY_LS, userInfo);
-        //save empty shoplist with name and uid to FB
-        saveBooksToFB();
-        //form reset
-        authForm.reset();
-        //close modal
-        authInstance.close();
+        //if sign up success
+        if (isSignedIn == true) {
+          const userInfo = {
+            uid: resp.uid,
+            name: userName,
+            mail: userEmail,
+          };
+          //save to global
+          authUser = userName;
+          //save mail and uid to LS
+          addToLS(AUTH_KEY_LS, userInfo);
+          //save empty shoplist with name and uid to FB
+          saveBooksToFB();
+          //form reset
+          authForm.reset();
+          //close modal
+          authInstance.close();
+          showInfo('Registration successfull!');
+        }
+      } catch (e) {
+        showError('Error');
       }
     }
 
     if (authBtnValue === 'sign in') {
-      //try to sign in
-      const resp = await handleSignIn(userEmail, userPassword);
+      try {
+        //try to sign in
+        const resp = await handleSignIn(userEmail, userPassword);
 
-      //if true => save mail and uid to LS
-      if (isSignedIn == true) {
-        const userInfo = {
-          uid: resp.uid,
-          name: authUser,
-          mail: userEmail,
-        };
-        //save mail and uid to LS
-        addToLS(AUTH_KEY_LS, userInfo);
-        //get shoppingList from firebase account
-        updShoplistFromFBToLS();
-        //form reset
-        authForm.reset();
-        //close modal
-        authInstance.close();
+        //if true => save mail and uid to LS
+        if (isSignedIn == true) {
+          const userInfo = {
+            uid: resp.uid,
+            name: authUser,
+            mail: userEmail,
+          };
+          //save mail and uid to LS
+          addToLS(AUTH_KEY_LS, userInfo);
+          //get shoppingList from firebase account
+          updShoplistFromFBToLS();
+          //form reset
+          authForm.reset();
+          //close modal
+          authInstance.close();
+          showInfo('Signed in successfull!');
+        }
+      } catch (e) {
+        showError('Error');
       }
-      console.log('log in success');
     }
   }
 }
@@ -304,7 +312,6 @@ async function registerWithEmailAndPassword(email, password) {
       password
     );
     const user = userCredential.user;
-    console.log('Registered user:', user);
     return user;
   } catch (error) {
     console.error('Registration error:', error.message);
@@ -321,7 +328,6 @@ async function loginWithEmailAndPassword(email, password) {
       password
     );
     const user = userCredential.user;
-    console.log('Signed in user:', user);
     return await user;
   } catch (error) {
     console.error('Sign-in error:', error.message);
@@ -341,8 +347,8 @@ async function handleRegistration(email, password) {
     isSignedIn = false;
     authUser = '';
     authId = '';
-    console.log('registration error');
-    // handle errors
+    console.log('Registration error!');
+    showError('Registration error!');
   }
 }
 
@@ -353,17 +359,14 @@ async function handleSignIn(email, password) {
     isSignedIn = true;
     authId = await response.uid;
     authUser = await getNameFromFB();
-    console.log('authUser in handle: ', authUser);
-    console.log('authId in handle: ', authId);
-    console.log('authUser in handle: ', authUser);
-    console.log('response.uid in handle', response.uid);
     return response;
   } catch (error) {
     // handle errors
     isSignedIn = false;
     authUser = '';
     authId = '';
-    console.log('login error');
+    console.log('Login error!');
+    showError('Login error!');
   }
 }
 
@@ -375,4 +378,20 @@ export function authLogOut() {
   authId = '';
   authUser = '';
   isSignedIn = false;
+}
+
+//show message error styling
+function showError(msg) {
+  iziToast.error({
+    message: msg,
+    position: 'topRight',
+  });
+}
+
+//show message info styling
+function showInfo(msg) {
+  iziToast.info({
+    message: msg,
+    position: 'topRight',
+  });
 }
