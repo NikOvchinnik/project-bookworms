@@ -19,17 +19,17 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/project-bookworms/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/styles-d6302b54.js">
-    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/vendor-deadc8be.js">
-    <link rel="stylesheet" href="/project-bookworms/assets/styles-64a6b751.css">
+    <script type="module" crossorigin src="/project-bookworms/assets/vendor-861099d4.js"></script>
+    <script type="module" crossorigin src="/project-bookworms/assets/modal-authorization-25ec7dda.js"></script>
+    <link rel="stylesheet" href="/project-bookworms/assets/vendor-e5212ee8.css">
+    <link rel="stylesheet" href="/project-bookworms/assets/modal-authorization-b93937e3.css">
   </head>
   <body>
     <header class="header">
       <div class="container-header container">
   <a href="./index.html" class="logo-header">
     <svg class="icon-logo-header" width="24" height="24">
-      <use href="/project-bookworms/assets/icons-384324b2.svg#icon-logo"></use>
+      <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-logo"></use>
     </svg>
     <span class="logo-name-header">Bookshelf</span>
   </a>
@@ -43,7 +43,7 @@
         <a href="./shopping-list.html" class="link-shoplist"
           >Shopping List
           <svg class="icon-shop" width="20" height="20">
-            <use href="/project-bookworms/assets/icons-384324b2.svg#icon-shop"></use>
+            <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-shop"></use>
           </svg>
         </a>
       </li>
@@ -63,35 +63,54 @@
       </label>
     </form>
 
-    <button
-      type="button"
-      class="btn-header"
-      id="menuBtn"
-      data-action="toggle-menu"
-    >
+    <button type="button" class="btn-header" id="menuBtn">
       <svg class="icon-burger" width="28" height="28">
-        <use href="/project-bookworms/assets/icons-384324b2.svg#icon-burger"></use>
+        <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-burger"></use>
       </svg>
     </button>
 
-    <button type="button" class="btn-register" data-action="registration" >
+    <button
+      class="btn-header"
+      type="button"
+      id="closeBtn"
+      style="display: none"
+    >
+      <svg class="button-close-icon" width="28" height="28">
+        <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <button type="button" class="btn-register"> 
       Sign up
       <svg class="icon-arrow-right" width="20" height="20">
-        <use href="/project-bookworms/assets/icons-384324b2.svg#icon-arrow-right"></use>
+        <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-arrow-right"></use>
       </svg>
     </button>
 
-    <button type="button" class="btn-register-login" data-action="registration" style="display: none;" >
+    <button
+      type="button"
+      class="btn-register-login"
+      style="display: none"
+    >
       <span class="span-icon-user">
         <svg class="icon-user" width="19" height="19">
-          <use href="/project-bookworms/assets/icons-384324b2.svg#icon-user"></use>
+          <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-user"></use>
         </svg>
       </span>
       <span class="name-user-login">User</span>
-        <svg class="icon-scroll-down" width="15" height="8">
-          <use href="/project-bookworms/assets/icons-384324b2.svg#icon-down-menu"></use>
-        </svg>
+      <svg class="icon-scroll-down" width="15" height="8">
+        <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-down-menu"></use>
+      </svg>
     </button>
+
+    <div class="popup-container" id="popupContainer">
+      <button type="button" class="btn-popup">
+        <span>Log out</span>
+        <svg class="icon-arrow-right" width="20" height="20">
+          <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -112,7 +131,7 @@
   <h2 class="support-heading">
     Support Ukraine<span>
       <svg class="support-heading-svg" width="20" height="32">
-        <use href="/project-bookworms/assets/icons-384324b2.svg#icon-ukraine"></use>
+        <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-ukraine"></use>
       </svg>
     </span>
   </h2>
@@ -229,7 +248,7 @@
   </ul>
   <button class="support-btn ">
     <svg class="support-btn-icon" width="20" height="20">
-      <use href="/project-bookworms/assets/icons-384324b2.svg#icon-scroll-down"></use>
+      <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-scroll-down"></use>
     </svg>
   </button>
 </section>
@@ -315,7 +334,7 @@
           <div class="footer-container container">
   <a href="./index.html" class="logo-footer">
     <svg class="icon-logo-footer" width="24" height="24">
-      <use href="/project-bookworms/assets/icons-384324b2.svg#icon-logo"></use>
+      <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-logo"></use>
     </svg>
     <span class="logo-name-footer">Bookshelf Support</span>
   </a>
@@ -326,7 +345,7 @@
                 <input class="input-form" pattern="[0-9]*" type="tel" name="phone-number" placeholder="Enter your phone number"  required/>
             </label>
             <button type="submit" class="button-subscribe">
-                Subscribe
+                Send
         </form>
     </div>
 </div>
@@ -334,42 +353,57 @@
     <div class="scroll-container">
   <button class="scroll-btn">
     <svg class="scroll-to-top" width="24" height="24">
-      <use href="/project-bookworms/assets/icons-384324b2.svg#icon-scroll-up"></use>
+      <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-scroll-up"></use>
     </svg>
   </button>
 </div>
 
-    <!-- <div class="backdrop" id="modalBackdrop">
-    <div class="modal" id="modalContent">
-        <div class="btn-sign-in">
-            <button type="button" class="btn-register-logi-in" data-action="registration" style="display: flex;">
-                <svg class="icon-user" width="37" height="37">
-                    <use href="../img/icons.svg#icon-user"></use>
-                </svg>
-                <span>User</span>
-            </button>
+    <div class="backdrop" id="modalBackdrop">
+  <div class="modal" id="modalContent">
+    <button type="button" class="btn-register btn-register-modal">
+      Sign up
+      <svg class="icon-arrow-right" width="20" height="20">
+        <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-arrow-right"></use>
+      </svg>
+    </button>
+    <div class="btn-sign-in">
+      <div type="button" class="register-logi-in" style="display: flex">
+        <div class="icon-user-circle">
+          <svg class="icon-user-modal" width="19" height="19">
+            <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-user"></use>
+          </svg>
         </div>
-        <nav class="nav-list-login" id="userNav" style="display: flex;">
-            <ul class="list-menu-login">
-                <li class="menu-home-login"><a href="./index.html" class="link-home">Home</a></li>
-                <li class="shop-list-login"><a href="../shopping-list.html" class="link-shoplist-login">Shopping List
-                        <svg class="icon-shop-login" width="20" height="20">
-                            <use href="../img/icons.svg#icon-shop"></use>
-                        </svg>
-                    </a></li>
-            </ul>
-        </nav>
-        <div class="btn-sign-logout">
-            <button type="button" class="btn-register-logout" data-action="registration">Log out
-                <span>
-                    <svg class="icon-arrow-right" width="20" height="20">
-                        <use href="../img/icons.svg#icon-arrow-right"></use>
-                    </svg>
-                </span>
-            </button>
-        </div>
+        <span>User</span>
+      </div>
     </div>
-</div> -->
+    <nav class="nav-list-login" id="userNav" style="display: flex">
+      <ul class="list-menu-login">
+        <li class="menu-home-login">
+          <a href="./index.html" class="link-home">Home</a>
+        </li>
+        <li class="shop-list-login">
+          <a href="./shopping-list.html" class="link-shoplist-login"
+            >Shopping List
+            <svg class="icon-shop-login" width="20" height="20">
+              <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-shop"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="btn-sign-logout">
+      <button type="button" class="btn-register-logout">
+        Log out
+        <span>
+          <svg class="icon-arrow-right" width="20" height="20">
+            <use href="/project-bookworms/assets/icons-9141b45c.svg#icon-arrow-right"></use>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
     
     
   </body>
