@@ -51,7 +51,7 @@ const userInfo = {
 
 //!build version start
 // save name and shoplist by uid from input shopList-parameter to FB
-async function saveBooksToFB(shopList) {
+async function saveBooksToFB(shopList = []) {
   const userInfo = {
     name: authUser,
     uid: authId,
@@ -74,7 +74,7 @@ async function saveBooksToFB(shopList) {
 //!build version end
 
 //copy name from firebase database to localstorage
-function getNameFromFB(uid = authId) {
+function getNameFromFB2(uid = authId) {
   //link for user in database by uid
   const userRef = ref(database, `users/${uid}`);
 
@@ -91,8 +91,38 @@ function getNameFromFB(uid = authId) {
     }
   });
   console.log('getNAme: ');
+} //original
+
+//get promise with name
+function getPromiseNameFromFB(uid = authId) {
+  return new Promise(resolve => {
+    //link for user in database by uid
+    const userRef = ref(database, `users/${uid}`);
+    //read user data from database
+    onValue(userRef, snapshot => {
+      const userData = snapshot.val(); // user data
+      if (userData) {
+        resolve(userData.name);
+      } else {
+        resolve('');
+      }
+    });
+  });
 }
-getNameFromFB();
+let temp;
+//get name from firebase database
+async function getNameFromFB(uid = authId) {
+  return await getPromiseNameFromFB(uid);
+}
+
+// const ss = await getNameFromFB();
+// console.log(ss);
+
+// getNameFromFB()
+//   .then(res => {
+//     console.log(res);
+//   })
+//   .catch(e => console.log(e));
 //!build version start
 //copy shoplist from Firebase account to Localstorage for user id = uid
 function updShoplistFromFBToLS(uid = authId) {
@@ -258,6 +288,8 @@ export function openAuthModal() {
         };
         //save mail and uid to LS
         addToLS(AUTH_KEY_LS, userInfo);
+        //save empty shoplist with name and uid to FB
+        saveBooksToFB;
         //form reset
         authForm.reset();
         //close modal
@@ -341,7 +373,7 @@ async function handleRegistration(email, password) {
   try {
     const response = await registerWithEmailAndPassword(email, password);
     isSignedIn = true;
-    authUser = response.email;
+    // authUser = response.email;
     authId = response.uid;
     return await response;
     //  additional actions after successfull sign up
@@ -359,9 +391,11 @@ async function handleSignIn(email, password) {
   try {
     const response = await loginWithEmailAndPassword(email, password);
     isSignedIn = true;
-    authUser = await response.email;
     authId = await response.uid;
+    authUser = await getNameFromFB();
+    console.log('authUser in handle: ', authUser);
     console.log('authId in handle: ', authId);
+    console.log('authUser in handle: ', authUser);
     console.log('response.uid in handle', response.uid);
     return response;
   } catch (error) {
@@ -453,3 +487,5 @@ async function handleSignIn(email, password) {
 // setShoplistToLsFromFB(uid);
 // console.log('authUser: ', authUser);
 //!
+
+console.log('authUser = ', authUser);
