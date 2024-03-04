@@ -366,3 +366,13 @@ async function handleSignIn(email, password) {
     console.log('login error');
   }
 }
+
+//log out
+export function authLogOut() {
+  //remove user id,name,mail from localstorage
+  removeFromLS('user-data');
+  //clear global vars as unsigned user
+  authId = '';
+  authUser = '';
+  isSignedIn = false;
+}
