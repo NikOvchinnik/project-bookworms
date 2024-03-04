@@ -1,0 +1,118 @@
+#pagination {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+    border: none;
+}
+
+#pagination,
+.tui-page-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.tui-page-btn {
+    height: 44px;
+    width: 44px;
+    font-size: 18px;
+    border-radius: 50%;
+    color: #111;
+    cursor: pointer;
+    border: 1px solid #111;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.tui-page-btn:hover {
+
+    .tui-ico-first,
+    .tui-ico-prev,
+    .tui-ico-next,
+    .tui-ico-last {
+        color: #fff;
+        background-color: #111;
+    }
+
+    background-color: #111;
+    color: #fff;
+}
+
+.tui-is-selected {
+    color: #fff;
+    background-color: #111;
+}
+
+.tui-first,
+.tui-prev,
+.tui-next,
+.tui-last {
+    background-color: #eac645;
+    color: #000;
+}
+
+.tui-is-disabled {
+
+    .tui-ico-first,
+    .tui-ico-prev,
+    .tui-ico-next,
+    .tui-ico-last {
+        color: #b4afaf;
+        background-color: #111;
+    }
+
+    background-color: #111;
+}
+
+.tui-last-child {
+    margin-right: 24px;
+}
+
+.tui-ico-first::before,
+.tui-ico-prev::before,
+.tui-ico-next::before,
+.tui-ico-last::before {
+    content: "\00ab";
+    font-size: 24px;
+}
+
+.tui-ico-prev::before {
+    content: "\2039";
+}
+
+.tui-ico-next::before {
+    content: "\203a";
+}
+
+.tui-ico-last::before {
+    content: "\00bb";
+}
+
+.tui-ico-first,
+.tui-ico-prev,
+.tui-ico-next,
+.tui-ico-last {
+    color: #000;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+.tui-next,
+.tui-first {
+    margin-right: 8px;
+}
+
+.tui-prev {
+    margin-right: 24px;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}

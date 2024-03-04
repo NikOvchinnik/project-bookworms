@@ -24,13 +24,14 @@
   fill: var(--white-color);
 }
 
-.swiper-list {
+.support-list {
   display: flex;
   gap: 20px;
   flex-direction: column;
-  height: 292px;
-  overflow-y: auto;
+  height: 312px;
+  overflow-y: hidden;
 }
+
 
 .support-item {
   display: flex;
@@ -59,6 +60,15 @@
   border: none;
   border-radius: 50px;
   background-color: var(--white-color);
+  transform: rotate(180deg);
+}
+
+.support-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.scroll-up .support-btn-icon{
+  transform: rotate(180deg);
 }
 
 @media screen and (min-width: 768px) {

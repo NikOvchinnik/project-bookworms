@@ -1,5 +1,6 @@
 import './js/refs';
 import './js/books-api';
+import './js/local-storage-functions';
 import './js/header';
 import './js/categories';
 import './js/support';
@@ -10,3 +11,5 @@ import './js/header-modal';
 import './js/modal-window';
 import './js/modal-authorization';
 import './js/footer';
+import './js/izi-toast';
+import './js/dark-theme';
