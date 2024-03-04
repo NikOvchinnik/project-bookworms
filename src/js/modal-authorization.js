@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import { iziToastMessage } from './izi-toast';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { initializeApp } from 'firebase/app';
 import {
@@ -255,10 +256,10 @@ export function openAuthModal() {
           authForm.reset();
           //close modal
           authInstance.close();
-          showInfo('Registration successfull!');
+          iziToastMessage(true, 'Registration successfull!');
         }
       } catch (e) {
-        showError('Error');
+        iziToastMessage(false, 'Error');
       }
     }
 
@@ -282,10 +283,10 @@ export function openAuthModal() {
           authForm.reset();
           //close modal
           authInstance.close();
-          showInfo('Signed in successfull!');
+          iziToastMessage(true, 'Signed in successfull!');
         }
       } catch (e) {
-        showError('Error');
+        iziToastMessage(false, 'Error');
       }
     }
   }
@@ -294,9 +295,7 @@ export function openAuthModal() {
 //! for header.js start
 // import { openAuthModal } from './modal-authorization';
 //open the authoriztion modal, if button Sign up pressed
-const authOpenModalBtn = document.querySelector(
-  'button[data-action="registration"]'
-);
+const authOpenModalBtn = document.querySelector('button.btn-register');
 
 //check if button 'sign up' in header is pressed
 authOpenModalBtn.addEventListener('click', openAuthModal);
@@ -348,7 +347,7 @@ async function handleRegistration(email, password) {
     authUser = '';
     authId = '';
     console.log('Registration error!');
-    showError('Registration error!');
+    iziToastMessage(false, 'Registration error!');
   }
 }
 
@@ -366,7 +365,7 @@ async function handleSignIn(email, password) {
     authUser = '';
     authId = '';
     console.log('Login error!');
-    showError('Login error!');
+    iziToastMessage(false, 'Login error!');
   }
 }
 
@@ -378,20 +377,4 @@ export function authLogOut() {
   authId = '';
   authUser = '';
   isSignedIn = false;
-}
-
-//show message error styling
-function showError(msg) {
-  iziToast.error({
-    message: msg,
-    position: 'topRight',
-  });
-}
-
-//show message info styling
-function showInfo(msg) {
-  iziToast.info({
-    message: msg,
-    position: 'topRight',
-  });
 }
