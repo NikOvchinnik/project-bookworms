@@ -1,4 +1,5 @@
 import { openAuthModal } from './modal-authorization';
+import { authLogOut } from './modal-authorization';
 //Пересування бігунка для зміни режиму
 
 const toggleSwitch = document.getElementById('toggle');
@@ -33,17 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-//refs
-
-const logoHeader = document.querySelector('.logo-header');
-const linkHome = document.querySelector('.link-home');
-const linkShopList = document.querySelector('.link-shoplist');
-const toggleHeader = document.getElementById('toggle');
-const menuBtn = document.getElementById('menuBtn');
-const btnRegister = document.querySelector('.btn-register');
-const btnRegisterLogin = document.querySelector('.btn-register-login');
-const popupContainer = document.getElementById('popupContainer');
-
 //Відкриття модального вікна для авторизації
 
 const registerButton = document.querySelector('.btn-register');
@@ -53,13 +43,34 @@ registerButton.addEventListener('click', openAuthModal);
 //Натискання Log out
 
 const logoutBtn = document.querySelector('.btn-popup');
-const registerBtn = document.querySelector('.btn-register-logout');
 
 logoutBtn.addEventListener('click', () => {
-  const logoutUser = () => {
-    // Видалення данних з Local Storage
-    localStorage.removeItem('userData');
-  };
+  authLogOut();
 
   location.reload();
 });
+
+
+// Навігація сторінки
+
+const currentPage = window.location.pathname;
+
+const menuItems = document.querySelectorAll('.item-menu-header');
+
+menuItems.forEach(function (item) {
+  if (item.querySelector('a').getAttribute('href') === "." + currentPage) {
+    item.classList.add('is-active');
+  }
+});
+
+const menuItemsMobile = document.querySelectorAll('.nav-menu-link');
+
+menuItemsMobile.forEach(function (item) {
+  if (item.querySelector('a').getAttribute('href') === '.' + currentPage) {
+    item.classList.add('is-active');
+  }
+});
+
+
+
+
