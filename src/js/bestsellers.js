@@ -1,16 +1,13 @@
-
-
 import { getData } from './books-api';
-import {showLoader, hideLoader} from './loader.js'
+import { showLoader, hideLoader } from './loader.js';
 import { onCategoryClick } from './categories.js';
 import {
   renderCategoriesList,
   renderTitle,
   changeCategoryColor,
 } from './categories';
-import {categoriesList} from './refs.js'
-import { bookOnClick } from './modal-window';
-
+import { categoriesList } from './categories.js';
+// import { bookOnClick } from './modal-window';
 
 export const booksContainer = document.querySelector('.books-container');
 async function fetchTopBooks() {
@@ -18,7 +15,6 @@ async function fetchTopBooks() {
   const data = response.data;
   return data;
 }
-
 
 // ФУНКЦІЯ ЯКА ВІДМАЛЬОВУЄ БЕСТСЕЛЕРИ
 export async function renderBestSellersBooks() {
@@ -38,14 +34,12 @@ export async function renderBestSellersBooks() {
   hideLoader();
 }
 
-
 // функція для створення div-у з книгою
 function renderBooksBlock(books, title) {
   const booksListMarkup = books.map(book => templateBook(book)).join('');
   const bookSectionMarkup = `<div class="category-books-wrapper"><h2 class="category-title-bestsellers">${title}</h2><ul class="books-list">${booksListMarkup}</ul><button type="button" class="books-list-btn"" data-category-name="${title}">See more</button></div>`;
   return bookSectionMarkup;
 }
-
 
 // функція для створення li-шки з книгою
 function templateBook({ book_image, title, author, _id: id }) {
@@ -69,8 +63,8 @@ export async function onPageLoad() {
   await renderCategoriesList();
   await renderBestSellersBooks();
   booksContainer.addEventListener('click', onCategoryClick);
-  booksContainer.addEventListener('click', bookOnClick); 
+  // booksContainer.addEventListener('click', bookOnClick);
   categoriesList.addEventListener('click', onCategoryClick);
 }
 
-
+onPageLoad();

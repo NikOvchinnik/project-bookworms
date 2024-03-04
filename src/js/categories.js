@@ -1,13 +1,13 @@
 import { getData } from './books-api';
 import { renderBestSellersBooks } from './bestsellers';
-import {booksContainer} from './refs.js';
-import {showLoader, hideLoader} from './loader.js';
+import { booksContainer } from './bestsellers';
+import { showLoader, hideLoader } from './loader.js';
 export const categoriesList = document.querySelector('.categories-list');
 
 // Список категорій
 async function fetchCategoriesList() {
   const response = await getData('category-list');
- return response;
+  return response;
 }
 
 export async function renderCategoriesList() {
@@ -20,7 +20,6 @@ export async function renderCategoriesList() {
     const inAlphabeticalOrder = booksArray.sort((a, b) =>
       a.list_name.localeCompare(b.list_name)
     );
-   
 
     const allCategoriesListItem = `<li class="categories-list-item" ><p data-category-name="All Categories">All Categories</p></li>`;
     const markup = inAlphabeticalOrder
@@ -32,13 +31,11 @@ export async function renderCategoriesList() {
       )
       .join('');
 
-
     categoriesList.innerHTML = allCategoriesListItem + markup;
   } catch (error) {
     console.log(error);
   }
 }
-
 
 // КНИЖКИ
 export function renderTitle(categoryName) {
@@ -48,11 +45,9 @@ export function renderTitle(categoryName) {
     .slice(0, -1)
     .join(' ');
 
-
   const pageTitle = `<h1 class="books-container-title">${categoryNameWithoutLastWord}<span class="last-word-title"> ${titleLastWord}</span></h1>`; // Вставити класс замість className // Класи в андріани беремо.
   return pageTitle;
 }
-
 
 // Розміткa одного li елементу
 function renderBookByCategory(booksArray) {
@@ -73,25 +68,23 @@ function renderBookByCategory(booksArray) {
     </li>`;
     })
     .join('');
-  const markup = `<ul class="books-by-category-list">${booksMarkup}</ul>`; 
+  const markup = `<ul class="books-by-category-list">${booksMarkup}</ul>`;
   return markup;
 }
 
-
 // Це основна функція рендеру книжок за категорією. Імпортується до Андріани та вішається як колбек на слухач подій на кнопки See More
 async function renderCategoryBooks(categoryName) {
-    showLoader();
+  showLoader();
   const response = await getData('category', categoryName);
   const booksArray = response.data;
   const booksTitle = renderTitle(categoryName);
   const books = renderBookByCategory(booksArray);
-  const allCategoriesButtonMarkup = `<button class="books-list-btn all-categories-btn" type="button" data-category-name="All Categories">All Categories</button>`; 
+  const allCategoriesButtonMarkup = `<button class="books-list-btn all-categories-btn" type="button" data-category-name="All Categories">All Categories</button>`;
   const markup = booksTitle + books + allCategoriesButtonMarkup;
   booksContainer.innerHTML = markup;
   hideLoader();
   changeCategoryColor();
 }
-
 
 // Слухач подій
 export async function onCategoryClick(event) {
@@ -103,9 +96,8 @@ export async function onCategoryClick(event) {
   } else if (categoryName) {
     renderCategoryBooks(categoryName);
   }
-    return;
+  return;
 }
-
 
 export function changeCategoryColor() {
   const h1Text = document.querySelector('.books-container-title').textContent;
@@ -113,7 +105,6 @@ export function changeCategoryColor() {
     '.categories-list > .categories-list-item > p'
   );
   lis.forEach(li => li.classList.remove('current-category'));
-
 
   lis.forEach(li => {
     const liText = li.textContent.trim();
@@ -127,7 +118,6 @@ export function changeCategoryColor() {
   lis.forEach(li => {
     const liText = li.textContent.trim();
 
-
     if (h1Text === liText) {
       li.classList.add('current-category');
       return;
@@ -135,16 +125,12 @@ export function changeCategoryColor() {
   });
 }
 
-
-var swiper = new Swiper(".mySwiper", {
-    direction: "vertical",
-    slidesPerView: "auto",
-    freeMode: true,
-    scrollbar: {
-      el: ".swiper-scrollbar",
-    },
-    mousewheel: true,
-  });
-  renderCategoriesList()
-
-
+var swiper = new Swiper('.mySwiper', {
+  direction: 'vertical',
+  slidesPerView: 'auto',
+  freeMode: true,
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+  mousewheel: true,
+});
