@@ -1,8 +1,5 @@
-
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 import { iziToastMessage } from './izi-toast';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { initializeApp } from 'firebase/app';
@@ -17,9 +14,12 @@ import { getDatabase, ref, set, onValue } from 'firebase/database';
 const AUTH_KEY_LS = 'user-data';
 
 //name of signed in user
-export let authUser = getFromLS('user-data').name || '';
+const userData = getFromLS('user-data');
+export let authUser = userData && userData.name ? userData.name : '';
+
 //uid of signed user
-export let authId = getFromLS('user-data').uid || '';
+export let authId = userData && userData.uid ? userData.uid : '';
+
 //user is signed in if true
 export let isSignedIn = authUser ? true : false;
 
@@ -175,12 +175,25 @@ export function openAuthModal() {
       onShow: instance => {
         instance.element().querySelector('.auth-close-btn').onclick =
           instance.close;
+        // adding EventListener to check Escape pressed
+        document.addEventListener('keydown', onEscKeyPress);
+      },
+      onClose: instance => {
+        //removing EventListener if lightbox is being closed
+        document.removeEventListener('keydown', onEscKeyPress);
       },
     }
   );
 
   //basiclightbox instance show
   authInstance.show();
+  //checking if Escape is pressed
+  function onEscKeyPress(e) {
+    if (e.key === 'Escape') {
+      //if true, we're closing the instance
+      authInstance.close();
+    }
+  }
 
   //refs
   const authCloseBtn = document.querySelector('.auth-close-btn');
@@ -292,16 +305,6 @@ export function openAuthModal() {
     }
   }
 }
-
-//! for header.js start
-// import { openAuthModal } from './modal-authorization';
-//open the authoriztion modal, if button Sign up pressed
-const authOpenModalBtn = document.querySelector('button.btn-register');
-
-//check if button 'sign up' in header is pressed
-authOpenModalBtn.addEventListener('click', openAuthModal);
-
-//! for header.js end
 
 // sign up of new user
 async function registerWithEmailAndPassword(email, password) {

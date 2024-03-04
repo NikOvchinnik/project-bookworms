@@ -21,7 +21,7 @@ export function iziToastMessage(boolean, message) {
       titleColor: '#fff',
       titleSize: '16',
       titleLineHeight: '1.5',
-      message: 'Please, enter name of image',
+      message: message,
       messageColor: '#fff',
       messageSize: '16',
       messageLineHeight: '1.5',
