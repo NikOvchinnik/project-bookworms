@@ -55,6 +55,11 @@
   color: var(--main-text-color);
 }
 
+.auth-form-input:hover {
+  border-color: #eac645;
+  scale: 1.02;
+}
+
 .auth-form-input::placeholder {
   text-transform: uppercase;
   color: var(--main-text-color);
@@ -88,11 +93,22 @@
   text-transform: uppercase;
 }
 
+.auth-submit-btn:hover {
+  background-color: #4f2ee8;
+  scale: 1.02;
+  opacity: 0.8;
+}
+
 .auth-sign-list {
   margin-top: 14px;
   display: flex;
   gap: 20px;
   justify-content: center;
+}
+
+.auth-sign-item:hover {
+  background-color: #eac645;
+  border-radius: 5px;
 }
 
 .sign-up-btn {
