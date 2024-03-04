@@ -28,9 +28,10 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
-  height: 292px;
-  overflow-y: auto;
+  height: 312px;
+  overflow-y: hidden;
 }
+
 
 .support-item {
   display: flex;
