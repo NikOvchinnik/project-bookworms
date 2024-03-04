@@ -53,16 +53,20 @@ registerButton.addEventListener('click', () => {
 });
 
 
-//Натискання Log out
+
+import { authLogOut } from './modal-authorization';
 
 const logoutBtn = document.querySelector('.btn-popup');
-const registerBtn = document.querySelector('.btn-register-logout');
+const registerLogoutBtn = document.querySelector('.btn-register-logout');
 
 logoutBtn.addEventListener('click', () => {
-const logoutUser = () => {
-  // Видалення данних з Local Storage
-  localStorage.removeItem('userData');
-};
+  authLogOut();
+});
+
+registerLogoutBtn.addEventListener('click', () => {
+    authLogOut();
+    
+localStorage.removeItem('userData');
 
   location.reload();
 });

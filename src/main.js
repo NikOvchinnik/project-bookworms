@@ -10,3 +10,5 @@ import './js/header-modal';
 import './js/modal-window';
 import './js/modal-authorization';
 import './js/footer';
+import './js/izi-toast';
+import './js/dark-theme';

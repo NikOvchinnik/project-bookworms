@@ -79,12 +79,14 @@
   padding: 18px 0;
 }
 
-.btn-header:hover .icon-burger {
-  fill: var(--action-color);
+.btn-header:hover .icon-burger,
+.btn-header:focus .icon-burger {
+  fill: var(--hover-color);
 }
 
-.btn-header:focus .icon-burger {
-  fill: var(--action-color);
+.popup-container {
+  display: none;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
@@ -111,10 +113,14 @@
     text-transform: uppercase;
   }
 
-  .item-menu-header.active {
-    border-radius: 36px;
-    background-color: var(--nav-color);
-    font-weight: 700;
+  .item-menu-header:hover,
+  .item-menu-header:focus {
+    color: var(--hover-color);
+  }
+
+  .item-menu-header:hover .icon-shop,
+  .item-menu-header:focus .icon-shop {
+    fill: var(--hover-color);
   }
 
   .link-shoplist {
@@ -129,18 +135,26 @@
   }
 
   .btn-register {
+    padding: 0 15px;
     font-weight: 500;
     line-height: 1.28571;
     letter-spacing: -0.04em;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     border: 1.5px solid #111;
     border-radius: 18px;
     width: 184px;
     height: 48px;
     background: var(--action-color);
     color: var(--white-color);
+  }
+
+  .btn-register:hover,
+  .btn-register:focus {
+    background: var(--hover-color);
+    justify-content: center;
   }
 
   .icon-arrow-right {
@@ -157,6 +171,11 @@
     height: 45px;
     background-color: var(--action-color);
     color: var(--white-color);
+  }
+
+  .btn-register-login:hover,
+  .btn-register-login:focus {
+    background: var(--hover-color);
   }
 
   .span-icon-user {
@@ -182,5 +201,21 @@
     align-items: center;
     justify-content: center;
     fill: var(--white-color);
+  }
+
+  .btn-popup {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 36px;
+    min-width: 184px;
+    height: 45px;
+    background-color: #fff;
+    color: #111;
+    justify-content: space-between;
   }
 }
