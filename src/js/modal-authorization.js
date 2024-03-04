@@ -40,16 +40,6 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 // console.log(database);
 
-//!
-const userInfo = {
-  name: 'User',
-  uid: '6GbKY5ZV5oTvYETDKM63VnmJThR2',
-  shopList: ['643282b1e85766588626a0ce'],
-};
-
-//!firebase functions start
-
-//!build version start
 // save name and shoplist by uid from input shopList-parameter to FB
 async function saveBooksToFB(shopList = []) {
   const userInfo = {
@@ -66,32 +56,9 @@ async function saveBooksToFB(shopList = []) {
     console.error('Помилка збереження інформації про користувача:', error);
   }
 }
-// saveBooksToFB([
-//   '643282b1e85766588626a0ce',
-//   '643282b1e85766588626a0ve',
-//   '643282b1e85766588626a0v1',
-// ]);
-//!build version end
 
-//copy name from firebase database to localstorage
-function getNameFromFB2(uid = authId) {
-  //link for user in database by uid
-  const userRef = ref(database, `users/${uid}`);
-
-  //read user data from database
-  onValue(userRef, snapshot => {
-    const userData = snapshot.val(); // user data
-    // console.log(userData);
-    if (userData) {
-      // console.log(userData.name);
-      return userData.name;
-      // addToLS('user-data', userData.name);
-    } else {
-      return '';
-    }
-  });
-  console.log('getNAme: ');
-} //original
+//add books to firebase
+// saveBooksToFB(['643282b1e85766588626a0v1']);
 
 //get promise with name
 function getPromiseNameFromFB(uid = authId) {
@@ -109,21 +76,12 @@ function getPromiseNameFromFB(uid = authId) {
     });
   });
 }
-let temp;
+
 //get name from firebase database
 async function getNameFromFB(uid = authId) {
   return await getPromiseNameFromFB(uid);
 }
 
-// const ss = await getNameFromFB();
-// console.log(ss);
-
-// getNameFromFB()
-//   .then(res => {
-//     console.log(res);
-//   })
-//   .catch(e => console.log(e));
-//!build version start
 //copy shoplist from Firebase account to Localstorage for user id = uid
 function updShoplistFromFBToLS(uid = authId) {
   //link for user in database by uid
@@ -132,18 +90,19 @@ function updShoplistFromFBToLS(uid = authId) {
   //read user data from database
   onValue(userRef, snapshot => {
     const userData = snapshot.val(); // user data
-    console.log(userData);
+    console.log('116 userdata = ', userData);
     if (userData) {
-      addToLS('idBooks', userData.shopList);
+      if (userData.shopList) {
+        addToLS('idBooks', userData.shopList);
+      } else {
+        addToLS('idBooks', []);
+      }
     } else {
-      return [];
+      console.log('error');
     }
   });
 }
 // updShoplistFromFBToLS();
-
-// updShoplistFromFBToLSCurrent(); //!delete test
-//!build version end
 
 //open authoriztion modal
 export function openAuthModal() {
@@ -286,10 +245,12 @@ export function openAuthModal() {
           name: userName,
           mail: userEmail,
         };
+        //save to global
+        authUser = userName;
         //save mail and uid to LS
         addToLS(AUTH_KEY_LS, userInfo);
         //save empty shoplist with name and uid to FB
-        saveBooksToFB;
+        saveBooksToFB();
         //form reset
         authForm.reset();
         //close modal
@@ -322,7 +283,7 @@ export function openAuthModal() {
   }
 }
 
-//! for header.js
+//! for header.js start
 // import { openAuthModal } from './modal-authorization';
 //open the authoriztion modal, if button Sign up pressed
 const authOpenModalBtn = document.querySelector(
@@ -332,7 +293,7 @@ const authOpenModalBtn = document.querySelector(
 //check if button 'sign up' in header is pressed
 authOpenModalBtn.addEventListener('click', openAuthModal);
 
-//! firebase functions
+//! for header.js end
 
 // sign up of new user
 async function registerWithEmailAndPassword(email, password) {
@@ -373,7 +334,6 @@ async function handleRegistration(email, password) {
   try {
     const response = await registerWithEmailAndPassword(email, password);
     isSignedIn = true;
-    // authUser = response.email;
     authId = response.uid;
     return await response;
     //  additional actions after successfull sign up
@@ -406,86 +366,3 @@ async function handleSignIn(email, password) {
     console.log('login error');
   }
 }
-
-// read name by uid
-// function getUserNameById(uid) {
-//   // Створіть посилання на користувача у базі даних за його uid
-//   const userRef = ref(database, `users/${uid}`);
-//   // Зчитайте дані користувача з бази даних
-
-//   onValue(userRef, async snapshot => {
-//     const userData = snapshot.val(); // Дані користувача
-//     if (userData) {
-//       // const userName = userData.name; // Ім'я користувача
-//       // console.log(userData.name);
-//       authUser = await userData.name;
-//       // name = userData.name;
-//       // return userData.name;
-//     } else {
-//       console.log('User does not exists!');
-//       // return '';
-//     }
-//     // return user;
-//   });
-//   return name;
-// }
-// async function getUserNameById(uid) {
-//   const userRef = ref(database, `users/${uid}`);
-
-//   try {
-//     const snapshot = await onValue(userRef);
-//     const userData = snapshot.val();
-
-//     if (userData) {
-//       const userName = userData.name;
-//       console.log(userName);
-//       return userName;
-//     } else {
-//       console.log('User does not exist!');
-//       throw new Error('User does not exist!');
-//     }
-//   } catch (error) {
-//     console.error('Error getting user data:', error);
-//     throw error;
-//   }
-// }
-
-// function getUserNameById() {
-//   const db = getDatabase(app);
-//   const auth = getAuth(app);
-//   const userId = auth.currentUser;
-//   console.log(auth);
-//   // console.log(auth.currentUser);
-
-//   return onValue(
-//     ref(db, '/users/' + userId),
-//     snapshot => {
-//       const username =
-//         (snapshot.val() && snapshot.val().username) || 'Anonymous';
-//       // ...
-//     },
-//     {
-//       onlyOnce: true,
-//     }
-//   );
-// }
-
-// // Використання функції
-// try {
-//   const userName = await getUserNameById(userInfo.uid);
-//   console.log('User name:', userName);
-// } catch (error) {
-//   console.error('Error:', error);
-// }
-
-// setUserInfoToFB(userInfo);
-// getUserNameFromFB(userInfo.uid);
-
-// const uid = userInfo.uid;
-// console.log(getUserNameById());
-// console.log(getShoplistById(uid));
-// setShoplistToLsFromFB(uid);
-// console.log('authUser: ', authUser);
-//!
-
-console.log('authUser = ', authUser);
