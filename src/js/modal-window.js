@@ -1,35 +1,24 @@
 import { getData } from './books-api';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basiclightbox.min.css';
+import { addToLS, getFromLS } from './local-storage-functions';
+import { isSigned, saveBooksToFB } from './modal-authorization';
+import { bookIdsLSKey } from './refs.js';
 
-const refs = {
-  test: document.querySelector('.test'),
-  testBtn: document.querySelector('.test-button'),
-};
-
-const { test, testBtn } = refs;
-
-testBtn.addEventListener('click', async e => {
-  const data = await getData('category', 'Audio Nonfiction');
-
-  const markup = data.data
-    .map(book => {
-      return `<p data-book-id="${book._id}">BOOK width id: ${book._id}. TITLE: ${book.title}</p>`;
-    })
-    .join('');
-  //   test.innerHTML = markup;
-  test.insertAdjacentHTML('beforeend', markup);
-});
-
-test.addEventListener('click', bookOnClick);
-
-async function bookOnClick(e) {
+const localRefs = {};
+// ОСНОВНА ФУНКЦІЯ НА ЕКСПОРТ
+export async function bookOnClick(e) {
+  console.log('start');
   // Getting all using data
-  const bookId = e.target.dataset.bookId;
-  if (!bookId) return;
+  const bookElem = e.target.closest('li');
+  console.log(bookElem);
+  if (!bookElem) {
+    return;
+  }
+  const bookId = bookElem.dataset.bookId;
   const bookData = await getData(bookId);
   const book = bookData.data;
-  console.log(book);
+
   const { book_image: image, title, author, description, buy_links } = book;
   const [amazon, applebooks] = buy_links;
 
@@ -87,13 +76,15 @@ async function bookOnClick(e) {
     onClose: () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
-      const { shopListBtn } = refs;
+      const { shopListBtn } = localRefs;
       shopListBtn.removeEventListener('click', shopListBtnOnClick);
     },
   });
 
+  // HELPERS
+
   instance.show();
-  shopListLogic();
+  shopListLogic(bookId);
   function handleKeyDown(e) {
     if (e.key === 'Escape') {
       instance.close();
@@ -101,24 +92,53 @@ async function bookOnClick(e) {
   }
 }
 
-function shopListLogic() {
-  refs.shopListBtn = document.querySelector(
+function shopListLogic(bookIdValue) {
+  localRefs.shopListBtn = document.querySelector(
     '.modal-window-book-shopping-list-button'
   );
-  refs.congratulationsText = document.querySelector(
+  localRefs.congratulationsText = document.querySelector(
     '.modal-window-congratulations'
   );
 
-  const { shopListBtn, congratulationsText } = refs;
-
-  shopListBtn.addEventListener('click', shopListBtnOnClick);
+  const { shopListBtn } = localRefs;
+  checkShopListBtnStatus(bookIdValue);
+  shopListBtn.addEventListener('click', () => {
+    shopListBtnOnClick(bookIdValue);
+  });
 }
 
-function shopListBtnOnClick() {
-  const { congratulationsText, shopListBtn } = refs;
-  congratulationsText.classList.toggle('visually-hidden');
+function shopListBtnOnClick(bookIdValue) {
+  const isBookInLS = checkShopListBtnStatus(bookIdValue);
+  const booksIdArray = getFromLS(bookIdsLSKey) || [];
+  if (isBookInLS) {
+    const bookToRemoveIndex = booksIdArray.indexOf(bookIdValue);
+    booksIdArray.splice(bookToRemoveIndex, 1);
+    addToLS(bookIdsLSKey, booksIdArray);
+    if (isSigned) {
+      saveBooksToFB(booksIdArray);
+    }
 
-  shopListBtn.textContent.toLowerCase().trim() === 'add to shopping list'
-    ? (shopListBtn.textContent = 'remove from the shopping list')
-    : (shopListBtn.textContent = 'add to shopping list');
+    checkShopListBtnStatus(bookIdValue);
+  } else {
+    booksIdArray.push(bookIdValue);
+    addToLS(bookIdsLSKey, booksIdArray);
+    if (isSigned) {
+      saveBooksToFB(booksIdArray);
+    }
+    checkShopListBtnStatus(bookIdValue);
+  }
+}
+
+function checkShopListBtnStatus(bookIdValue) {
+  const { congratulationsText, shopListBtn } = localRefs;
+  const booksIdArray = getFromLS(bookIdsLSKey) || [];
+  const isBookInLS = booksIdArray.includes(bookIdValue);
+  if (!isBookInLS) {
+    shopListBtn.textContent = 'add to shopping list';
+  } else {
+    shopListBtn.textContent = 'remove from the shopping list';
+    congratulationsText.classList.toggle('visually-hidden');
+  }
+
+  return isBookInLS;
 }
