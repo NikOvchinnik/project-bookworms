@@ -41,35 +41,24 @@ const btnRegisterLogin = document.querySelector('.btn-register-login');
 const popupContainer = document.getElementById('popupContainer');
 
 
+// Вихід з системи і видалення з Локал
+
+function logout() {
+  localStorage.removeItem('user-data');
+}
 
 
-//Відкриття модального вікна для авторизації
+const logoutButton = document.querySelector('.btn-popup');
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    logout();
+  });
+}
 
-const registerButton = document.querySelector('.btn-register');
-const authModal = document.querySelector('.auth-modal');
-
-registerButton.addEventListener('click', () => {
-  authModal.style.display = 'block';
+window.addEventListener('beforeunload', () => {
+  logout();
 });
 
-
-
-import { authLogOut } from './modal-authorization';
-
-const logoutBtn = document.querySelector('.btn-popup');
-const registerLogoutBtn = document.querySelector('.btn-register-logout');
-
-logoutBtn.addEventListener('click', () => {
-  authLogOut();
-});
-
-registerLogoutBtn.addEventListener('click', () => {
-    authLogOut();
-    
-localStorage.removeItem('userData');
-
-  location.reload();
-});
 
 
 

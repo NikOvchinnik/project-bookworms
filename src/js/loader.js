@@ -1,4 +1,3 @@
-
 const showLoader = () => {
     const loader = document.createElement('span');
     loader.classList.add('loader');

@@ -1,5 +1,6 @@
 import './js/refs';
 import './js/books-api';
+import './js/local-storage-functions';
 import './js/header';
 import './js/categories';
 import './js/support';
