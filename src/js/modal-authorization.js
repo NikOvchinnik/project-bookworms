@@ -208,12 +208,14 @@ export function openAuthModal() {
           instance.close;
         // adding EventListener to check Escape pressed
         document.addEventListener('keydown', onEscKeyPress);
+        document.body.style.overflow = 'hidden';
       },
       onClose: instance => {
         btnHeader();
         onBugerMenuClick();
         //removing EventListener if lightbox is being closed
         document.removeEventListener('keydown', onEscKeyPress);
+        document.body.style.overflow = 'visible';
       },
     }
   );
