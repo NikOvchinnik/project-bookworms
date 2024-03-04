@@ -148,5 +148,3 @@ var swiper = new Swiper(".mySwiper", {
   renderCategoriesList()
 
 
-
-
