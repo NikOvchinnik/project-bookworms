@@ -1,3 +1,9 @@
+.item-menu-header:nth-child(1){
+    border-radius: 36px;
+    background-color: var(--nav-color);
+    font-weight: 700;
+  }
+
 .bestsellers-title {
   font-size: 32px;
   line-height: 1.1875;
@@ -72,6 +78,12 @@
   border-radius: 40px;
   border: 2px solid var(--action-color);
   color: currentColor;
+}
+
+.books-list-btn:hover,
+.books-list-btn:focus {
+  color: var(--white-color);
+  background-color: var(--hover-color);
 }
 
 @media screen and (min-width: 768px) {

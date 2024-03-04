@@ -15,12 +15,7 @@
 
 .categories-link:hover,
 .categories-link:focus {
-  color: var(--action-color);
-}
-
-.categories-link:active {
-  color: var(--action-color);
-  text-transform: uppercase;
+  color: var(--hover-color);
 }
 
 @media screen and (min-width: 768px) {

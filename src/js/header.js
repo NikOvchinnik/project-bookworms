@@ -1,8 +1,8 @@
 //Пересування бігунка для зміни режиму
 
 const toggleSwitch = document.getElementById('toggle');
-        const switchSlider = document.querySelector('.switch-slider');
-        const labelHeader = document.querySelector('.label-header');
+const switchSlider = document.querySelector('.switch-slider');
+const labelHeader = document.querySelector('.label-header');
 
         toggleSwitch.addEventListener('change', function () {
             switchSlider.classList.toggle('active');
@@ -66,9 +66,3 @@ const logoutUser = () => {
 
   location.reload();
 });
-
-
-
-
-
-
