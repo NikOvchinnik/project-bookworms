@@ -1,0 +1,29 @@
+.scroll-container {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.scroll-to-top {
+  fill: var(--white-color);
+}
+
+.scroll-btn {
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--action-color);
+  border: none;
+}
+
+.scroll-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,214 @@
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 0;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal {
+  background: url('../img/books.png') center/cover,
+    radial-gradient(
+      189.32% 190.93% at 59.76% -23.42%,
+      rgb(79, 46, 232) 18.02733987569809%,
+      rgb(255, 255, 255) 100%
+    );
+  padding: 20px;
+  position: fixed;
+  top: 6%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  transform: translateY(20px);
+  background-position: 100% 100%, 50%;
+  background-repeat: no-repeat;
+  background-size: 100%, cover;
+  box-shadow: 0 10px 10px #f5f5f71a;
+  border-radius: 4px;
+  pointer-events: auto;
+}
+
+.button-close {
+  display: none;
+}
+
+.button-close.is-open {
+  display: block;
+}
+
+.btn-sign {
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  width: 184px;
+  height: 48px;
+  background: #4f2ee8;
+  display: flex;
+}
+
+.icon-arrow-narrow-right {
+  stroke-width: 2px;
+  stroke: #eac645;
+  margin-left: 90px;
+  vertical-align: middle;
+}
+
+.btn-register {
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: #fff;
+  padding-left: 14px;
+  line-height: 48px;
+}
+
+.icon-arrow-right {
+  fill: #eac645;
+  vertical-align: middle;
+}
+
+.btn-sign button {
+  display: flex;
+  align-items: center;
+}
+
+.btn-sign .icon-arrow-right {
+  margin-left: 90px;
+}
+
+.btn-register-logi-in {
+  margin-right: 24px;
+  border: none;
+  width: 184px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  padding: 12px;
+  vertical-align: top;
+  background: none;
+}
+
+.icon-user {
+}
+
+.icon-user-circle {
+  border-radius: 50%;
+  background-color: #f6f6f6;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 9px;
+}
+
+.nav-list-login {
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.list-menu-login {
+  list-style: none;
+}
+
+.menu-home-login {
+}
+
+.shop-list-login {
+  margin-top: 16px;
+}
+
+.link-shoplist-login {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+}
+
+.icon-shop-login {
+  stroke: #fff;
+  vertical-align: middle;
+}
+
+.btn-sign-logout {
+  position: fixed;
+  bottom: 74px;
+  left: 20px;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  width: 118px;
+  height: 48px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-register-logout {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.04em;
+  color: #111;
+  border: none;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+.register-logi-in {
+  margin-right: 24px;
+  border: none;
+  width: 184px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  padding: 12px;
+  vertical-align: top;
+  background: none;
+}
+
+.is-closed-burger {
+  display: none;
+}
+
+.is-open-burger {
+  display: block;
+}
+
+.is-closed-register {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .is-open-register {
+    display: flex;
+  }
+
+  .is-open-burger {
+    display: none;
+  }
+}
