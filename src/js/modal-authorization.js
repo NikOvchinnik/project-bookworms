@@ -226,6 +226,7 @@ export function openAuthModal() {
 
   //basiclightbox instance show
   authInstance.show();
+  document.querySelector('.basicLightbox').style.backgroundColor = '#4f2ee8';
   //checking if Escape is pressed
   function onEscKeyPress(e) {
     if (e.key === 'Escape') {

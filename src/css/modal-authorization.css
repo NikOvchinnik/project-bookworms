@@ -12,10 +12,6 @@
   height: 310px;
 }
 
-.basicLightbox:has(.auth-modal) {
-  background-color: var(--action-color);
-}
-
 .auth-close-btn {
   position: absolute;
   top: 14px;
@@ -32,8 +28,6 @@
 .auth-close-icon:hover {
   fill: var(--action-color);
 }
-
-
 
 .auth-form {
   display: flex;
