@@ -1,4 +1,4 @@
-import{g as k,a as f,b as m,i as h,s as y,r as I,c as v,h as L}from"./assets/scroll-up-81586863.js";import{b as q}from"./assets/vendor-08007cbf.js";const{bookIdsLSKey:d}=I,c={};async function W(o){const e=o.target.closest("li");if(!e)return;const t=e.dataset.bookId,n=(await k(t)).data,{book_image:a,title:i,author:b,description:A,buy_links:x}=n,[E,M]=x,_=`
+import{g as k,a as f,b as m,i as h,s as y,r as I,c as v,h as L}from"./assets/scroll-up-f7446c00.js";import{b as q}from"./assets/vendor-08007cbf.js";const{bookIdsLSKey:d}=I,c={};async function W(o){const e=o.target.closest("li");if(!e)return;const t=e.dataset.bookId,n=(await k(t)).data,{book_image:a,title:i,author:b,description:A,buy_links:x}=n,[E,M]=x,_=`
   <div class="modal-window">
     <button type="button" class="modal-window-close-btn">
       <svg class="modal-window-close-btn-icon" width="28" height="28">

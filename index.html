@@ -25,9 +25,9 @@
     
     <script type="module" crossorigin src="/project-bookworms/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/project-bookworms/assets/vendor-08007cbf.js">
-    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/scroll-up-81586863.js">
+    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/scroll-up-f7446c00.js">
     <link rel="stylesheet" href="/project-bookworms/assets/vendor-864241e7.css">
-    <link rel="stylesheet" href="/project-bookworms/assets/scroll-up-f10beeb9.css">
+    <link rel="stylesheet" href="/project-bookworms/assets/scroll-up-d86b025a.css">
   </head>
   <body>
     <header class="header">
@@ -269,7 +269,7 @@
         <div class="main-content">
         
           <section class="bestsellers">
-  <span class="loader visually-hidden"></span>
+  <div class="loader-container visually-hidden "><span class="loader"></span></div>
   <div class="books-container"></div>
 </section>
 
@@ -298,29 +298,28 @@
     </footer>
     <div class="backdrop" id="modalBackdrop">
   <div class="modal" id="modalContent">
-    <button type="button" class="btn-register btn-register-modal">
-      Sign up
-      <svg class="icon-arrow-right" width="20" height="20">
+    <button type="button" class="btn-register-modal">
+      Sign up<svg class="icon-arrow-right-burger" width="20" height="20">
         <use href="/project-bookworms/assets/icons-abda3f25.svg#icon-arrow-right"></use>
       </svg>
     </button>
     <div class="btn-sign-in">
-      <div type="button" class="register-logi-in">
         <div class="icon-user-circle">
           <svg class="icon-user-modal" width="19" height="19">
             <use href="/project-bookworms/assets/icons-abda3f25.svg#icon-user"></use>
           </svg>
         </div>
         <span class="user-name-modal">User</span>
-      </div>
     </div>
     <nav class="nav-list-login" id="userNav" style="display: flex">
       <ul class="list-menu-login">
         <li class="menu-home-login nav-menu-link">
-          <a href="./index.html" class="link-home">Home</a>
+          <a href="./index.html" class="link-home link-nav-burger">Home</a>
         </li>
         <li class="shop-list-login nav-menu-link">
-          <a href="./shopping-list.html" class="link-shoplist-login"
+          <a
+            href="./shopping-list.html"
+            class="link-shoplist-login link-nav-burger"
             >Shopping List
             <svg class="icon-shop-login" width="20" height="20">
               <use href="/project-bookworms/assets/icons-abda3f25.svg#icon-shop"></use>
@@ -332,11 +331,9 @@
     <div class="btn-sign-logout">
       <button type="button" class="btn-register-logout">
         Log out
-        <span>
-          <svg class="icon-arrow-right" width="20" height="20">
+          <svg class="icon-arrow-right-burger" width="20" height="20">
             <use href="/project-bookworms/assets/icons-abda3f25.svg#icon-arrow-right"></use>
           </svg>
-        </span>
       </button>
     </div>
   </div>
