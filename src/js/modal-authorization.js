@@ -11,6 +11,7 @@ import {
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import { onBugerMenuClick } from './header-modal';
 import { refs } from './refs';
+import icons from '../img/icons.svg';
 
 const { bookIdsLSKey } = refs;
 
@@ -145,7 +146,7 @@ export function openAuthModal() {
   <div class="auth-modal">
     <button class="auth-close-btn" type="button">
       <svg class="auth-close-icon" width="20" height="20">
-        <use href="./img/icons.svg#icon-x-close"></use>
+        <use href="${icons}#icon-x-close"></use>
       </svg>
     </button>
 
@@ -171,7 +172,7 @@ export function openAuthModal() {
             required
           />
           <svg class="auth-input-icon" width="18" height="18">
-            <use href="./img/icons.svg#icon-mail"></use>
+            <use href="${icons}#icon-mail"></use>
           </svg>
         </div>
 
@@ -186,7 +187,7 @@ export function openAuthModal() {
             required
           />
           <svg class="auth-input-icon" width="18" height="18">
-            <use href="./img/icons.svg#icon-lock"></use>
+            <use href="${icons}#icon-lock"></use>
           </svg>
         </div>
       </div>

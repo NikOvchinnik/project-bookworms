@@ -4,6 +4,9 @@ import { getData } from './books-api';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { isSignedIn, saveBooksToFB } from './modal-authorization';
 import { refs } from './refs';
+import icons from '../img/icons.svg';
+import amazonIcon from '../img/amazon.png';
+import appleIcon from '../img/applebooks.png';
 
 const { bookIdsLSKey } = refs;
 
@@ -25,7 +28,7 @@ export async function bookOnClick(e) {
   const bookMarkup = `<div class="modal-window">
     <button type="button" class="modal-window-close-btn">
       <svg class="modal-window-close-btn-icon" width="28" height="28">
-        <use href="/img/icons.svg#icon-x-close"></use>
+        <use href="${icons}#icon-x-close"></use>
       </svg>
     </button>
 
@@ -43,14 +46,14 @@ export async function bookOnClick(e) {
         </p>
         <div class="modal-window-book-wheretobuy-links-container">
           <a href="${amazon.url}" class="amazon-link" target="_blank">
-            <img src="/img/amazon.png" alt="" />
+            <img src="${amazonIcon}" alt="" />
           </a>
           <a
             href="${applebooks.url}"
             class="applebooks-link"
             target="_blank"
           >
-            <img src="/img/applebooks.png" alt="" />
+            <img src="${appleIcon}" alt="" />
           </a>
         </div>
       </div>

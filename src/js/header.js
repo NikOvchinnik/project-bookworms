@@ -53,21 +53,18 @@ logoutBtn.addEventListener('click', () => {
 // Навігація сторінки
 
 const currentPage = window.location.pathname;
-
 const menuItems = document.querySelectorAll('.item-menu-header');
-
-menuItems.forEach(function (item, i, arr) {
-  if (item.querySelector('a').getAttribute('href') === '.' + currentPage) {
-    item.classList.add('is-active');
-  } else if (currentPage === '/' || currentPage === '/project-bookworms/') {
-    arr[0].classList.add('is-active');
-  }
-});
-
 const menuItemsMobile = document.querySelectorAll('.nav-menu-link');
 
-menuItemsMobile.forEach(function (item) {
-  if (item.querySelector('a').getAttribute('href') === '.' + currentPage) {
-    item.classList.add('is-active-burger');
+
+function currentPageisActive() {
+  if (currentPage.includes('/shopping-list.html')) {
+    menuItems[1].classList.add('is-active');
+    menuItemsMobile[1].classList.add('is-active');
+  } else {
+    menuItems[0].classList.add('is-active-burger');
+    menuItemsMobile[0].classList.add('is-active-burger');
   }
-});
+};
+
+currentPageisActive();
