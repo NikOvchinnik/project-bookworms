@@ -29,8 +29,8 @@
     
     <script type="module" crossorigin src="/project-bookworms/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/project-bookworms/assets/vendor-76990a4b.js">
-    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/scroll-up-3a7dacbc.js">
-    <link rel="stylesheet" href="/project-bookworms/assets/scroll-up-b9983082.css">
+    <link rel="modulepreload" crossorigin href="/project-bookworms/assets/scroll-up-73588950.js">
+    <link rel="stylesheet" href="/project-bookworms/assets/scroll-up-1f4d4156.css">
     <link rel="stylesheet" href="/project-bookworms/assets/vendor-864241e7.css">
   </head>
   <body>
@@ -242,24 +242,25 @@
         </div>
         <div class="shop-list-content">
             <section class="shopping-list-section">
-    <h1 class="shopping-list-title">
-      Shopping
-      <span class="shopping-list-title-color"> List </span>
-    </h1>
-    <div class="loader-container visually-hidden "><span class="loader"></span></div>
-    <div class="shopping-list-empty-state">
-      <p class="shopping-list-empty-text">
-        This page is empty, add some books and proceed to order.
-      </p>
 
-      <picture>
-        <source srcset="/project-bookworms/assets/shop-list-e815123e.png 1x, /project-bookworms/assets/shop-list-2x-c98f0328.png 2x" media="(min-width: 768px)" />
-        <source srcset="/project-bookworms/assets/shop-list-mob-30f42ad5.png 1x, /project-bookworms/assets/shop-list-mob-2x-c6ff3b7c.png 2x" media="(max-width: 767px)" />
-        <img class="shopping-list-empty-img" src="../img/shop-list.png" alt="banking-app" />
-      </picture>
+    <div class="shopping-list-wrapper">
+      <h1 class="shopping-list-title">
+        Shopping
+        <span class="shopping-list-title-color"> List </span>
+      </h1>
+      <div class="loader-container visually-hidden "><span class="loader"></span></div>
+      <div class="shopping-list-empty-state">
+        <p class="shopping-list-empty-text">
+          This page is empty, add some books and proceed to order.
+        </p>
+        <picture>
+          <source srcset="/project-bookworms/assets/shop-list-e815123e.png 1x, /project-bookworms/assets/shop-list-2x-c98f0328.png 2x" media="(min-width: 768px)" />
+          <source srcset="/project-bookworms/assets/shop-list-mob-30f42ad5.png 1x, /project-bookworms/assets/shop-list-mob-2x-c6ff3b7c.png 2x" media="(max-width: 767px)" />
+          <img class="shopping-list-empty-img" src="../img/shop-list.png" alt="banking-app" />
+        </picture>
+      </div>
+      <ul class="shopping-list-gallery-books" id="shoplist-pagination"></ul>
     </div>
-
-    <ul class="shopping-list-gallery-books"></ul>
 
      <div id="pagination"></div>
   </section>
@@ -283,6 +284,7 @@
             </label>
             <button type="submit" class="button-subscribe">
                 Send
+            </button>
         </form>
     </div>
 </div>
