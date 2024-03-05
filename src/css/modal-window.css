@@ -1,0 +1,193 @@
+.modal-window {
+  position: relative;
+  width: 296px;
+
+  padding: 40px 24px;
+  background: #ffffff;
+  border: 2px solid #111;
+  border-radius: 18px;
+
+  letter-spacing: -0.04em;
+}
+
+.basicLightbox:has(.modal-window) {
+  background: rgba(17, 17, 17, 0.4);
+  overflow-y: auto;
+}
+
+.modal-window-close-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.modal-window-close-btn-icon {
+  fill: #111111;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-window-close-btn-icon:hover {
+  fill: #4f2ee8;
+}
+
+.modal-window-book {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-window-book-img {
+  width: 287px;
+  height: 408px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal-window-book-title {
+  text-transform: uppercase;
+
+  font-size: 16px;
+  line-height: 1.125;
+  font-weight: 700;
+  margin-top: 14px;
+  letter-spacing: -0.04em;
+}
+
+.modal-window-book-author {
+  color: #b4afaf;
+  text-transform: capitalize;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.16667;
+  margin-top: 4px;
+  letter-spacing: -0.04em;
+}
+
+.modal-window-book-description {
+  font-size: 14px;
+  line-height: 1.28571;
+  margin-top: 18px;
+  letter-spacing: -0.04em;
+}
+
+.modal-window-book-wheretobuy-links-container {
+  margin-top: 14px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.amazon-link,
+.applebooks-link {
+  filter: grayscale(100%);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* світла тема, звичайний стан  */
+}
+
+.amazon-link:hover,
+.applebooks-link:hover {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  /* світла тема, стан hover */
+}
+
+.modal-window-book-shopping-list-button {
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+
+  background-color: transparent;
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+
+  margin: 44px auto 0;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-window-book-shopping-list-button:hover {
+  background: #4f2ee8;
+  color: #ffffff;
+}
+
+.modal-window-congratulations {
+  font-size: 10px;
+  color: rgba(17, 17, 17, 0.5);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  text-align: center;
+  width: 242px;
+
+  margin: 8px auto 0;
+}
+
+@media screen and (max-height: 834px) and (max-width: 767) {
+ .modal-window {
+  margin: 220px 0 0;
+}
+}
+
+@media screen and (min-width: 375px) {
+  .modal-window {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-window {
+    width: 580px;
+    padding: 40px;
+  }
+  .modal-window-book {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .modal-window-book-img {
+    width: 192px;
+    height: 282px;
+  }
+  .modal-window-book-title {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .modal-window-book-author {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .modal-window-book-description {
+    margin-top: 20px;
+  }
+
+  .modal-window-book-wheretobuy-links-container {
+    margin-top: 20px;
+  }
+
+  .modal-window-congratulations {
+    font-size: 12px;
+    line-height: 1.16667;
+    width: 350px;
+  }
+
+  .modal-window-book-shopping-list-button {
+    margin-top: 40px;
+  }
+
+  .modal-window-book-shopping-list-button {
+    font-size: 18px;
+    padding: 20px 0;
+    width: 500px;
+  }
+}

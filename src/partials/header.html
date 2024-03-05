@@ -6,9 +6,9 @@
     <span class="logo-name-header">Bookshelf</span>
   </a>
 
-  <nav class="nav-list-header" id="userNav">
+  <nav class="nav-list-header " id="userNav">
     <ul class="list-menu-header">
-      <li class="item-menu-header active">
+      <li class="item-menu-header">
         <a href="./index.html" class="link-home">Home</a>
       </li>
       <li class="item-menu-header">
@@ -35,34 +35,51 @@
       </label>
     </form>
 
-    <button
-      type="button"
-      class="btn-header"
-      id="menuBtn"
-      data-action="toggle-menu"
-    >
+    <button type="button" class="btn-header btn-burger " id="menuBtn">
       <svg class="icon-burger" width="28" height="28">
         <use href="./img/icons.svg#icon-burger"></use>
       </svg>
     </button>
 
-    <button type="button" class="btn-register" data-action="registration" >
+    <button
+      class="btn-header btn-close"
+      type="button"
+      id="closeBtn"
+    >
+      <svg class="button-close-icon" width="28" height="28">
+        <use href="./img/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <button type="button" class="btn-register"> 
       Sign up
       <svg class="icon-arrow-right" width="20" height="20">
         <use href="./img/icons.svg#icon-arrow-right"></use>
       </svg>
     </button>
 
-    <button type="button" class="btn-register-login" data-action="registration" style="display: none;" >
+    <button
+      type="button"
+      class="btn-register-login"
+    >
       <span class="span-icon-user">
         <svg class="icon-user" width="19" height="19">
           <use href="./img/icons.svg#icon-user"></use>
         </svg>
       </span>
       <span class="name-user-login">User</span>
-        <svg class="icon-scroll-down" width="15" height="8">
-          <use href="./img/icons.svg#icon-down-menu"></use>
-        </svg>
+      <svg class="icon-scroll-down" width="15" height="8">
+        <use href="./img/icons.svg#icon-down-menu"></use>
+      </svg>
     </button>
+
+    <div class="popup-container" id="popupContainer">
+      <button type="button" class="btn-popup">
+        <span>Log out</span>
+        <svg class="icon-arrow-right" width="20" height="20">
+          <use href="./img/icons.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
