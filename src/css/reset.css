@@ -19,12 +19,14 @@ ul, ol {
 }
 
 a {
-  color: currentColor;
+  color: inherit;
   text-decoration: none;
 }
 
 button {
+  font-family: inherit;
   cursor: pointer;
+  padding: 0;
 }
 
 img {

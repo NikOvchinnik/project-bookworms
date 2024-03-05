@@ -1,8 +1,6 @@
 let calcScrollValue = () => {
-    let scrollProgress = document.querySelector(".progress");
-    let progressValue = document.querySelector(".progress-value");
+    let scrollProgress = document.querySelector('.scroll-container');
     let pos = document.documentElement.scrollTop
-    let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     if (pos > 100) {
         scrollProgress.style.display = "grid";
     } else {
@@ -11,7 +9,6 @@ let calcScrollValue = () => {
     scrollProgress.addEventListener("click", () => {
         document.documentElement.scrollTop = 0;
     });
-
 };
 
 window.addEventListener('scroll', calcScrollValue);

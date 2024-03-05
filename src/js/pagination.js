@@ -3,7 +3,6 @@ import { getFromLS } from './local-storage-functions';
 import { refs } from './refs';
 
 const { bookIdsLSKey } = refs;
-
 function getTotalBooks() {
   const myArray = getFromLS(bookIdsLSKey) || [];
   return myArray.length;

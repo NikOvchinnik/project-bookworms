@@ -1,24 +1,9 @@
+const loaderContainer = document.querySelector('.loader-container');
 
-// const showLoader = () => {
-//     const loader = document.createElement('span');
-//     loader.classList.add('loader');
-//     document.body.append(loader);
-// };
+export const showLoader = () => {
+  loaderContainer.classList.remove('visually-hidden');
+};
 
-// const hideLoader = () => {
-//     const loader = document.querySelector('.loader');
-//     if (loader) {
-//         loader.remove();
-//     }
-// };
-
-
-
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-    loader.classList.add("loader-hidden");
-
-    loader.addEventListener("transitioned", () => {
-        document.body.removeChild("loader");
-    })
-})
+export const hideLoader = () => {
+  loaderContainer.classList.add('visually-hidden');
+};
