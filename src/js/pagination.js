@@ -1,36 +1,64 @@
 import tuiPagination from 'tui-pagination';
-import { keyToLS } from './refs.js'
-const paginationElement = document.getElementById('pagination');
-const itemsPerPage = 3;
+import { getFromLS } from './local-storage-functions';
+import { refs } from './refs';
 
-const getTotalBooks = () => {
-    const myArray = getFromLS(keyToLS) || [];
-    return myArray.length;
-};
+const { bookIdsLSKey } = refs;
 
-const updatePagination = (totalBooks, currentPage) => {
-    const visiblePages = window.innerWidth < 768 ? 2 : 3;
+function getTotalBooks() {
+  const myArray = getFromLS(bookIdsLSKey) || [];
+  return myArray.length;
+}
 
-    const pagination = new tuiPagination(paginationElement, {
-        totalItems: totalBooks,
-        itemsPerPage: itemsPerPage,
-        visiblePages: visiblePages,
-        page: currentPage,
-    });
+export function initPagination() {
+  const listItems = document.querySelector(
+    '.shopping-list-gallery-books'
+  ).children;
 
-    pagination.on('afterMove', async (event) => {
-        const newPage = event.page;
-        localStorage.setItem('currentPage', newPage);
-    });
+  const paginationContainer = document.getElementById('pagination');
 
-    const paginationContainer = document.getElementById('pagination');
-    if (totalBooks <= 3) {
-        paginationContainer.style.display = 'none';
+  const itemsPerPage = window.innerWidth < 768 ? 4 : 3;
+  const visiblePages = window.innerWidth < 768 ? 2 : 3;
+
+  const totalItems = getTotalBooks();
+
+  const pagination = new tui.Pagination(paginationContainer, {
+    totalItems,
+    itemsPerPage,
+    visiblePages,
+    centerAlign: true,
+  });
+
+  function handlePageChange(event) {
+    //перевірка чи треба показувати панель пагінації
+    if (totalItems <= 3) {
+      paginationContainer.classList.add('hidden');
+      return;
     } else {
-        paginationContainer.style.display = 'block';
+      paginationContainer.classList.remove('hidden');
     }
-};
 
-let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
-const totalBooks = getTotalBooks();
-updatePagination(totalBooks, currentPage);
+    //поточна сторінка
+    const currentPage = event.page - 1;
+    // Приховати всі елементи
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].style.display = 'none';
+    }
+
+    // Показати елементи для поточної сторінки
+    for (
+      let i = currentPage * itemsPerPage;
+      i < (currentPage + 1) * itemsPerPage;
+      i++
+    ) {
+      if (listItems[i]) {
+        listItems[i].style.display = 'block';
+      }
+    }
+  }
+
+  //  обробник подій для зміни сторінки
+  pagination.on('afterMove', handlePageChange);
+
+  // Ініціалізація сторінки за замовчуванням
+  handlePageChange({ page: 1 });
+}
