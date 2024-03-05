@@ -131,12 +131,6 @@
   margin: 8px auto 0;
 }
 
-@media screen and (max-height: 834px) and (max-width: 767) {
- .modal-window {
-  margin: 220px 0 0;
-}
-}
-
 @media screen and (min-width: 375px) {
   .modal-window {
     width: 336px;
@@ -189,5 +183,43 @@
     font-size: 18px;
     padding: 20px 0;
     width: 500px;
+  }
+}
+
+/* styles for scroll on modal-window-backdrop */
+/*не знайшли інакший спосіб додали скрол до бекдропу модалки, щоб не з'їдався сам контент модалки*/
+@media screen and (max-height: 449px) {
+  .modal-window {
+    margin: 450px 0 30px;
+  }
+}
+
+@media screen and (min-height: 450px) {
+  .modal-window {
+    margin: 350px 0 30px;
+  }
+}
+
+@media screen and (min-height: 525px) {
+  .modal-window {
+    margin: 300px 0 30px;
+  }
+}
+
+@media screen and (min-height: 600px) {
+  .modal-window {
+    margin: 250px 0 30px;
+  }
+}
+
+@media screen and (min-height: 675px) {
+  .modal-window {
+    margin: 180px 0 30px;
+  }
+}
+
+@media screen and (min-height: 730px) {
+  .modal-window {
+    margin: 0;
   }
 }

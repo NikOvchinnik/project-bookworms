@@ -49,8 +49,8 @@ async function renderBooks() {
                   <div class="shopping-list-text-content">
                     <h2 class="shopping-list-books-title">${title}</h2>
                     <button data-book-id="${id}" type="button" class="shopping-list-button">
-                      <svg class="shopping-list-delete" >
-                        <use href="../img/icons.svg#icon-trash"></use>
+                      <svg class="shopping-list-delete">
+                        <use href="/img/icons.svg#icon-trash"></use>
                       </svg>
                     </button>
                     <h3 class="shopping-list-books-category">Category</h3>
@@ -59,12 +59,12 @@ async function renderBooks() {
                     <ul class="shopping-list-shop-list">
                       <li class="shopping-list-shop-list-items">
                         <a class="shopping-list-shop-list-link" target="_blank" href="${amazon.url}">
-                          <img class="shopping-list-link-amazon" src="../img/amazon.png" alt="logo-amazon">
+                          <img class="shopping-list-link-amazon" src="/img/amazon.png" alt="logo-amazon">
                         </a>
                       </li>
                       <li class="shopping-list-shop-list-items">
                         <a class="shopping-list-shop-list-link" target="_blank" href="${applebooks.url}">
-                          <img class="shopping-list-link-apple" src="../img/applebooks.png" alt="apple-books">
+                          <img class="shopping-list-link-apple" src="/img/applebooks.png" alt="apple-books">
                         </a>
                       </li>
                     </ul>
@@ -82,7 +82,6 @@ async function renderBooks() {
 
 // Fonction pour supprimer un livre
 function bookOnDelete(e) {
-  e.preventDefault();
   const deleteButton = e.target.closest('button');
   if (deleteButton) {
     const id = deleteButton.dataset.bookId;
@@ -94,18 +93,7 @@ function bookOnDelete(e) {
       saveBooksToFB(booksIdArray);
     }
     loadShopingList();
-    return;
   }
-  const parentElement = e.target.parentNode;
-  // Vérifie si l'élément parent est un lien
-  if (parentElement.tagName === 'A') {
-    // Si oui, récupère l'URL du lien
-    const url = parentElement.getAttribute('href');
-    // Ouvre l'URL dans une nouvelle fenêtre
-    window.open(url, '_blank');
-    return;
-  }
-  return;
 }
 
 const shoppingListGallery = document.querySelector(
