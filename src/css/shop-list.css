@@ -48,14 +48,14 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .shopping-list-books-items {
-  border: 2px solid var(--action-color);
+  border: 2px solid #4F2EE866;
   border-radius: 16px;
   padding: 14px;
   position: relative;
+  gap: 48px;
 }
 
 .shopping-list-books-information {

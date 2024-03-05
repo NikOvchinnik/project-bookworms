@@ -1,24 +1,20 @@
 import { getData } from './books-api';
 import { addToLS, getFromLS } from './local-storage-functions';
-// import { isSigned, saveBooksToFB } from './modal-authorization';
-// import{keyToLS} from './refs'
+import { isSigned, saveBooksToFB } from './modal-authorization';
+import {bookIdsLSKey} from './refs'
 
-const bookIds1 = ["643282b1e85766588626a086","643282b1e85766588626a0b4","643282b1e85766588626a0d4","643282b2e85766588626a116","643282b2e85766588626a116","643282b2e85766588626a136"];
 
-const keyToLS = 'booksId';
-addToLS(keyToLS, bookIds1);
-const shoppingList = document.querySelector('.shopping-list-gallery-books');
+
 
 // Fonction pour récupérer les données des livres
 async function fetchBookData() {
-  const booksIds = getFromLS(keyToLS);
+  const booksIds = getFromLS(bookIdsLSKey);
   try {
     const array = booksIds.map(bookId => getData(bookId));
     const results = await Promise.allSettled(array);
     const fulfilledResults = results.filter(promise => promise.status === 'fulfilled');
     const booksArray = fulfilledResults.map(result => result.value.data);
 
-    // const bookIdsArray = booksArray.map(book => book._id);
 
     return booksArray;
   } catch (error) {
@@ -42,6 +38,8 @@ async function renderBooks() {
         buy_links,
       } = book;
       const [amazon, applebooks] = buy_links;
+      console.log(amazon.url);
+      console.log(applebooks.url);
       return `<li class="shopping-list-books-items">
                 <div class="shopping-list-books-information">
                   <div class="shopping-list-basket-img">
@@ -85,21 +83,34 @@ function bookOnDelete(e) {
   e.preventDefault();
   const id = e.target.dataset.bookId;
   if (id) {
-  const booksIdArray = getFromLS(keyToLS);
+    console.log("yes");
+  const booksIdArray = getFromLS(bookIdsLSKey);
   const bookToRemoveIndex = booksIdArray.indexOf(id);
   booksIdArray.splice(bookToRemoveIndex, 1);
-    addToLS(keyToLS, booksIdArray);
-    // if (isSigned) {
-    //   saveBooksToFB(booksIdArray);
-    // }
+    addToLS(bookIdsLSKey, booksIdArray);
+    if (isSigned) {
+      saveBooksToFB(booksIdArray);
+    }
     renderBooks();
-  } return
+  }
+  const parentElement = e.target.parentNode;
+  // Vérifie si l'élément parent est un lien
+  if (parentElement.tagName === 'A') {
+    // Si oui, récupère l'URL du lien
+    const url = parentElement.getAttribute('href');
+    // Ouvre l'URL dans une nouvelle fenêtre
+    window.open(url, '_blank');
+    return;
+  }
+  return;
 
 }
 
 // Fonction à exécuter lors du chargement de la page pour les 2 états de la page
-function onPageLoad() {
-  const booksIdArray = getFromLS(keyToLS);
+export function loadShopingList() {
+
+  const shoppingList = document.querySelector('.shopping-list-gallery-books');
+  const booksIdArray = getFromLS(bookIdsLSKey);
   const shoppingListGallery = document.querySelector('.shopping-list-gallery-books');
   const shoppingListEmptyState = document.querySelector('.shopping-list-empty-state');
 
@@ -116,7 +127,3 @@ function onPageLoad() {
 
 }
 
-onPageLoad();
-
-// Ajout du listener pour le chargement de la page
-shoppingList.addEventListener('click', bookOnDelete);
