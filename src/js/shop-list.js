@@ -1,10 +1,9 @@
 import { getData } from './books-api';
 import { addToLS, getFromLS } from './local-storage-functions';
-import { isSigned, saveBooksToFB } from './modal-authorization';
-import {bookIdsLSKey} from './refs'
+import { isSignedIn, saveBooksToFB } from './modal-authorization';
+import { refs } from './refs';
 
-
-
+const { bookIdsLSKey } = refs;
 
 // Fonction pour récupérer les données des livres
 async function fetchBookData() {
@@ -12,9 +11,10 @@ async function fetchBookData() {
   try {
     const array = booksIds.map(bookId => getData(bookId));
     const results = await Promise.allSettled(array);
-    const fulfilledResults = results.filter(promise => promise.status === 'fulfilled');
+    const fulfilledResults = results.filter(
+      promise => promise.status === 'fulfilled'
+    );
     const booksArray = fulfilledResults.map(result => result.value.data);
-
 
     return booksArray;
   } catch (error) {
@@ -25,22 +25,22 @@ async function fetchBookData() {
 
 // Fonction pour afficher les livres
 async function renderBooks() {
+  const shoppingList = document.querySelector('.shopping-list-gallery-books');
   try {
     const booksArray = await fetchBookData();
 
-    const booksMarkup = booksArray.map(book => {
-      const {
-        book_image: image,
-        title,
-        author,
-        description,
-        _id: id,
-        buy_links,
-      } = book;
-      const [amazon, applebooks] = buy_links;
-      console.log(amazon.url);
-      console.log(applebooks.url);
-      return `<li class="shopping-list-books-items">
+    const booksMarkup = booksArray
+      .map(book => {
+        const {
+          book_image: image,
+          title,
+          author,
+          description,
+          _id: id,
+          buy_links,
+        } = book;
+        const [amazon, applebooks] = buy_links;
+        return `<li class="shopping-list-books-items">
                 <div class="shopping-list-books-information">
                   <div class="shopping-list-basket-img">
                     <img class="shopping-list-img" src="${image}"/>
@@ -48,7 +48,7 @@ async function renderBooks() {
                   <div>
                     <h2 class="shopping-list-books-title">${title}</h2>
                     <button data-book-id="${id}" type="button" class="shopping-list-button">
-                      <svg data-book-id="${id}" class="shopping-list-delete">
+                      <svg class="shopping-list-delete">
                         <use href="./img/icons.svg#icon-trash"></use>
                       </svg>
                     </button>
@@ -70,7 +70,8 @@ async function renderBooks() {
                   </div>
                 </div>
               </li>`;
-    }).join('');
+      })
+      .join('');
 
     shoppingList.innerHTML = booksMarkup;
   } catch (error) {
@@ -81,17 +82,18 @@ async function renderBooks() {
 // Fonction pour supprimer un livre
 function bookOnDelete(e) {
   e.preventDefault();
-  const id = e.target.dataset.bookId;
-  if (id) {
-    console.log("yes");
-  const booksIdArray = getFromLS(bookIdsLSKey);
-  const bookToRemoveIndex = booksIdArray.indexOf(id);
-  booksIdArray.splice(bookToRemoveIndex, 1);
+  const deleteButton = e.target.closest('button');
+  if (deleteButton) {
+    const id = deleteButton.dataset.bookId;
+    const booksIdArray = getFromLS(bookIdsLSKey);
+    const bookToRemoveIndex = booksIdArray.indexOf(id);
+    booksIdArray.splice(bookToRemoveIndex, 1);
     addToLS(bookIdsLSKey, booksIdArray);
-    if (isSigned) {
+    if (isSignedIn) {
       saveBooksToFB(booksIdArray);
     }
-    renderBooks();
+    loadShopingList();
+    return;
   }
   const parentElement = e.target.parentNode;
   // Vérifie si l'élément parent est un lien
@@ -103,27 +105,29 @@ function bookOnDelete(e) {
     return;
   }
   return;
-
 }
+
+const shoppingListGallery = document.querySelector(
+  '.shopping-list-gallery-books'
+);
+const shoppingListEmptyState = document.querySelector(
+  '.shopping-list-empty-state'
+);
+
+const shoppingListSection = document.querySelector('.shopping-list-section');
+shoppingListSection.addEventListener('click', bookOnDelete);
 
 // Fonction à exécuter lors du chargement de la page pour les 2 états de la page
 export function loadShopingList() {
-
-  const shoppingList = document.querySelector('.shopping-list-gallery-books');
-  const booksIdArray = getFromLS(bookIdsLSKey);
-  const shoppingListGallery = document.querySelector('.shopping-list-gallery-books');
-  const shoppingListEmptyState = document.querySelector('.shopping-list-empty-state');
-
+  const booksIdArray = getFromLS(bookIdsLSKey) || [];
   if (booksIdArray.length > 0) {
     renderBooks();
-    shoppingListGallery.style.display = 'block';
+    // shoppingListGallery.style.display = 'block';
     shoppingListEmptyState.style.display = 'none';
-    const shoppingListSection = document.querySelector('.shopping-list-section');
-    shoppingListSection.addEventListener('click', bookOnDelete);
   } else {
     shoppingListGallery.style.display = 'none';
     shoppingListEmptyState.style.display = 'block';
   }
-
 }
 
+loadShopingList();

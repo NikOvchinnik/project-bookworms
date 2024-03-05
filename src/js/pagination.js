@@ -1,11 +1,14 @@
 import tuiPagination from 'tui-pagination';
 import { getFromLS } from './local-storage-functions';
+import { refs } from './refs';
+
+const { bookIdsLSKey } = refs;
 
 const paginationElement = document.getElementById('pagination');
 const itemsPerPage = 3;
 
 const getTotalBooks = () => {
-    const myArray = getFromLS("idBooks") || [];
+    const myArray = getFromLS(bookIdsLSKey) || [];
     return myArray.length;
 };
 

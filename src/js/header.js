@@ -57,9 +57,11 @@ const currentPage = window.location.pathname;
 
 const menuItems = document.querySelectorAll('.item-menu-header');
 
-menuItems.forEach(function (item) {
-  if (item.querySelector('a').getAttribute('href') === "." + currentPage) {
+menuItems.forEach(function (item, i, arr) {
+  if (item.querySelector('a').getAttribute('href') === '.' + currentPage) {
     item.classList.add('is-active');
+  } else if (currentPage === '/') {
+    arr[0].classList.add('is-active');
   }
 });
 

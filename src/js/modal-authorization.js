@@ -10,6 +10,9 @@ import {
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import { onBugerMenuClick } from './header-modal';
+import { refs } from './refs';
+
+const { bookIdsLSKey } = refs;
 
 //name of key for localstorage, contains uid, name, mail,
 const AUTH_KEY_LS = 'user-data';
@@ -123,9 +126,9 @@ function updShoplistFromFBToLS(uid = authId) {
     const userData = snapshot.val(); // user data
     if (userData) {
       if (userData.shopList) {
-        addToLS('idBooks', userData.shopList);
+        addToLS(bookIdsLSKey, userData.shopList);
       } else {
-        addToLS('idBooks', []);
+        addToLS(bookIdsLSKey, []);
       }
     } else {
       console.log('error while copying from Realtime Database to localstorage');

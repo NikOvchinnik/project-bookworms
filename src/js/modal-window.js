@@ -10,10 +10,8 @@ const { bookIdsLSKey } = refs;
 const localRefs = {};
 // ОСНОВНА ФУНКЦІЯ НА ЕКСПОРТ
 export async function bookOnClick(e) {
-  console.log('start');
   // Getting all using data
   const bookElem = e.target.closest('li');
-  console.log(bookElem);
   if (!bookElem) {
     return;
   }
