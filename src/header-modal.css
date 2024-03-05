@@ -1,0 +1,51 @@
+
+.btn-register.btn-register-modal.is-open-burger {
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  width: 184px;
+  height: 48px;
+  background: #4f2ee8;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.is-open-burger {
+  display: flex;
+}
+
+.link-home{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px; 
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  padding-left: 16px;
+  border-radius: 36px;
+  width: 72px;
+}
+
+.link-shoplist-login{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px; 
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+}
+
+
+.is-active {
+  border-radius: 36px;
+  background-color: var(--nav-color);
+  font-weight: 700;
+  height: 34px;
+  padding-top: 7px;
+}
+
+
+

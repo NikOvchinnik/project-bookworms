@@ -38,70 +38,74 @@
   display: none;
 }
 
-.button-close.is-open {
-  display: block;
-}
-
-.btn-sign {
+.btn-register-modal {
   border: 1.5px solid #111;
   border-radius: 18px;
   width: 184px;
   height: 48px;
   background: #4f2ee8;
   display: flex;
-}
-
-.icon-arrow-narrow-right {
-  stroke-width: 2px;
-  stroke: #eac645;
-  margin-left: 90px;
-  vertical-align: middle;
-}
-
-.btn-register {
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: var(--white-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
   letter-spacing: -0.04em;
-  color: #fff;
-  padding-left: 14px;
-  line-height: 48px;
+  padding: 0 16px;
 }
 
-.icon-arrow-right {
-  fill: #eac645;
+.btn-register-modal:hover,
+.btn-register-modal:focus {
+  background-color: var(--hover-color);
+  justify-content: center;
+}
+
+.icon-arrow-right-burger {
+  fill: var(--nav-color);
+}
+
+.list-menu-login {
+  margin: 0 auto;
+  margin-top: 126px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.link-nav-burger {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  border-radius: 36px;
+  padding: 8px 16px;
+  color: var(--white-color);
+}
+
+.icon-shop-login {
+  fill: #fff;
   vertical-align: middle;
 }
 
-.btn-sign button {
-  display: flex;
-  align-items: center;
+.is-active-burger {
+  background-color: var(--nav-color);
+  border-radius: 36px;
+  font-weight: 700;
+  padding: 8px 16px;
 }
 
-.btn-sign .icon-arrow-right {
-  margin-left: 90px;
-}
-
-.btn-register-logi-in {
-  margin-right: 24px;
-  border: none;
+.btn-sign-in {
+  border-radius: 18px;
   width: 184px;
   height: 48px;
   display: flex;
   align-items: center;
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  padding: 12px;
-  vertical-align: top;
-  background: none;
-}
-
-.icon-user {
+  gap: 10px;
 }
 
 .icon-user-circle {
@@ -112,40 +116,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 9px;
 }
 
-.nav-list-login {
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-}
-
-.list-menu-login {
-  list-style: none;
-}
-
-.menu-home-login {
-}
-
-.shop-list-login {
-  margin-top: 16px;
-}
-
-.link-shoplist-login {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
+.user-name-modal {
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
   color: #fff;
-  text-decoration: none;
-}
-
-.icon-shop-login {
-  stroke: #fff;
-  vertical-align: middle;
 }
 
 .btn-sign-logout {
@@ -156,47 +133,38 @@
   border-radius: 18px;
   width: 118px;
   height: 48px;
-  background: #fff;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn-register-logout {
-  font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.28571;
   letter-spacing: -0.04em;
   color: #111;
   border: none;
-  background-color: #fff;
-  margin-right: 10px;
-}
-
-.register-logi-in {
-  margin-right: 24px;
-  border: none;
-  width: 184px;
-  height: 48px;
+  background-color: inherit;
   display: flex;
   align-items: center;
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  padding: 12px;
-  vertical-align: top;
-  background: none;
+  justify-content: space-between;
+  gap: 20px;
 }
+
+.btn-register-logout:hover,
+.btn-register-logout:focus {
+  gap: 10px;
+}
+
 
 .is-closed-burger {
   display: none;
 }
 
 .is-open-burger {
-  display: block;
+  display: flex;
 }
 
 .is-closed-register {

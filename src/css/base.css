@@ -11,28 +11,26 @@ body {
   margin: 0 auto;
 }
 
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .loader {
   width: 48px;
   height: 48px;
-  display: block;
-  margin: 20px auto;
-  border: 3px solid #fff;
+  margin: 50px auto;
+  border: 3px solid #4f2ee8;
   border-radius: 50%;
-  box-sizing: border-box;
   animation: animloader 2s linear infinite;
-}
-
-.loader-hidden {
-  visibility: hidden;
-  opacity: 0;
 }
 
 .loader::after {
   content: '';
-  box-sizing: border-box;
   width: 6px;
   height: 24px;
-  background: #fff;
+  background: #4f2ee8;
   transform: rotate(-45deg);
   position: absolute;
   bottom: -20px;
@@ -65,6 +63,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+.main-content {
+  width: 100%;
 }
 
 .main-container {
