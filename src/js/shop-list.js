@@ -1,6 +1,7 @@
 import { getData } from './books-api';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { isSignedIn, saveBooksToFB } from './modal-authorization';
+import { showLoader, hideLoader } from './loader.js';
 import { refs } from './refs';
 
 const { bookIdsLSKey } = refs;
@@ -45,7 +46,7 @@ async function renderBooks() {
                   <div class="shopping-list-basket-img">
                     <img class="shopping-list-img" src="${image}"/>
                   </div>
-                  <div>
+                  <div class="shopping-list-text-content">
                     <h2 class="shopping-list-books-title">${title}</h2>
                     <button data-book-id="${id}" type="button" class="shopping-list-button">
                       <svg class="shopping-list-delete">
@@ -72,7 +73,7 @@ async function renderBooks() {
               </li>`;
       })
       .join('');
-
+    hideLoader();
     shoppingList.innerHTML = booksMarkup;
   } catch (error) {
     console.error('Error rendering books:', error);
@@ -107,12 +108,14 @@ shoppingListSection.addEventListener('click', bookOnDelete);
 
 // Fonction à exécuter lors du chargement de la page pour les 2 états de la page
 export function loadShopingList() {
+  showLoader();
   const booksIdArray = getFromLS(bookIdsLSKey) || [];
   if (booksIdArray.length > 0) {
     renderBooks();
     // shoppingListGallery.style.display = 'block';
     shoppingListEmptyState.style.display = 'none';
   } else {
+    hideLoader();
     shoppingListGallery.style.display = 'none';
     shoppingListEmptyState.style.display = 'block';
   }

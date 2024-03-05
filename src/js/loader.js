@@ -1,21 +1,9 @@
-export  const showLoader = () => {
-    const loader = document.createElement('span');
-    loader.classList.add('loader');
-    document.body.append(loader);
+const loaderContainer = document.querySelector('.loader-container');
+
+export const showLoader = () => {
+  loaderContainer.classList.remove('visually-hidden');
 };
 
 export const hideLoader = () => {
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        loader.remove();
-    }
+  loaderContainer.classList.add('visually-hidden');
 };
-
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-    loader.classList.add('visually-hidden');
-
-    loader.addEventListener("transitioned", () => {
-        document.body.removeChild("loader");
-    })
-})

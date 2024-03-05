@@ -69,7 +69,7 @@ const menuItemsMobile = document.querySelectorAll('.nav-menu-link');
 
 menuItemsMobile.forEach(function (item) {
   if (item.querySelector('a').getAttribute('href') === '.' + currentPage) {
-    item.classList.add('is-active');
+    item.classList.add('is-active-burger');
   }
 });
 
