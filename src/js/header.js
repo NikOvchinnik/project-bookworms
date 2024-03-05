@@ -50,7 +50,6 @@ logoutBtn.addEventListener('click', () => {
   location.reload();
 });
 
-
 // Навігація сторінки
 
 const currentPage = window.location.pathname;
@@ -60,7 +59,7 @@ const menuItems = document.querySelectorAll('.item-menu-header');
 menuItems.forEach(function (item, i, arr) {
   if (item.querySelector('a').getAttribute('href') === '.' + currentPage) {
     item.classList.add('is-active');
-  } else if (currentPage === '/') {
+  } else if (currentPage === '/' || currentPage === '/project-bookworms/') {
     arr[0].classList.add('is-active');
   }
 });
@@ -72,7 +71,3 @@ menuItemsMobile.forEach(function (item) {
     item.classList.add('is-active-burger');
   }
 });
-
-
-
-
