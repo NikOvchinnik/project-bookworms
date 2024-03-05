@@ -73,7 +73,7 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 // save name and shoplist by uid from input shopList-parameter to FB
-async function saveBooksToFB(shopList = []) {
+export async function saveBooksToFB(shopList = []) {
   const userInfo = {
     name: authUser,
     uid: authId,

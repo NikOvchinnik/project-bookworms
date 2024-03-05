@@ -1,21 +1,18 @@
-* {
-  box-sizing: border-box;
-}
-
 .modal-window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  position: relative;
   width: 296px;
 
   padding: 40px 24px;
-  /* margin: 150px 0 0; */
   background: #ffffff;
   border: 2px solid #111;
   border-radius: 18px;
 
   letter-spacing: -0.04em;
+}
+
+.basicLightbox:has(.modal-window) {
+  background: rgba(17, 17, 17, 0.4);
+  overflow-y: auto;
 }
 
 .modal-window-close-btn {
@@ -134,11 +131,10 @@
   margin: 8px auto 0;
 }
 
-@media screen and (max-height: 834px) {
-  .modal-window {
-    height: 100vh;
-    overflow-y: auto;
-  }
+@media screen and (max-height: 834px) and (max-width: 767) {
+ .modal-window {
+  margin: 220px 0 0;
+}
 }
 
 @media screen and (min-width: 375px) {

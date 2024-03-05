@@ -2,8 +2,10 @@ import { getData } from './books-api';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basiclightbox.min.css';
 import { addToLS, getFromLS } from './local-storage-functions';
-import { isSigned, saveBooksToFB } from './modal-authorization';
-import { bookIdsLSKey } from './refs.js';
+import { isSignedIn, saveBooksToFB } from './modal-authorization';
+import { refs } from './refs';
+
+const { bookIdsLSKey } = refs;
 
 const localRefs = {};
 // ОСНОВНА ФУНКЦІЯ НА ЕКСПОРТ
@@ -114,7 +116,7 @@ function shopListBtnOnClick(bookIdValue) {
     const bookToRemoveIndex = booksIdArray.indexOf(bookIdValue);
     booksIdArray.splice(bookToRemoveIndex, 1);
     addToLS(bookIdsLSKey, booksIdArray);
-    if (isSigned) {
+    if (isSignedIn) {
       saveBooksToFB(booksIdArray);
     }
 
@@ -122,7 +124,7 @@ function shopListBtnOnClick(bookIdValue) {
   } else {
     booksIdArray.push(bookIdValue);
     addToLS(bookIdsLSKey, booksIdArray);
-    if (isSigned) {
+    if (isSignedIn) {
       saveBooksToFB(booksIdArray);
     }
     checkShopListBtnStatus(bookIdValue);

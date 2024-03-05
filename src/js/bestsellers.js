@@ -7,7 +7,7 @@ import {
   changeCategoryColor,
 } from './categories';
 import { categoriesList } from './categories.js';
-// import { bookOnClick } from './modal-window';
+import { bookOnClick } from './modal-window';
 
 export const booksContainer = document.querySelector('.books-container');
 async function fetchTopBooks() {
@@ -63,7 +63,7 @@ export async function onPageLoad() {
   await renderCategoriesList();
   await renderBestSellersBooks();
   booksContainer.addEventListener('click', onCategoryClick);
-  // booksContainer.addEventListener('click', bookOnClick);
+  booksContainer.addEventListener('click', bookOnClick);
   categoriesList.addEventListener('click', onCategoryClick);
 }
 
