@@ -44,7 +44,7 @@ function renderBooksBlock(books, title) {
 // функція для створення li-шки з книгою
 function templateBook({ book_image, title, author, _id: id }) {
   return `
-      <li class="book-item" data-book-id="${id}">
+      <li class="book-item bestseller-book" data-book-id="${id}">
         <div class="book-image-container">
           <img
             class="book-image"

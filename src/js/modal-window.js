@@ -22,11 +22,10 @@ export async function bookOnClick(e) {
   const { book_image: image, title, author, description, buy_links } = book;
   const [amazon, applebooks] = buy_links;
 
-  const bookMarkup = `
-  <div class="modal-window">
+  const bookMarkup = `<div class="modal-window">
     <button type="button" class="modal-window-close-btn">
       <svg class="modal-window-close-btn-icon" width="28" height="28">
-        <use href="./img/icons.svg#icon-x-close"></use>
+        <use href="/img/icons.svg#icon-x-close"></use>
       </svg>
     </button>
 
@@ -44,14 +43,14 @@ export async function bookOnClick(e) {
         </p>
         <div class="modal-window-book-wheretobuy-links-container">
           <a href="${amazon.url}" class="amazon-link" target="_blank">
-            <img src="./img/amazon.png" alt="" />
+            <img src="/img/amazon.png" alt="" />
           </a>
           <a
             href="${applebooks.url}"
             class="applebooks-link"
             target="_blank"
           >
-            <img src="./img/applebooks.png" alt="" />
+            <img src="/img/applebooks.png" alt="" />
           </a>
         </div>
       </div>
