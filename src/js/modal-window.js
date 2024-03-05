@@ -1,6 +1,6 @@
-import { getData } from './books-api';
 import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basiclightbox.min.css';
+import 'basiclightbox/dist/basicLightbox.min.css';
+import { getData } from './books-api';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { isSignedIn, saveBooksToFB } from './modal-authorization';
 import { refs } from './refs';
