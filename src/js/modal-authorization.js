@@ -171,7 +171,7 @@ export function openAuthModal() {
             placeholder="email"
             required
           />
-          <svg class="auth-input-icon" width="18" height="18">
+          <svg class="auth-input-icon-mail" width="15" height="12">
             <use href="${icons}#icon-mail"></use>
           </svg>
         </div>
@@ -186,7 +186,7 @@ export function openAuthModal() {
             maxlength="20"
             required
           />
-          <svg class="auth-input-icon" width="18" height="18">
+          <svg class="auth-input-icon-mail" width="14" height="14">
             <use href="${icons}#icon-lock"></use>
           </svg>
         </div>

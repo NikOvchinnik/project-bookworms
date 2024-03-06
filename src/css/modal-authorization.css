@@ -53,11 +53,12 @@
   line-height: 1.13;
   letter-spacing: -0.01em;
   color: var(--main-text-color);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-form-input:hover {
   border-color: #eac645;
-  scale: 1.02;
+  scale: 0.98;
 }
 
 .auth-form-input::placeholder {
@@ -69,10 +70,25 @@
   position: relative;
 }
 
-.auth-input-icon {
+.auth-input-icon-mail {
   position: absolute;
-  right: 24px;
-  top: 16px;
+  top: 50%;
+  right: 25px;
+  transform: translate(-50%, -50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-input-icon-lock {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  transform: translate(-50%, -50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-form-input:hover + .auth-input-icon-mail,
+.auth-form-input:hover + .auth-input-icon-mail {
+  fill: #eac645;
 }
 
 .auth-password-wrapper {
@@ -91,11 +107,12 @@
   line-height: 1.13;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-submit-btn:hover {
   background-color: #4f2ee8;
-  scale: 1.02;
+  scale: 0.98;
   opacity: 0.8;
 }
 
@@ -104,6 +121,10 @@
   display: flex;
   gap: 20px;
   justify-content: center;
+}
+
+.auth-sign-item {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-sign-item:hover {
@@ -182,11 +203,16 @@
     line-height: 1.33;
   }
 
-  .auth-input-icon {
-    right: 32px;
-    top: 18px;
-    width: 28px;
-    height: 28px;
+  .auth-input-icon-mail {
+    width: 23px;
+    height: 19px;
+    right: 34px;
+  }
+
+  .auth-input-icon-lock {
+    width: 21px;
+    height: 21px;
+    right: 36px;
   }
 
   .auth-submit-btn {
