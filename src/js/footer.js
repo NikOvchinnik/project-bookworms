@@ -1,5 +1,5 @@
 import iziToast from 'izitoast';
-import { database } from './firebase-API';
+import { database } from './firebase-settings';
 import { ref, set } from 'firebase/database';
 //form with phone number
 const phoneSendForm = document.querySelector('.form-footer');
