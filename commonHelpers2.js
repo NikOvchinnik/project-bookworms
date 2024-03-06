@@ -1,31 +1,31 @@
-import{c as p,r as h,d as f,e as L,s as v,f as I,h as S,i as w,a as A,b as $,g as B}from"./assets/scroll-up-e04fec5c.js";import"./assets/vendor-76990a4b.js";const{bookIdsLSKey:P}=h;function u(){return(p(P)||[]).length}const l=document.getElementById("pagination");function q(){const s=document.querySelector(".shopping-list-gallery-books").children,o=window.innerWidth<768?4:3,n=window.innerWidth<768?2:3,t=u(),a=new tui.Pagination(l,{totalItems:t,itemsPerPage:o,visiblePages:n,centerAlign:!0});function i(d){if(t<=3){l.classList.add("hidden");return}else l.classList.remove("hidden");const r=d.page-1;for(let e=0;e<s.length;e++)s[e].style.display="none";for(let e=r*o;e<(r+1)*o;e++)s[e]&&(s[e].style.display="block")}a.on("afterMove",i),i({page:1})}function E(){if(u()<=3){l.classList.add("hidden");return}else l.classList.remove("hidden")}const{bookIdsLSKey:c}=h;async function T(){const s=p(c);try{const o=s.map(i=>B(i));return(await Promise.allSettled(o)).filter(i=>i.status==="fulfilled").map(i=>i.value.data)}catch(o){return console.error("Error fetching book data:",o),[]}}async function _(){const s=document.querySelector(".shopping-list-gallery-books");try{const n=(await T()).map(t=>{const{book_image:a,title:i,author:d,description:r,_id:e,buy_links:y}=t,[b,m]=y;return`<li class="shopping-list-books-items">
+import{c,r as h,d as f,e as L,s as S,f as v,h as I,i as w,a as $,b as A,g as P}from"./assets/scroll-up-7b241b9e.js";import"./assets/vendor-76990a4b.js";const{bookIdsLSKey:B}=h;function q(){return(c(B)||[]).length}const g=document.getElementById("pagination");function u(){const o=document.querySelector(".shopping-list-gallery-books").children,s=window.innerWidth<768?4:3,e=window.innerWidth<768?2:3,t=q(),a=new tui.Pagination(g,{totalItems:t,itemsPerPage:s,visiblePages:e,centerAlign:!0});function i(p){if(t<=3){g.classList.add("hidden");return}else g.classList.remove("hidden");const l=p.page-1;for(let n=0;n<o.length;n++)o[n].style.display="none";for(let n=l*s;n<(l+1)*s;n++)o[n]&&(o[n].style.display="block")}a.on("afterMove",i),i({page:1})}const{bookIdsLSKey:r}=h;async function E(){const o=c(r);try{const s=o.map(i=>P(i));return(await Promise.allSettled(s)).filter(i=>i.status==="fulfilled").map(i=>i.value.data)}catch(s){return console.error("Error fetching book data:",s),[]}}async function T(){const o=document.querySelector(".shopping-list-gallery-books");try{const e=(await E()).map(t=>{const{book_image:a,title:i,author:p,description:l,_id:n,buy_links:k}=t,[b,m]=k;return`<li class="shopping-list-books-items">
                 <div class="shopping-list-books-information">
                   <div class="shopping-list-basket-img">
                     <img class="shopping-list-img" src="${a}"/>
                   </div>
                   <div class="shopping-list-text-content">
                     <h2 class="shopping-list-books-title">${i}</h2>
-                    <button data-book-id="${e}" type="button" class="shopping-list-button">
+                    <button data-book-id="${n}" type="button" class="shopping-list-button">
                       <svg class="shopping-list-delete">
                         <use href="${w}#icon-trash"></use>
                       </svg>
                     </button>
                     <h3 class="shopping-list-books-category">Category</h3>
-                    <p class="shopping-list-books-desc">${r}</p>
-                    <p class="shopping-list-author">${d}</p>
+                    <p class="shopping-list-books-desc">${l}</p>
+                    <p class="shopping-list-author">${p}</p>
                     <ul class="shopping-list-shop-list">
                       <li class="shopping-list-shop-list-items">
                         <a class="shopping-list-shop-list-link" target="_blank" href="${b.url}">
-                          <img class="shopping-list-link-amazon" src="${A}" alt="logo-amazon">
+                          <img class="shopping-list-link-amazon" src="${$}" alt="logo-amazon">
                         </a>
                       </li>
                       <li class="shopping-list-shop-list-items">
                         <a class="shopping-list-shop-list-link" target="_blank" href="${m.url}">
-                          <img class="shopping-list-link-apple" src="${$}" alt="apple-books">
+                          <img class="shopping-list-link-apple" src="${A}" alt="apple-books">
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
-              </li>`}).join("");s.innerHTML=n}catch(o){console.error("Error rendering books:",o)}}function z(s){const o=s.target.closest("button");if(o){const n=o.dataset.bookId,t=p(c),a=t.indexOf(n);t.splice(a,1),f(c,t),L&&v(t),k()}}const R=document.querySelector(".shopping-list-gallery-books"),g=document.querySelector(".shopping-list-empty-state"),x=document.querySelector(".shopping-list-wrapper");x.addEventListener("click",z);async function k(){(p(c)||[]).length>0?(await _(),E(),g.style.display="none"):(R.style.display="none",g.style.display="block")}async function C(){I(),await k(),S(),q()}C();
+              </li>`}).join("");o.innerHTML=e}catch(s){console.error("Error rendering books:",s)}}function _(o){const s=o.target.closest("button");if(s){const e=s.dataset.bookId,t=c(r),a=t.indexOf(e);t.splice(a,1),f(r,t),L&&S(t),y()}}const z=document.querySelector(".shopping-list-gallery-books"),d=document.querySelector(".shopping-list-empty-state"),x=document.querySelector(".shopping-list-wrapper");x.addEventListener("click",_);async function y(){(c(r)||[]).length>0?(await T(),u(),d.style.display="none"):(z.style.display="none",d.style.display="block")}async function C(){v(),await y(),I(),u()}C();
 //# sourceMappingURL=commonHelpers2.js.map
