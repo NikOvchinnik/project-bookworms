@@ -43,6 +43,8 @@ async function sendPhoneNumberToFB(phoneNumber) {
   const minutes = currentDate.getMinutes();
   const seconds = currentDate.getSeconds();
 
+  //date in ms == id
+  const idx = Date.now();
   //full date
   const curDate = `${year}-${month}-${day}`;
   const currentTime = `${hours}:${minutes}:${seconds}`;
@@ -53,7 +55,7 @@ async function sendPhoneNumberToFB(phoneNumber) {
     currentTime,
   };
   try {
-    const userRef = ref(database, `callbacks/${curDate}`);
+    const userRef = ref(database, `callbacks/${curDate}/${idx}`);
     const setResponse = await set(userRef, callbackRequest);
   } catch (error) {
     console.error('Error while phone number to Realtime Database:', error);
