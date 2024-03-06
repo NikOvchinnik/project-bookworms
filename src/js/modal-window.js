@@ -3,6 +3,7 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import { getData } from './books-api';
 import { addToLS, getFromLS } from './local-storage-functions';
 import { isSignedIn, saveBooksToFB } from './modal-authorization';
+import { iziToastMessage } from './izi-toast';
 import { refs } from './refs';
 import icons from '../img/icons.svg';
 import amazonIcon from '../img/amazon.png';
@@ -18,14 +19,15 @@ export async function bookOnClick(e) {
   if (!bookElem) {
     return;
   }
-  const bookId = bookElem.dataset.bookId;
-  const bookData = await getData(bookId);
-  const book = bookData.data;
+  try {
+    const bookId = bookElem.dataset.bookId;
+    const bookData = await getData(bookId);
+    const book = bookData.data;
 
-  const { book_image: image, title, author, description, buy_links } = book;
-  const [amazon, applebooks] = buy_links;
+    const { book_image: image, title, author, description, buy_links } = book;
+    const [amazon, applebooks] = buy_links;
 
-  const bookMarkup = `<div class="modal-window">
+    const bookMarkup = `<div class="modal-window">
     <button type="button" class="modal-window-close-btn">
       <svg class="modal-window-close-btn-icon" width="28" height="28">
         <use href="${icons}#icon-x-close"></use>
@@ -67,33 +69,37 @@ export async function bookOnClick(e) {
     </p>
   </div>`;
 
-  // Modal Window
-  const instance = basicLightbox.create(bookMarkup, {
-    onShow: instance => {
-      instance.element().querySelector('.modal-window-close-btn').onclick =
-        instance.close;
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    },
-    onClose: () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-      const { shopListBtn } = localRefs;
-      shopListBtn.removeEventListener('click', shopListBtnOnClick);
-    },
-  });
+    // Modal Window
+    const instance = basicLightbox.create(bookMarkup, {
+      onShow: instance => {
+        instance.element().querySelector('.modal-window-close-btn').onclick =
+          instance.close;
+        window.addEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = 'hidden';
+      },
+      onClose: () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = '';
+        const { shopListBtn } = localRefs;
+        shopListBtn.removeEventListener('click', shopListBtnOnClick);
+      },
+    });
 
-  // HELPERS
+    // HELPERS
 
-  instance.show();
-  document.querySelector('.basicLightbox').style.backgroundColor =
-    'rgba(17, 17, 17, 0.4)';
-  document.querySelector('.basicLightbox').style.overflowY = 'auto';
-  shopListLogic(bookId);
-  function handleKeyDown(e) {
-    if (e.key === 'Escape') {
-      instance.close();
+    instance.show();
+    document.querySelector('.basicLightbox').style.backgroundColor =
+      'rgba(17, 17, 17, 0.4)';
+    document.querySelector('.basicLightbox').style.overflowY = 'auto';
+    shopListLogic(bookId);
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        instance.close();
+      }
     }
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
   }
 }
 

@@ -7,6 +7,7 @@ import { initPagination } from './pagination';
 import icons from '../img/icons.svg';
 import amazonIcon from '../img/amazon.png';
 import appleIcon from '../img/applebooks.png';
+import { iziToastMessage } from './izi-toast.js';
 
 const { bookIdsLSKey } = refs;
 
@@ -123,10 +124,15 @@ export async function loadShopingList() {
 }
 
 async function initShopingList() {
-  showLoader();
-  await loadShopingList();
-  hideLoader();
-  initPagination();
+  try {
+    showLoader();
+    await loadShopingList();
+    hideLoader();
+    initPagination();
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
+  }
 }
 
 initShopingList();

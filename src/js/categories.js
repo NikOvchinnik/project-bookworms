@@ -2,12 +2,18 @@ import { getData } from './books-api';
 import { renderBestSellersBooks } from './bestsellers';
 import { booksContainer } from './bestsellers';
 import { showLoader, hideLoader } from './loader.js';
+import { iziToastMessage } from './izi-toast';
 export const categoriesList = document.querySelector('.categories-list');
 
 // Список категорій
 async function fetchCategoriesList() {
-  const response = await getData('category-list');
-  return response;
+  try {
+    const response = await getData('category-list');
+    return response;
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
+  }
 }
 
 export async function renderCategoriesList() {
@@ -83,29 +89,39 @@ function renderBookByCategory(booksArray) {
 
 // Це основна функція рендеру книжок за категорією. Імпортується до Андріани та вішається як колбек на слухач подій на кнопки See More
 async function renderCategoryBooks(categoryName) {
-  showLoader();
-  const response = await getData('category', categoryName);
-  const booksArray = response.data;
-  const booksTitle = renderTitle(categoryName);
-  const books = renderBookByCategory(booksArray);
-  const allCategoriesButtonMarkup = `<button class="books-list-btn all-categories-btn" type="button" data-category-name="All Categories">All Categories</button>`;
-  const markup = booksTitle + books + allCategoriesButtonMarkup;
-  booksContainer.innerHTML = markup;
-  hideLoader();
-  changeCategoryColor();
+  try {
+    showLoader();
+    const response = await getData('category', categoryName);
+    const booksArray = response.data;
+    const booksTitle = renderTitle(categoryName);
+    const books = renderBookByCategory(booksArray);
+    const allCategoriesButtonMarkup = `<button class="books-list-btn all-categories-btn" type="button" data-category-name="All Categories">All Categories</button>`;
+    const markup = booksTitle + books + allCategoriesButtonMarkup;
+    booksContainer.innerHTML = markup;
+    hideLoader();
+    changeCategoryColor();
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
+  }
 }
 
 // Слухач подій
 export async function onCategoryClick(event) {
-  const categoryName = event.target.dataset.categoryName;
-  if (categoryName === 'All Categories') {
-    booksContainer.innerHTML = '';
-    renderBestSellersBooks();
+  try {
+    const categoryName = event.target.dataset.categoryName;
+    if (categoryName === 'All Categories') {
+      booksContainer.innerHTML = '';
+      renderBestSellersBooks();
+      return;
+    } else if (categoryName) {
+      renderCategoryBooks(categoryName);
+    }
     return;
-  } else if (categoryName) {
-    renderCategoryBooks(categoryName);
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
   }
-  return;
 }
 
 export function changeCategoryColor() {
