@@ -7,12 +7,11 @@ function getTotalBooks() {
   const myArray = getFromLS(bookIdsLSKey) || [];
   return myArray.length;
 }
-  const paginationContainer = document.getElementById('pagination');
+const paginationContainer = document.getElementById('pagination');
 export function initPagination() {
   const listItems = document.querySelector(
     '.shopping-list-gallery-books'
   ).children;
-
 
   const itemsPerPage = window.innerWidth < 768 ? 4 : 3;
   const visiblePages = window.innerWidth < 768 ? 2 : 3;
@@ -60,15 +59,3 @@ export function initPagination() {
   // Ініціалізація сторінки за замовчуванням
   handlePageChange({ page: 1 });
 }
-
-export function checkIfAllBooksRemoved() {
-  const totalBooks = getTotalBooks();
-  if (totalBooks <= 3) {
-    paginationContainer.classList.add('hidden');
-    return;
-  } else {
-    paginationContainer.classList.remove('hidden');
-  }
-}
-
-
