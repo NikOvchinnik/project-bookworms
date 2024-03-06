@@ -7,3 +7,155 @@
   --nav-color: #eac645;
   --white-color: #ffffff;
 }
+
+.dark-theme {
+  --background-color: #202024;
+  --main-text-color: var(--white-color);
+
+  .header {
+    background-color: #111111;
+  }
+
+  .icon-burger {
+    fill: var(--white-color);
+  }
+
+  .icon-shop {
+    fill: var(--white-color);
+  }
+
+  .btn-burger:hover svg {
+    fill: var(--nav-color);
+  }
+
+  .btn-popup {
+    color: #111111;
+  }
+
+  .btn-register {
+    border: none;
+  }
+
+  .categories-list-item {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .current-category {
+    text-transform: uppercase;
+    color: var(--nav-color);
+  }
+
+  .categories-list-item:hover,
+  .categories-list-item:focus {
+    color: var(--nav-color);
+    cursor: pointer;
+  }
+
+  .footer {
+    background-color: #111111;
+    border: 1px solid var(--white-color);
+  }
+
+  .button-close-icon {
+    fill: var(--white-color);
+  }
+
+  .modal-window {
+    background: var(--background-color);
+  }
+
+  .modal-window-book-shopping-list-button {
+    color: var(--white-color);
+  }
+
+  .amazon-link {
+    filter: brightness(0) invert(1);
+  }
+
+  .amazon-link:hover {
+    filter: brightness(0) invert(1)
+      drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  }
+
+  .applebooks-link {
+    filter: grayscale(100%);
+  }
+
+  .applebooks-link:hover {
+    filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  }
+
+  .modal-window-congratulations {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .shopping-list-books-items {
+    background-color: #111111;
+    border: 2px solid #4f2ee866;
+  }
+
+  .shopping-list-link-amazon {
+    filter: brightness(0) invert(1);
+  }
+
+  .shopping-list-link-amazon:hover {
+    filter: brightness(0) invert(1)
+      drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  }
+
+  .shopping-list-link-apple {
+    filter: grayscale(100%);
+  }
+
+  .shopping-list-link-apple:hover {
+    filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  }
+
+  .auth-modal {
+    background: #111111;
+  }
+
+  .auth-form-input {
+    background-color: inherit;
+  }
+
+  .auth-close-icon:hover {
+    fill: var(--nav-color);
+  }
+
+  .auth-input-icon-mail {
+    fill: var(--white-color);
+  }
+
+  .auth-submit-btn:hover {
+    background-color: var(--white-color);
+    color: var(--nav-color);
+    opacity: 1;
+  }
+
+  .sign-in-btn,
+  .sign-up-btn {
+    color: rgba(246, 246, 246, 0.5);
+  }
+
+  .current-sign {
+    color: var(--action-color);
+  }
+
+  .tui-page-btn {
+    color: var(--white-color);
+    border: 1px solid #fff;
+  }
+
+  .tui-first,
+  .tui-prev,
+  .tui-next,
+  .tui-last {
+    border: none;
+  }
+
+  .tui-is-selected {
+    color: #111111;
+    background-color: #fff;
+  }
+}

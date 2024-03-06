@@ -3,17 +3,17 @@
   width: 296px;
 
   padding: 40px 24px;
-  background: #ffffff;
-  border: 2px solid #111;
+  background: var(--white-color);
+  border: 2px solid var(--main-text-color);
   border-radius: 18px;
 
   letter-spacing: -0.04em;
 }
 
-.basicLightbox:has(.modal-window) {
+/* .basicLightbox:has(.modal-window) {
   background: rgba(17, 17, 17, 0.4);
   overflow-y: auto;
-}
+} */
 
 .modal-window-close-btn {
   background-color: transparent;
@@ -27,12 +27,12 @@
 }
 
 .modal-window-close-btn-icon {
-  fill: #111111;
+  fill: var(--main-text-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-window-close-btn-icon:hover {
-  fill: #4f2ee8;
+  fill: var(--action-color);
 }
 
 .modal-window-book {
@@ -58,7 +58,7 @@
 }
 
 .modal-window-book-author {
-  color: #b4afaf;
+  color: var(--secondary-text-color);
   text-transform: capitalize;
   font-style: italic;
   font-size: 12px;
@@ -103,7 +103,7 @@
   letter-spacing: -0.04em;
 
   background-color: transparent;
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--action-color);
   border-radius: 40px;
 
   margin: 44px auto 0;
@@ -116,8 +116,8 @@
 }
 
 .modal-window-book-shopping-list-button:hover {
-  background: #4f2ee8;
-  color: #ffffff;
+  background: var(--action-color);
+  color: var(--white-color);
 }
 
 .modal-window-congratulations {

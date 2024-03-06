@@ -114,10 +114,7 @@ export async function loadShopingList() {
   const booksIdArray = getFromLS(bookIdsLSKey) || [];
   if (booksIdArray.length > 0) {
     await renderBooks();
-    // checkIfAllBooksRemoved();
     initPagination();
-
-    // shoppingListGallery.style.display = 'block';
     shoppingListEmptyState.style.display = 'none';
   } else {
     shoppingListGallery.style.display = 'none';

@@ -86,6 +86,9 @@ export async function bookOnClick(e) {
   // HELPERS
 
   instance.show();
+  document.querySelector('.basicLightbox').style.backgroundColor =
+    'rgba(17, 17, 17, 0.4)';
+  document.querySelector('.basicLightbox').style.overflowY = 'auto';
   shopListLogic(bookId);
   function handleKeyDown(e) {
     if (e.key === 'Escape') {
