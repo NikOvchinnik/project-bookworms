@@ -4,8 +4,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { auth } from './firebase';
-import { database } from './firebase';
+import { auth } from './firebase-API';
+import { database } from './firebase-API';
 import { ref, set, onValue } from 'firebase/database';
 import { iziToastMessage } from './izi-toast';
 import { addToLS, getFromLS, removeFromLS } from './local-storage-functions';
