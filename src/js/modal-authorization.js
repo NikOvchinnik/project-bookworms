@@ -67,7 +67,6 @@ export async function saveBooksToFB(shopList = []) {
   }
 }
 
-
 //get promise with name
 function getPromiseNameFromFB(uid = authId) {
   return new Promise(resolve => {
@@ -87,7 +86,12 @@ function getPromiseNameFromFB(uid = authId) {
 
 //get name from firebase database
 async function getNameFromFB(uid = authId) {
-  return await getPromiseNameFromFB(uid);
+  try {
+    return await getPromiseNameFromFB(uid);
+  } catch (e) {
+    console.log('Server error: ', e);
+    iziToastMessage(false, 'Server error');
+  }
 }
 
 //copy shoplist from Firebase account to Localstorage for user id = uid
