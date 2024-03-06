@@ -1,17 +1,14 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import { firebaseConfig } from './firebase';
-import { auth } from './firebase';
-import { database } from './firebase';
-import { iziToastMessage } from './izi-toast';
-import { addToLS, getFromLS, removeFromLS } from './local-storage-functions';
-import { initializeApp } from 'firebase/app';
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { auth } from './firebase';
+import { database } from './firebase';
+import { ref, set, onValue } from 'firebase/database';
+import { iziToastMessage } from './izi-toast';
+import { addToLS, getFromLS, removeFromLS } from './local-storage-functions';
 import { onBugerMenuClick } from './header-modal';
 import { refs } from './refs';
 import icons from '../img/icons.svg';
