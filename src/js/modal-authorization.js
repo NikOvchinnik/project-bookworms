@@ -1,14 +1,14 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import { iziToastMessage } from './izi-toast';
-import { addToLS, getFromLS, removeFromLS } from './local-storage-functions';
-import { initializeApp } from 'firebase/app';
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { auth } from './firebase-settings';
+import { database } from './firebase-settings';
+import { ref, set, onValue } from 'firebase/database';
+import { iziToastMessage } from './izi-toast';
+import { addToLS, getFromLS, removeFromLS } from './local-storage-functions';
 import { onBugerMenuClick } from './header-modal';
 import { refs } from './refs';
 import icons from '../img/icons.svg';
@@ -51,26 +51,6 @@ function btnHeader() {
 
 btnHeader();
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: 'AIzaSyAU9vmqTZLyoAQQ-FXLYuEWvBcdBAw2N_s',
-  authDomain: 'bookworms-de9f1.firebaseapp.com',
-  databaseURL:
-    'https://bookworms-de9f1-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'bookworms-de9f1',
-  storageBucket: 'bookworms-de9f1.appspot.com',
-  messagingSenderId: '67746495730',
-  appId: '1:67746495730:web:2051c7fd00eaf14945646b',
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-//Initialize Authorization
-const auth = getAuth(app);
-//Initialize Realtime Database and get a reference to the service
-const database = getDatabase(app);
-
 // save name and shoplist by uid from input shopList-parameter to FB
 export async function saveBooksToFB(shopList = []) {
   const userInfo = {
@@ -86,7 +66,6 @@ export async function saveBooksToFB(shopList = []) {
     console.error('Error while saving shoplist to Realtime Database:', error);
   }
 }
-
 
 //get promise with name
 function getPromiseNameFromFB(uid = authId) {
@@ -107,7 +86,12 @@ function getPromiseNameFromFB(uid = authId) {
 
 //get name from firebase database
 async function getNameFromFB(uid = authId) {
-  return await getPromiseNameFromFB(uid);
+  try {
+    return await getPromiseNameFromFB(uid);
+  } catch (e) {
+    console.log('Server error: ', e);
+    iziToastMessage(false, 'Server error');
+  }
 }
 
 //copy shoplist from Firebase account to Localstorage for user id = uid
@@ -322,6 +306,7 @@ export function openAuthModal() {
           addToLS(AUTH_KEY_LS, userInfo);
           //get shoppingList from firebase account
           updShoplistFromFBToLS();
+          location.reload();
           //form reset
           authForm.reset();
           //close modal

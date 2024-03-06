@@ -13,3 +13,4 @@ import './js/header-modal';
 import './js/modal-window';
 import './js/modal-authorization';
 import './js/izi-toast';
+import './js/firebase-settings';
