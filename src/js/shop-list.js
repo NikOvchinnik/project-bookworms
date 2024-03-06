@@ -4,7 +4,6 @@ import { isSignedIn, saveBooksToFB } from './modal-authorization';
 import { showLoader, hideLoader } from './loader.js';
 import { refs } from './refs';
 import { initPagination } from './pagination';
-import { checkIfAllBooksRemoved } from './pagination';
 import icons from '../img/icons.svg';
 import amazonIcon from '../img/amazon.png';
 import appleIcon from '../img/applebooks.png';
@@ -115,7 +114,9 @@ export async function loadShopingList() {
   const booksIdArray = getFromLS(bookIdsLSKey) || [];
   if (booksIdArray.length > 0) {
     await renderBooks();
-        checkIfAllBooksRemoved();
+    // checkIfAllBooksRemoved();
+    initPagination();
+
     // shoppingListGallery.style.display = 'block';
     shoppingListEmptyState.style.display = 'none';
   } else {
