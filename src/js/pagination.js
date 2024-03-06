@@ -65,11 +65,9 @@ export function checkIfAllBooksRemoved() {
   const totalBooks = getTotalBooks();
   if (totalBooks <= 3) {
     paginationContainer.classList.add('hidden');
-    console.log('add hidden');
     return;
   } else {
     paginationContainer.classList.remove('hidden');
-    console.log('remove hidden');
   }
 }
 

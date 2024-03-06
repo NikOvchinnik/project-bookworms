@@ -59,8 +59,8 @@ const menuItemsMobile = document.querySelectorAll('.nav-menu-link');
 
 function currentPageisActive() {
   if (currentPage.includes('/shopping-list.html')) {
-    menuItems[1].classList.add('is-active');
-    menuItemsMobile[1].classList.add('is-active');
+    menuItems[1].classList.add('is-active-burger');
+    menuItemsMobile[1].classList.add('is-active-burger');
   } else {
     menuItems[0].classList.add('is-active-burger');
     menuItemsMobile[0].classList.add('is-active-burger');
