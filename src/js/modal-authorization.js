@@ -312,6 +312,7 @@ export function openAuthModal() {
           addToLS(AUTH_KEY_LS, userInfo);
           //get shoppingList from firebase account
           updShoplistFromFBToLS();
+          location.reload();
           //form reset
           authForm.reset();
           //close modal
