@@ -39,9 +39,6 @@ function btnHeader() {
     btnLogin.classList.remove('is-closed-register');
     btnRegister.classList.add('is-closed-register');
     btnRegister.classList.remove('is-open-register');
-
-    // btnLogin.style.display = 'flex';
-    // btnRegister.style.display = 'none';
     userNameSpan.textContent = authUser;
     userNameModal.textContent = authUser;
   } else {
@@ -49,8 +46,6 @@ function btnHeader() {
     btnLogin.classList.remove('is-open-register');
     btnRegister.classList.add('is-open-register');
     btnRegister.classList.remove('is-closed-register');
-    // btnLogin.style.display = 'none';
-    // btnRegister.style.display = 'flex';
   }
 }
 
@@ -92,8 +87,6 @@ export async function saveBooksToFB(shopList = []) {
   }
 }
 
-//add books to firebase
-// saveBooksToFB(['643282b1e85766588626a0v1']);
 
 //get promise with name
 function getPromiseNameFromFB(uid = authId) {
@@ -136,7 +129,6 @@ function updShoplistFromFBToLS(uid = authId) {
     }
   });
 }
-// updShoplistFromFBToLS();
 
 //open authoriztion modal
 export function openAuthModal() {
@@ -279,8 +271,6 @@ export function openAuthModal() {
 
   async function onAuthFormSubmit(e) {
     e.preventDefault();
-
-    //value of button ==> sign in or sign up check
     const authBtnValue = e.target.elements[3].textContent.toLowerCase();
     const userName = e.target.elements.name.value.trim();
     const userEmail = e.target.elements.email.value.trim();

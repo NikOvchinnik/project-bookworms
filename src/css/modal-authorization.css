@@ -57,8 +57,7 @@
 }
 
 .auth-form-input:hover {
-  border-color: #eac645;
-  scale: 0.98;
+  border-color: var(--nav-color);
 }
 
 .auth-form-input::placeholder {
@@ -88,7 +87,7 @@
 
 .auth-form-input:hover + .auth-input-icon-mail,
 .auth-form-input:hover + .auth-input-icon-mail {
-  fill: #eac645;
+  fill: var(--nav-color);
 }
 
 .auth-password-wrapper {
@@ -111,8 +110,7 @@
 }
 
 .auth-submit-btn:hover {
-  background-color: #4f2ee8;
-  scale: 0.98;
+  background-color: var(--hover-color);
   opacity: 0.8;
 }
 
@@ -128,7 +126,7 @@
 }
 
 .auth-sign-item:hover {
-  background-color: #eac645;
+  background-color: var(--nav-color);
   border-radius: 5px;
 }
 

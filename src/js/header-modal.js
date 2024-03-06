@@ -14,22 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
   function toggleMenu() {
     if (modalBackdrop.style.display === 'flex') {
       closeModal();
+      document.body.style.overflow = 'visible';
       menuBtn.classList.add("is-open-burger");
       menuBtn.classList.remove('is-closed-burger');
       closeBtn.classList.add('is-closed-burger');
       closeBtn.classList.remove('is-open-burger');
-
-      // menuBtn.style.display = 'flex';
-      // closeBtn.style.display = 'none';
     } else {
       openModal();
+      document.body.style.overflow = 'hidden';
       menuBtn.classList.add('is-closed-burger');
       menuBtn.classList.remove('is-open-burger');
       closeBtn.classList.add('is-open-burger');
       closeBtn.classList.remove('is-closed-burger');
-
-      // menuBtn.style.display = 'none';
-      // closeBtn.style.display = 'flex';
     }
   }
 
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-//refs
 const burgerBtn = document.querySelector('.btn-burger');
 const burgerRegisterUser = document.querySelector('.btn-register-modal');
 const burgerSignIn = document.querySelector('.btn-sign-in');

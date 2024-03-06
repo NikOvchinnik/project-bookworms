@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function getData(endpoint, userCategory = '') {
-  const url = `https://books-backend.p.goit.global/books/${endpoint}`;
+  axios.defaults.baseURL = `https://books-backend.p.goit.global/books/`;
 
   let params = {};
   if (userCategory) {
@@ -9,7 +9,7 @@ export async function getData(endpoint, userCategory = '') {
     params.category = str;
   }
 
-  return await axios.get(url, {
+  return await axios.get(endpoint, {
     params: params,
     paramsSerializer: params => {
       return Object.keys(params)

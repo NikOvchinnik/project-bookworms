@@ -38,11 +38,11 @@
 }
 
 .btn-register-modal {
-  border: 1.5px solid #111;
+  border: 1.5px solid var(--main-text-color);
   border-radius: 18px;
   width: 184px;
   height: 48px;
-  background: #4f2ee8;
+  background: var(--action-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,7 +88,7 @@
 }
 
 .icon-shop-login {
-  fill: #fff;
+  fill: var(--white-color);
   vertical-align: middle;
 }
 
@@ -111,7 +111,7 @@
 
 .icon-user-circle {
   border-radius: 50%;
-  background-color: #f6f6f6;
+  background-color: #fff;
   width: 37px;
   height: 37px;
   display: flex;
@@ -123,17 +123,17 @@
   font-weight: 700;
   font-size: 22px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--white-color);
 }
 
 .btn-sign-logout {
   position: fixed;
   bottom: 74px;
-  border: 1.5px solid #111;
+  border: 1.5px solid #111111;
   border-radius: 18px;
   width: 118px;
   height: 48px;
-  background-color: #fff;
+  background-color: var(--white-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +144,7 @@
   font-size: 14px;
   line-height: 1.28571;
   letter-spacing: -0.04em;
-  color: #111;
+  color: #111111;
   border: none;
   background-color: inherit;
   display: flex;

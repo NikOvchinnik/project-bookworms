@@ -1,8 +1,7 @@
 .books-container-title {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 700;
-  line-height: 52px;
-  margin-bottom: 40px;
+  line-height: 1.1875;
   letter-spacing: -0.04em;
   text-align: left;
 }
@@ -28,6 +27,7 @@
   width: 335px;
   cursor: pointer;
 }
+
 .book-section-title {
   color: var(--secondary-text-color);
   font-size: 14px;
@@ -40,6 +40,7 @@
 
 .category-title-bestsellers {
   font-weight: 400;
+  font-size: 14px;
   line-height: 1.28571;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -49,11 +50,13 @@
 
 .book-title {
   font-size: 16px;
-  line-height: 18px;
+  line-height: 1.125;
+  letter-spacing: -0.04em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-top: 14px;
+  margin-bottom: 4px;
 }
 
 .book-author {
@@ -62,8 +65,6 @@
   line-height: 1.16667;
   letter-spacing: -0.04em;
   color: var(--secondary-text-color);
-  /* overflow: hidden;
-  text-overflow: ellipsis; */
 }
 
 .book-image {
@@ -73,18 +74,20 @@
   height: 485px;
   object-fit: cover;
 }
+
 .book-image-container {
   position: relative;
   overflow: hidden;
 }
+
 .book-overlay {
   height: 0;
   width: 100%;
-  background: #eac645;
+  background: var(--nav-color);
   padding-top: 13%;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  bottom: 0; /* Зміна bottom на 0, щоб було знизу фото */
+  bottom: 0; 
   left: 0;
   letter-spacing: -0.04em;
   text-align: center;
@@ -104,33 +107,26 @@
 .book-overlay:hover {
   cursor: pointer;
 }
+
 .books-list-btn {
   width: 124px;
   height: 46px;
-  border: 2px solid var(--accent-cl);
-  background-color: var(--main-bg-cl);
-  line-break: auto;
-  line-clamp: 180px;
+  background-color: inherit;
   letter-spacing: -0.01em;
-  color: #111;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: var(--main-text-color);
   text-transform: uppercase;
-  border-radius: 50px;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  margin-bottom: 30px;
   margin-left: auto;
-  margin-right: 0;
   border-radius: 40px;
   border: 2px solid var(--action-color);
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
   display: flex;
-  overflow: hidden;
 }
+
 .books-list-btn:hover {
   background-color: var(--action-color);
   transition-duration: 0.5s;
@@ -153,6 +149,7 @@
   .bestseller-book:nth-child(n + 4) {
     display: none;
   }
+
   .books-container-title {
     font-size: 48px;
     line-height: 1.08333;
