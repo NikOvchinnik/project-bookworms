@@ -21,6 +21,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .categories {
+    width: 337px;
+  }
+
   .categories-list {
     width: 337px;
     height: 472px;
@@ -33,6 +37,10 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .categories {
+    width: 356px;
+  }
+
   .categories-list {
     width: 356px;
     height: 472px;

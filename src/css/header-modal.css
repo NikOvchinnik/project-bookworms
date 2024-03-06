@@ -19,7 +19,6 @@
       rgb(79, 46, 232) 18.02733987569809%,
       rgb(255, 255, 255) 100%
     );
-  padding: 20px;
   position: fixed;
   top: 6%;
   left: 0%;
@@ -54,6 +53,7 @@
   line-height: 1.28571;
   letter-spacing: -0.04em;
   padding: 0 16px;
+  margin-top: 20px;
 }
 
 .btn-register-modal:hover,
@@ -106,6 +106,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .icon-user-circle {
@@ -128,7 +129,6 @@
 .btn-sign-logout {
   position: fixed;
   bottom: 74px;
-  left: 20px;
   border: 1.5px solid #111;
   border-radius: 18px;
   width: 118px;
@@ -157,7 +157,6 @@
 .btn-register-logout:focus {
   gap: 10px;
 }
-
 
 .is-closed-burger {
   display: none;

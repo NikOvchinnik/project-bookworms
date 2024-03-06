@@ -58,14 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //refs
-
-const modalBackdrop = document.getElementById('modalBackdrop');
-const modalContent = document.getElementById('modalContent');
-const registerLoginBtn = document.querySelector('.register-logi-in');
-const userNav = document.getElementById('userNav');
-const menuHome = document.querySelector('.menu-home-login');
-const shopList = document.querySelector('.shop-list-login');
-const btnRegisterLogout = document.querySelector('.btn-register-logout');
 const burgerBtn = document.querySelector('.btn-burger');
 const burgerRegisterUser = document.querySelector('.btn-register-modal');
 const burgerSignIn = document.querySelector('.btn-sign-in');
