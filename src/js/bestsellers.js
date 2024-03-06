@@ -8,30 +8,40 @@ import {
 } from './categories';
 import { categoriesList } from './categories.js';
 import { bookOnClick } from './modal-window';
+import { iziToastMessage } from './izi-toast';
 
 export const booksContainer = document.querySelector('.books-container');
 async function fetchTopBooks() {
-  const response = await getData('top-books');
-  const data = response.data;
-  return data;
+  try {
+    const response = await getData('top-books');
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // ФУНКЦІЯ ЯКА ВІДМАЛЬОВУЄ БЕСТСЕЛЕРИ
 export async function renderBestSellersBooks() {
-  showLoader();
-  const booksArray = await fetchTopBooks();
-  const booksContainerMarkup = booksArray
-    .map(topBooks => {
-      const books = topBooks.books;
-      const title = topBooks.list_name;
-      return renderBooksBlock(books, title);
-    })
-    .join('');
-  const title = renderTitle('Best Sellers Books');
-  const markup = title + booksContainerMarkup;
-  booksContainer.innerHTML = markup;
-  changeCategoryColor();
-  hideLoader();
+  try {
+    showLoader();
+    const booksArray = await fetchTopBooks();
+    const booksContainerMarkup = booksArray
+      .map(topBooks => {
+        const books = topBooks.books;
+        const title = topBooks.list_name;
+        return renderBooksBlock(books, title);
+      })
+      .join('');
+    const title = renderTitle('Best Sellers Books');
+    const markup = title + booksContainerMarkup;
+    booksContainer.innerHTML = markup;
+    changeCategoryColor();
+    hideLoader();
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
+  }
 }
 
 // функція для створення div-у з книгою
@@ -60,11 +70,16 @@ function templateBook({ book_image, title, author, _id: id }) {
 }
 // ВИКЛИКАЄТЬСЯ В МЕЙНІ 1 РАЗ ПРИ ЗАВАНТАЖЕННІ СТОРІНКИ
 export async function onPageLoad() {
-  await renderCategoriesList();
-  await renderBestSellersBooks();
-  booksContainer.addEventListener('click', onCategoryClick);
-  booksContainer.addEventListener('click', bookOnClick);
-  categoriesList.addEventListener('click', onCategoryClick);
+  try {
+    await renderCategoriesList();
+    await renderBestSellersBooks();
+    booksContainer.addEventListener('click', onCategoryClick);
+    booksContainer.addEventListener('click', bookOnClick);
+    categoriesList.addEventListener('click', onCategoryClick);
+  } catch (error) {
+    console.error(error);
+    iziToastMessage(false, 'Server Error');
+  }
 }
 
 onPageLoad();
