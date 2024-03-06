@@ -11,14 +11,20 @@
   line-height: 1.125;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .categories-list-item:hover,
 .categories-list-item:focus {
   color: var(--hover-color);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
+  .categories {
+    width: 337px;
+  }
+
   .categories-list {
     width: 337px;
     height: 472px;
@@ -31,6 +37,10 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .categories {
+    width: 356px;
+  }
+
   .categories-list {
     width: 356px;
     height: 472px;
@@ -39,9 +49,6 @@
   .categories-list-item {
     font-size: 24px;
   }
-}
-.categories {
-  width: fit-content;
 }
 
 .categories-list-item {
@@ -83,27 +90,15 @@
   display: block;
 } /* видалити */
 
-.all-categories-btn {
+.books-list-btn.all-categories-btn {
   margin: 80px auto 0;
+  width: 200px;
 }
 
 .books-list-btn:hover {
   background-color: #4f2ee8;
   transition-duration: 0.5s;
   color: #fff;
-}
-
-.swiper-slide {
-  font-size: 18px;
-  height: auto;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 1px;
-}
-
-.swiper {
-  height: 472px;
-  width: 356px;
 }
 
 .books-by-category-list {
@@ -152,4 +147,23 @@
   width: 180px;
   height: 256px;
   border-radius: 8px;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1px;
+}
+
+.swiper {
+  height: 472px;
+}
+
+.swiper,
+.swiper-wrapper,
+.swiper-scrollbar.swiper-scrollbar-vertical,
+.swiper-vertical > .swiper-scrollbar {
+  z-index: 0;
 }

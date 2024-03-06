@@ -3,38 +3,72 @@ import { getFromLS } from './local-storage-functions';
 import { refs } from './refs';
 
 const { bookIdsLSKey } = refs;
+function getTotalBooks() {
+  const myArray = getFromLS(bookIdsLSKey) || [];
+  return myArray.length;
+}
+  const paginationContainer = document.getElementById('pagination');
+export function initPagination() {
+  const listItems = document.querySelector(
+    '.shopping-list-gallery-books'
+  ).children;
 
-const paginationElement = document.getElementById('pagination');
-const itemsPerPage = 3;
 
-const getTotalBooks = () => {
-    const myArray = getFromLS(bookIdsLSKey) || [];
-    return myArray.length;
-};
+  const itemsPerPage = window.innerWidth < 768 ? 4 : 3;
+  const visiblePages = window.innerWidth < 768 ? 2 : 3;
 
-const updatePagination = (totalBooks, currentPage) => {
-    const visiblePages = window.innerWidth < 768 ? 2 : 3;
+  const totalItems = getTotalBooks();
 
-    const pagination = new tuiPagination(paginationElement, {
-        totalItems: totalBooks,
-        itemsPerPage: itemsPerPage,
-        visiblePages: visiblePages,
-        page: currentPage,
-    });
+  const pagination = new tui.Pagination(paginationContainer, {
+    totalItems,
+    itemsPerPage,
+    visiblePages,
+    centerAlign: true,
+  });
 
-    pagination.on('afterMove', async (event) => {
-        const newPage = event.page;
-        localStorage.setItem('currentPage', newPage);
-    });
-
-    const paginationContainer = document.getElementById('pagination');
-    if (totalBooks <= 3) {
-        paginationContainer.style.display = 'none';
+  function handlePageChange(event) {
+    //перевірка чи треба показувати панель пагінації
+    if (totalItems <= 3) {
+      paginationContainer.classList.add('hidden');
+      return;
     } else {
-        paginationContainer.style.display = 'flex';
+      paginationContainer.classList.remove('hidden');
     }
-};
 
-let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
-const totalBooks = getTotalBooks();
-updatePagination(totalBooks, currentPage);
+    //поточна сторінка
+    const currentPage = event.page - 1;
+    // Приховати всі елементи
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].style.display = 'none';
+    }
+
+    // Показати елементи для поточної сторінки
+    for (
+      let i = currentPage * itemsPerPage;
+      i < (currentPage + 1) * itemsPerPage;
+      i++
+    ) {
+      if (listItems[i]) {
+        listItems[i].style.display = 'block';
+      }
+    }
+  }
+
+  //  обробник подій для зміни сторінки
+  pagination.on('afterMove', handlePageChange);
+
+  // Ініціалізація сторінки за замовчуванням
+  handlePageChange({ page: 1 });
+}
+
+export function checkIfAllBooksRemoved() {
+  const totalBooks = getTotalBooks();
+  if (totalBooks <= 3) {
+    paginationContainer.classList.add('hidden');
+    return;
+  } else {
+    paginationContainer.classList.remove('hidden');
+  }
+}
+
+

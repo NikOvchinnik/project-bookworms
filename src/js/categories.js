@@ -32,6 +32,15 @@ export async function renderCategoriesList() {
       .join('');
 
     categoriesList.innerHTML = allCategoriesListItem + markup;
+    const swiper = new Swiper('.mySwiper', {
+      direction: 'vertical',
+      slidesPerView: 'auto',
+      freeMode: true,
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+      mousewheel: true,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -124,13 +133,3 @@ export function changeCategoryColor() {
     }
   });
 }
-
-var swiper = new Swiper('.mySwiper', {
-  direction: 'vertical',
-  slidesPerView: 'auto',
-  freeMode: true,
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-  mousewheel: true,
-});
