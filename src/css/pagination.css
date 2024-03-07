@@ -24,7 +24,9 @@
   margin-right: 8px;
 }
 
-.tui-page-btn:hover {
+.tui-page-btn:hover,
+.tui-page-btn:focus {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--white-color);
   background-color: #111111;
 
@@ -32,6 +34,7 @@
   .tui-ico-prev,
   .tui-ico-next,
   .tui-ico-last {
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     color: var(--white-color);
   }
 }

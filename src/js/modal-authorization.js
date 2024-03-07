@@ -224,9 +224,9 @@ export function openAuthModal() {
     //hide name input
     authNameInput.classList.add('auth-name-hidden');
     //highlight the current selection
-    authSignInBtn.classList.toggle('current-sign');
+    authSignInBtn.classList.add('current-sign');
     //remove highlight of the previous selection
-    authSignUpBtn.classList.toggle('current-sign');
+    authSignUpBtn.classList.remove('current-sign');
     //change height of modal without name input
     authModal.classList.add('auth-modal-sign-in');
     //renaming button
@@ -240,9 +240,9 @@ export function openAuthModal() {
     //hide name input
     authNameInput.classList.remove('auth-name-hidden');
     //highlight the current selection
-    authSignInBtn.classList.toggle('current-sign');
+    authSignInBtn.classList.remove('current-sign');
     //remove highlight of the previous selection
-    authSignUpBtn.classList.toggle('current-sign');
+    authSignUpBtn.classList.add('current-sign');
     //change height of modal without name input
     authModal.classList.remove('auth-modal-sign-in');
     //renaming button

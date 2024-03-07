@@ -30,10 +30,6 @@
   text-align: center;
 }
 
-.basket-full {
-  margin-top: 40px;
-}
-
 .shopping-list-button {
   width: 28px;
   height: 28px;
@@ -46,6 +42,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shopping-list-button:hover,
+.shopping-list-button:focus {
+  background-color: var(--hover-color);
 }
 
 .shopping-list-gallery-books {
@@ -125,7 +127,13 @@
 
 .shopping-list-link-amazon:hover,
 .shopping-list-link-apple:hover {
-  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0,0,0,.35))
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
+
+.shopping-list-shop-list-link:focus {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .shopping-list-link-apple {
@@ -140,9 +148,9 @@
 }
 
 .shopping-list-img {
-    width: 100px;
-    height: 142px;
-  }
+  width: 100px;
+  height: 142px;
+}
 
 .shopping-list-delete {
   width: 16px;
@@ -232,7 +240,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-
   .shopping-list-text-content {
     width: 808px;
   }

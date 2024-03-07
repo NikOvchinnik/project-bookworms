@@ -18,6 +18,7 @@
   right: 14px;
   border: none;
   background-color: transparent;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-close-icon {
@@ -25,8 +26,9 @@
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.auth-close-icon:hover {
-  fill: var(--action-color);
+.auth-close-btn:hover .auth-close-icon,
+.auth-close-btn:focus .auth-close-icon {
+  fill: var(--nav-color);
 }
 
 .auth-form {
@@ -56,7 +58,8 @@
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.auth-form-input:hover {
+.auth-form-input:hover,
+.auth-form-input:focus {
   border-color: var(--nav-color);
 }
 
@@ -86,7 +89,7 @@
 }
 
 .auth-form-input:hover + .auth-input-icon-mail,
-.auth-form-input:hover + .auth-input-icon-mail {
+.auth-form-input:focus + .auth-input-icon-mail {
   fill: var(--nav-color);
 }
 
@@ -109,9 +112,10 @@
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.auth-submit-btn:hover {
-  background-color: var(--hover-color);
-  opacity: 0.8;
+.auth-submit-btn:hover,
+.auth-submit-btn:focus {
+  background-color: var(--nav-color);
+  color: var(--main-text-color);
 }
 
 .auth-sign-list {
@@ -119,15 +123,6 @@
   display: flex;
   gap: 20px;
   justify-content: center;
-}
-
-.auth-sign-item {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.auth-sign-item:hover {
-  background-color: var(--nav-color);
-  border-radius: 5px;
 }
 
 .sign-up-btn {
@@ -154,6 +149,14 @@
   color: rgba(17, 17, 17, 0.5);
   border: none;
   background-color: transparent;
+}
+
+.sign-up-btn:hover,
+.sign-in-btn:focus,
+.sign-up-btn:focus,
+.sign-in-btn:hover {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--nav-color);
 }
 
 .current-sign {

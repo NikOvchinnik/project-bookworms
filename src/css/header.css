@@ -2,7 +2,7 @@
   background-color: var(--white-color);
   border: 1.5px solid var(--main-text-color);
   border-radius: 0 0 8px 8px;
-  z-index: 1;
+  z-index: 100;
   position: sticky;
   top: 0;
   margin-bottom: 40px;
@@ -31,10 +31,10 @@
 }
 
 .is-active {
-    border-radius: 36px;
-    background-color: var(--nav-color);
-    font-weight: 700;
-  }
+  border-radius: 36px;
+  background-color: var(--nav-color);
+  font-weight: 700;
+}
 
 .btn-register {
   display: none;
@@ -50,7 +50,7 @@
   margin-left: auto;
 }
 
-.right-menu-header form{
+.right-menu-header form {
   margin-right: 14px;
 }
 
@@ -96,10 +96,11 @@
   padding: 18px 0;
 }
 
-
-
 .btn-header:hover .icon-burger,
-.btn-header:focus .icon-burger {
+.btn-header:focus .icon-burger,
+.btn-header:focus .button-close-icon,
+.btn-header:hover .button-close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   fill: var(--hover-color);
 }
 
@@ -130,6 +131,7 @@
     font-weight: 500;
     padding: 8px 16px;
     text-transform: uppercase;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .item-menu-header:hover,
@@ -139,6 +141,7 @@
 
   .item-menu-header:hover .icon-shop,
   .item-menu-header:focus .icon-shop {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     fill: var(--hover-color);
   }
 
@@ -147,6 +150,11 @@
     justify-content: center;
     align-items: center;
     gap: 4px;
+  }
+
+  .link-home:focus,
+  .link-shoplist:focus {
+    color: var(--hover-color);
   }
 
   .btn-header {
@@ -168,11 +176,12 @@
     height: 48px;
     background: var(--action-color);
     color: var(--white-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-register:hover,
   .btn-register:focus {
-    background: var(--hover-color);
+    background-color: var(--hover-color);
     justify-content: center;
   }
 
@@ -190,11 +199,12 @@
     height: 45px;
     background-color: var(--action-color);
     color: var(--white-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-register-login:hover,
   .btn-register-login:focus {
-    background: var(--hover-color);
+    background-color: var(--hover-color);
   }
 
   .span-icon-user {

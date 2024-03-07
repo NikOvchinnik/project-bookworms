@@ -24,7 +24,10 @@
     fill: var(--white-color);
   }
 
-  .btn-burger:hover svg {
+  .btn-header:hover .icon-burger,
+  .btn-header:focus .icon-burger,
+  .btn-header:focus .button-close-icon,
+  .btn-header:hover .button-close-icon {
     fill: var(--nav-color);
   }
 
@@ -157,5 +160,10 @@
   .tui-is-selected {
     color: #111111;
     background-color: #fff;
+  }
+
+  .span-icon-user,
+  .icon-user-circle {
+    background-color: #eac645;
   }
 }

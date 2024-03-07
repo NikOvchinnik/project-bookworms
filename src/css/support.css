@@ -32,7 +32,6 @@
   overflow-y: hidden;
 }
 
-
 .support-item {
   display: flex;
   align-items: center;
@@ -67,7 +66,7 @@
   transition: transform 0.3s ease;
 }
 
-.scroll-up .support-btn-icon{
+.scroll-up .support-btn-icon {
   transform: rotate(180deg);
 }
 
