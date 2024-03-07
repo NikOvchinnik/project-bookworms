@@ -331,6 +331,7 @@ async function registerWithEmailAndPassword(email, password) {
     const user = userCredential.user;
     return user;
   } catch (error) {
+    iziToastMessage(false, 'Server Error');
     console.error('Registration error:', error.message);
     throw error;
   }
@@ -347,6 +348,7 @@ async function loginWithEmailAndPassword(email, password) {
     const user = userCredential.user;
     return await user;
   } catch (error) {
+    iziToastMessage(false, 'Server Error');
     console.error('Sign-in error:', error.message);
     throw error;
   }

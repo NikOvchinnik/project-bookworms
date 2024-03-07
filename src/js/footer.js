@@ -1,4 +1,4 @@
-import iziToast from 'izitoast';
+import { iziToastMessage } from './izi-toast';
 import { database } from './firebase-settings';
 import { ref, set } from 'firebase/database';
 //form with phone number
@@ -18,16 +18,18 @@ async function onPhoneSendSubmit(e) {
 
   await sendPhoneNumberToFB(phoneNumber);
 
-  iziToast.success({
-    titleSize: '16',
-    titleLineHeight: '1.5',
-    message: 'We"l call you in 1 hour!',
-    messageColor: '#111',
-    messageSize: '16',
-    messageLineHeight: '1.5',
-    backgroundColor: '#eac645',
-    position: 'topRight',
-  });
+  iziToastMessage(true, 'We`l call you in 1 hour!');
+
+  // iziToast.success({
+  //   titleSize: '16',
+  //   titleLineHeight: '1.5',
+  //   message: 'We"l call you in 1 hour!',
+  //   messageColor: '#111',
+  //   messageSize: '16',
+  //   messageLineHeight: '1.5',
+  //   backgroundColor: '#eac645',
+  //   position: 'topRight',
+  // });
 
   form.reset();
 }
@@ -58,6 +60,7 @@ async function sendPhoneNumberToFB(phoneNumber) {
     const userRef = ref(database, `callbacks/${curDate}/${idx}`);
     const setResponse = await set(userRef, callbackRequest);
   } catch (error) {
+    iziToastMessage(false, 'Server Error');
     console.error('Error while phone number to Realtime Database:', error);
   }
 }

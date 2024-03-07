@@ -80,6 +80,7 @@ async function renderBooks() {
       .join('');
     shoppingList.innerHTML = booksMarkup;
   } catch (error) {
+    iziToastMessage(false, 'Server Error');
     console.error('Error rendering books:', error);
   }
 }

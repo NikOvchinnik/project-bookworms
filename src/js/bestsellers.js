@@ -18,6 +18,7 @@ async function fetchTopBooks() {
     return data;
   } catch (error) {
     console.error(error);
+    iziToastMessage(false, 'Server Error');
   }
 }
 

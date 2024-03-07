@@ -1,17 +1,5 @@
 import { openAuthModal } from './modal-authorization';
 import { authLogOut } from './modal-authorization';
-//Пересування бігунка для зміни режиму
-
-const toggleSwitch = document.getElementById('toggle');
-const switchSlider = document.querySelector('.switch-slider');
-const labelHeader = document.querySelector('.label-header');
-
-toggleSwitch.addEventListener('change', function () {
-  switchSlider.classList.toggle('active');
-  labelHeader.style.background = this.checked
-    ? 'linear-gradient(180deg, #4f2ee8 0%, #686868 100%)'
-    : 'linear-gradient(180deg, #4f2ee8 0%, #fff 100%)';
-});
 
 //Спливаюче вікно при натисканні на Sign in в tab/des
 
@@ -56,7 +44,6 @@ const currentPage = window.location.pathname;
 const menuItems = document.querySelectorAll('.item-menu-header');
 const menuItemsMobile = document.querySelectorAll('.nav-menu-link');
 
-
 function currentPageisActive() {
   if (currentPage.includes('/shopping-list.html')) {
     menuItems[1].classList.add('is-active-burger');
@@ -65,6 +52,6 @@ function currentPageisActive() {
     menuItems[0].classList.add('is-active-burger');
     menuItemsMobile[0].classList.add('is-active-burger');
   }
-};
+}
 
 currentPageisActive();

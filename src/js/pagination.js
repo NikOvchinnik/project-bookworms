@@ -1,4 +1,3 @@
-import tuiPagination from 'tui-pagination';
 import { getFromLS } from './local-storage-functions';
 import { refs } from './refs';
 

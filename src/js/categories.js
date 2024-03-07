@@ -48,6 +48,7 @@ export async function renderCategoriesList() {
       mousewheel: true,
     });
   } catch (error) {
+    iziToastMessage(false, 'Server Error');
     console.log(error);
   }
 }
