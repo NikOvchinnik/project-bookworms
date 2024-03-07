@@ -1,9 +1,10 @@
 import { getData } from './books-api';
 import { renderBestSellersBooks } from './bestsellers';
-import { booksContainer } from './bestsellers';
 import { showLoader, hideLoader } from './loader.js';
 import { iziToastMessage } from './izi-toast';
-export const categoriesList = document.querySelector('.categories-list');
+import { refs } from './refs.js';
+
+const { booksContainer, categoriesList } = refs;
 
 // Список категорій
 async function fetchCategoriesList() {
@@ -27,12 +28,12 @@ export async function renderCategoriesList() {
       a.list_name.localeCompare(b.list_name)
     );
 
-    const allCategoriesListItem = `<li class="categories-list-item" ><p data-category-name="All Categories">All Categories</p></li>`;
+    const allCategoriesListItem = `<li class="categories-list-item" ><button type="button" aria-label="All Categories"  class="btn-categories-list" data-category-name="All Categories">All Categories</button></li>`;
     const markup = inAlphabeticalOrder
       .map(
         category =>
           `<li class="categories-list-item" >
-<p data-category-name="${category.list_name}">${category.list_name}</p>
+<button type="button" class="btn-categories-list" aria-label="${category.list_name}" data-category-name="${category.list_name}">${category.list_name}</button>
 </li>`
       )
       .join('');
@@ -71,14 +72,14 @@ function renderBookByCategory(booksArray) {
     .map(book => {
       const { book_image: image, title, author, _id: id } = book;
       return `<li class="book-item" data-book-id="${id}">
-      <div class="book-image-container">
+      <button class="book-image-container" aria-label="${title}">
         <img
           class="book-image"
           src="${image}"
           alt="${title}"
         />
         <div class="book-overlay">QUICK VIEW</div>
-      </div>
+      </button>
       <h3 class="book-title">${title}</h3>
       <p class="book-author">${author}</p>
     </li>`;
@@ -128,7 +129,7 @@ export async function onCategoryClick(event) {
 export function changeCategoryColor() {
   const h1Text = document.querySelector('.books-container-title').textContent;
   const lis = document.querySelectorAll(
-    '.categories-list > .categories-list-item > p'
+    '.categories-list > .categories-list-item > .btn-categories-list'
   );
   lis.forEach(li => li.classList.remove('current-category'));
 

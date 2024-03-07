@@ -1,3 +1,14 @@
+.btn-categories-list {
+  background-color: inherit;
+  border: none;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 .categories-list {
   display: flex;
   flex-direction: column;
@@ -6,16 +17,10 @@
   overflow-y: auto;
 }
 
-.categories-list-item {
-  font-size: 16px;
-  line-height: 1.125;
-  letter-spacing: -0.02em;
-  color: rgba(17, 17, 17, 0.6);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.categories-list-item:hover,
-.categories-list-item:focus {
+
+.btn-categories-list:hover,
+.btn-categories-list:focus {
   color: var(--hover-color);
   cursor: pointer;
 }
@@ -50,7 +55,7 @@
     height: 472px;
   }
 
-  .categories-list-item {
+  .btn-categories-list {
     font-size: 18px;
     line-height: 1.33333;
   }
@@ -66,7 +71,7 @@
     height: 472px;
   }
 
-  .categories-list-item {
+  .btn-categories-list {
     font-size: 18px;
     line-height: 1.33333;
     letter-spacing: -0.02em;

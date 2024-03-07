@@ -19,18 +19,6 @@ async function onPhoneSendSubmit(e) {
   await sendPhoneNumberToFB(phoneNumber);
 
   iziToastMessage(true, 'We`l call you in 1 hour!');
-
-  // iziToast.success({
-  //   titleSize: '16',
-  //   titleLineHeight: '1.5',
-  //   message: 'We"l call you in 1 hour!',
-  //   messageColor: '#111',
-  //   messageSize: '16',
-  //   messageLineHeight: '1.5',
-  //   backgroundColor: '#eac645',
-  //   position: 'topRight',
-  // });
-
   form.reset();
 }
 

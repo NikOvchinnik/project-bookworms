@@ -39,7 +39,7 @@
     border: none;
   }
 
-  .categories-list-item {
+  .btn-categories-list {
     color: rgba(255, 255, 255, 0.6);
   }
 
@@ -48,8 +48,8 @@
     color: var(--nav-color);
   }
 
-  .categories-list-item:hover,
-  .categories-list-item:focus {
+  .btn-categories-list:hover,
+  .btn-categories-list:focus {
     color: var(--nav-color);
     cursor: pointer;
   }

@@ -6,11 +6,12 @@ import {
   renderTitle,
   changeCategoryColor,
 } from './categories';
-import { categoriesList } from './categories.js';
 import { bookOnClick } from './modal-window';
 import { iziToastMessage } from './izi-toast';
+import { refs } from './refs.js';
 
-export const booksContainer = document.querySelector('.books-container');
+const { booksContainer, categoriesList } = refs;
+
 async function fetchTopBooks() {
   try {
     const response = await getData('top-books');
@@ -56,14 +57,14 @@ function renderBooksBlock(books, title) {
 function templateBook({ book_image, title, author, _id: id }) {
   return `
       <li class="book-item bestseller-book" data-book-id="${id}">
-        <div class="book-image-container">
+        <button class="book-image-container" aria-label="${title}">
           <img
             class="book-image"
             src="${book_image}"
             alt="${title}"
           />
           <div class="book-overlay">QUICK VIEW</div>
-        </div>
+        </button>
         <h3 class="book-title">${title}</h3>
         <p class="book-author">${author}</p>
       </li>

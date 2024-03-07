@@ -68,6 +68,8 @@
 .book-image-container {
   position: relative;
   overflow: hidden;
+  border: none;
+  border-radius: 8px;
 }
 
 .book-overlay {
