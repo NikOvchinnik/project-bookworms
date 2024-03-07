@@ -1,4 +1,4 @@
-import{d as c,r as h,e as f,f as L,s as S,h as v,j as I,c as w,i as $,a as A,b as P,g as B}from"./assets/scroll-up-b81b2e65.js";import"./assets/vendor-60358816.js";const{bookIdsLSKey:E}=h;function T(){return(c(E)||[]).length}const g=document.getElementById("pagination");function u(){const s=document.querySelector(".shopping-list-gallery-books").children,o=window.innerWidth<768?4:3,n=window.innerWidth<768?2:3,t=T(),a=new tui.Pagination(g,{totalItems:t,itemsPerPage:o,visiblePages:n,centerAlign:!0});function i(p){if(t<=3){g.classList.add("hidden");return}else g.classList.remove("hidden");const l=p.page-1;for(let e=0;e<s.length;e++)s[e].style.display="none";for(let e=l*o;e<(l+1)*o;e++)s[e]&&(s[e].style.display="block")}a.on("afterMove",i),i({page:1})}const{bookIdsLSKey:r}=h;async function q(){const s=c(r);try{const o=s.map(i=>B(i));return(await Promise.allSettled(o)).filter(i=>i.status==="fulfilled").map(i=>i.value.data)}catch(o){return console.error("Error fetching book data:",o),[]}}async function z(){const s=document.querySelector(".shopping-list-gallery-books");try{const n=(await q()).map(t=>{const{book_image:a,title:i,author:p,description:l,_id:e,buy_links:k}=t,[b,m]=k;return`<li class="shopping-list-books-items">
+import{d as c,r as h,e as S,f as v,s as L,h as I,j as w,c as u,i as $,a as A,b as P,g as B}from"./assets/scroll-up-3b512b36.js";import"./assets/vendor-a536f886.js";const{bookIdsLSKey:E}=h;function T(){return(c(E)||[]).length}const g=document.getElementById("pagination");function y(){const s=document.querySelector(".shopping-list-gallery-books").children,o=window.innerWidth<768?4:3,n=window.innerWidth<768?2:3,t=T(),a=new tui.Pagination(g,{totalItems:t,itemsPerPage:o,visiblePages:n,centerAlign:!0});function i(p){if(t<=3){g.classList.add("hidden");return}else g.classList.remove("hidden");const l=p.page-1;for(let e=0;e<s.length;e++)s[e].style.display="none";for(let e=l*o;e<(l+1)*o;e++)s[e]&&(s[e].style.display="block")}a.on("afterMove",i),i({page:1})}const{bookIdsLSKey:r}=h;async function q(){const s=c(r);try{const o=s.map(i=>B(i));return(await Promise.allSettled(o)).filter(i=>i.status==="fulfilled").map(i=>i.value.data)}catch(o){return console.error("Error fetching book data:",o),[]}}async function z(){const s=document.querySelector(".shopping-list-gallery-books");try{const n=(await q()).map(t=>{const{book_image:a,title:i,author:p,description:l,_id:e,buy_links:b}=t,[m,f]=b;return`<li class="shopping-list-books-items">
                 <div class="shopping-list-books-information">
                   <div class="shopping-list-basket-img">
                     <img class="shopping-list-img" src="${a}"/>
@@ -15,17 +15,17 @@ import{d as c,r as h,e as f,f as L,s as S,h as v,j as I,c as w,i as $,a as A,b a
                     <p class="shopping-list-author">${p}</p>
                     <ul class="shopping-list-shop-list">
                       <li class="shopping-list-shop-list-items">
-                        <a class="shopping-list-shop-list-link" target="_blank" href="${b.url}">
+                        <a class="shopping-list-shop-list-link" target="_blank" href="${m.url}">
                           <img class="shopping-list-link-amazon" src="${A}" alt="logo-amazon">
                         </a>
                       </li>
                       <li class="shopping-list-shop-list-items">
-                        <a class="shopping-list-shop-list-link" target="_blank" href="${m.url}">
+                        <a class="shopping-list-shop-list-link" target="_blank" href="${f.url}">
                           <img class="shopping-list-link-apple" src="${P}" alt="apple-books">
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
-              </li>`}).join("");s.innerHTML=n}catch(o){console.error("Error rendering books:",o)}}function _(s){const o=s.target.closest("button");if(o){const n=o.dataset.bookId,t=c(r),a=t.indexOf(n);t.splice(a,1),f(r,t),L&&S(t),y()}}const M=document.querySelector(".shopping-list-gallery-books"),d=document.querySelector(".shopping-list-empty-state"),x=document.querySelector(".shopping-list-wrapper");x.addEventListener("click",_);async function y(){(c(r)||[]).length>0?(await z(),u(),d.style.display="none"):(M.style.display="none",d.style.display="block")}async function C(){try{v(),await y(),I(),u()}catch(s){console.error(s),w(!1,"Server Error")}}C();
+              </li>`}).join("");s.innerHTML=n}catch(o){u(!1,"Server Error"),console.error("Error rendering books:",o)}}function _(s){const o=s.target.closest("button");if(o){const n=o.dataset.bookId,t=c(r),a=t.indexOf(n);t.splice(a,1),S(r,t),v&&L(t),k()}}const M=document.querySelector(".shopping-list-gallery-books"),d=document.querySelector(".shopping-list-empty-state"),x=document.querySelector(".shopping-list-wrapper");x.addEventListener("click",_);async function k(){(c(r)||[]).length>0?(await z(),y(),d.style.display="none"):(M.style.display="none",d.style.display="block")}async function C(){try{I(),await k(),w(),y()}catch(s){console.error(s),u(!1,"Server Error")}}C();
 //# sourceMappingURL=commonHelpers2.js.map
