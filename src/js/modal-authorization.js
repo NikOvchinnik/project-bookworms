@@ -286,7 +286,7 @@ export function openAuthModal() {
           iziToastMessage(true, 'Registration successfull!');
         }
       } catch (e) {
-        iziToastMessage(false, 'Error');
+        iziToastMessage(false, 'Registration error');
       }
     }
 
@@ -314,7 +314,7 @@ export function openAuthModal() {
           iziToastMessage(true, 'Signed in successfull!');
         }
       } catch (e) {
-        iziToastMessage(false, 'Error');
+        iziToastMessage(false, 'Sign in error');
       }
     }
   }
@@ -331,7 +331,7 @@ async function registerWithEmailAndPassword(email, password) {
     const user = userCredential.user;
     return user;
   } catch (error) {
-    iziToastMessage(false, 'Server Error');
+    iziToastMessage(false, 'Registration error');
     console.error('Registration error:', error.message);
     throw error;
   }
@@ -348,7 +348,6 @@ async function loginWithEmailAndPassword(email, password) {
     const user = userCredential.user;
     return await user;
   } catch (error) {
-    iziToastMessage(false, 'Server Error');
     console.error('Sign-in error:', error.message);
     throw error;
   }
@@ -385,7 +384,7 @@ async function handleSignIn(email, password) {
     authUser = '';
     authId = '';
     console.log('Login error!');
-    iziToastMessage(false, 'Login error!');
+    iziToastMessage(false, 'Wrong login or password!');
   }
 }
 
