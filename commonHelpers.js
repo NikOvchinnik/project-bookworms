@@ -1,4 +1,4 @@
-import{g as k,i as W,a as j,b as K,c as i,d as L,e as y,f as w,s as f,r as p,h as C,j as S}from"./assets/scroll-up-7596b68d.js";import{b as O}from"./assets/vendor-a536f886.js";const{bookIdsLSKey:b}=p,d={};async function z(o){const t=o.target.closest("li");if(t)try{let h=function(c){c.key==="Escape"&&m.close()};const e=t.dataset.bookId,r=(await k(e)).data,{book_image:n,title:a,author:l,description:A,buy_links:M}=r,[_,I]=M,q=`<div class="modal-window">
+import{g as k,i as W,a as j,b as K,c as i,d as L,e as y,f as w,s as f,r as p,h as C,j as S}from"./assets/scroll-up-9d061a4f.js";import{b as O}from"./assets/vendor-a536f886.js";const{bookIdsLSKey:b}=p,d={};async function z(o){const t=o.target.closest("li");if(t)try{let h=function(c){c.key==="Escape"&&m.close()};const e=t.dataset.bookId,r=(await k(e)).data,{book_image:n,title:a,author:l,description:A,buy_links:M}=r,[_,I]=M,q=`<div class="modal-window">
     <button type="button" class="modal-window-close-btn">
       <svg class="modal-window-close-btn-icon" width="28" height="28">
         <use href="${W}#icon-x-close"></use>
